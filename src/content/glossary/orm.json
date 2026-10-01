@@ -1,0 +1,7 @@
+{
+  "id": "orm",
+  "term": "ORM",
+  "definition": "A library that lets you work with the database using your programming language instead of raw SQL.",
+  "like": "A translator between the chef and the pantry clerk.",
+  "layer": "database"
+}

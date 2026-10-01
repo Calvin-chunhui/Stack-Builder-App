@@ -1,0 +1,123 @@
+{
+  "id": "supabase",
+  "name": "Supabase",
+  "monogram": "Sp",
+  "layer": "database",
+  "subtitle": "Postgres backend-as-a-service",
+  "tagline": "Hosted Postgres plus APIs",
+  "firstRelease": 2020,
+  "creator": "Paul Copplestone and Ant Wilson",
+  "maintainer": "Supabase, Inc.",
+  "version": {
+    "label": "Hosted or self-hosted",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Open source (mostly Apache-2.0 and MIT)",
+  "learningCurve": "Easy to moderate",
+  "description": "Each project is a dedicated PostgreSQL database with auto-generated REST and GraphQL APIs, realtime subscriptions, auth, file storage, edge functions and pgvector. Access control runs in the database through Row Level Security.",
+  "useCases": [
+    "Startups and MVPs",
+    "SaaS back ends",
+    "Realtime apps",
+    "AI apps with pgvector"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Elixir, Go, Haskell, TypeScript and C (Postgres)",
+    "youWrite": "SQL plus a JS/TS, Dart, Swift, Kotlin or Python SDK"
+  },
+  "concepts": [
+    {
+      "term": "Dedicated Postgres",
+      "explanation": "Every project is a real Postgres database."
+    },
+    {
+      "term": "Auto-generated APIs",
+      "explanation": "PostgREST turns tables into endpoints."
+    },
+    {
+      "term": "Row Level Security",
+      "explanation": "Policies decide which rows each user sees."
+    },
+    {
+      "term": "Client queries",
+      "explanation": "from().select() chains in the SDK."
+    },
+    {
+      "term": "Realtime",
+      "explanation": "Listen to database changes over WebSockets."
+    },
+    {
+      "term": "Edge Functions",
+      "explanation": "Server code running on Deno."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "SQL · Row Level Security",
+      "language": "sql",
+      "code": "alter table todos enable row level security;\n\ncreate policy \"Users read own todos\" on todos\n  for select using ((select auth.uid()) = user_id);"
+    },
+    {
+      "label": "JavaScript · query",
+      "language": "js",
+      "code": "const { data, error } = await supabase\n  .from('todos')\n  .select('id, title, done')\n  .eq('done', false)\n  .order('created_at', { ascending: false });"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "supabaseauth",
+      "reason": "Same project, same permissions",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "Popular full-stack pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "nuxt",
+      "reason": "Official module",
+      "resolved": true
+    },
+    {
+      "toolId": "vercel",
+      "reason": "Marketplace integration",
+      "resolved": true
+    },
+    {
+      "toolId": "clerk",
+      "reason": "Third-party auth integration",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "It's real Postgres, so SQL and extensions work",
+    "All-in-one: auth, storage, realtime, functions",
+    "Open source reduces lock-in",
+    "Great developer experience"
+  ],
+  "cons": [
+    "Free projects pause when inactive",
+    "RLS policies take care to get right",
+    "Costs scale with compute add-ons",
+    "Serverless connections need the pooler"
+  ],
+  "pricing": {
+    "summary": "Free tier for small projects. Pro from $25/mo. Team from $599/mo. Usage-based overages for compute and storage.",
+    "freeTier": true,
+    "entryMonthly": 25,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://supabase.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://supabase.com",
+    "docs": "https://supabase.com/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 6,
+    "admired": 47.2
+  }
+}

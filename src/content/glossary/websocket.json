@@ -1,0 +1,7 @@
+{
+  "id": "websocket",
+  "term": "WebSocket",
+  "definition": "A connection that stays open so server and browser can send messages anytime, used for chat and live updates.",
+  "like": "A direct phone line between table and kitchen.",
+  "layer": "backend"
+}

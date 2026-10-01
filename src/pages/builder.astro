@@ -1,0 +1,46 @@
+---
+/**
+ * Hosts the React island. The only page on the site that ships a framework.
+ */
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Builder from '../components/builder/Builder';
+
+const recipes = await getCollection('recipes');
+const layerDocs = await getCollection('layers');
+
+const places = Object.fromEntries(layerDocs.map((l) => [l.data.id, l.data.place]));
+const summaries = recipes.map((r) => ({
+  id: r.data.id,
+  name: r.data.name,
+  parts: r.data.parts,
+  stack: r.data.stack,
+}));
+---
+
+<Base
+  title="Builder"
+  description="Pick a frontend, backend, database, auth, hosting and DevOps, then see whether the combination actually works."
+  section="builder"
+  noIndex
+>
+  {/*
+    client:load rather than client:visible: the panel is the point of the page
+    and a visitor arriving from a ?s= link should never see an empty frame.
+  */}
+  <Builder recipes={summaries} places={places} client:load />
+
+  <noscript>
+    <div class="workspace">
+      <div class="lib-intro">
+        <h1>The builder needs JavaScript</h1>
+        <p>
+          It assesses a stack as you change it, which happens in your browser. Everything else on
+          the site works without JavaScript: browse the
+          <a href="/library">library</a>, read the <a href="/">illustrated introduction</a> or the
+          <a href="/library/recipes">ready-made stack recipes</a>.
+        </p>
+      </div>
+    </div>
+  </noscript>
+</Base>

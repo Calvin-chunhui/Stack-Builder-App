@@ -1,0 +1,114 @@
+{
+  "id": "stripe",
+  "name": "Stripe",
+  "monogram": "St",
+  "layer": "addons",
+  "category": "payments",
+  "subtitle": "Payments infrastructure",
+  "tagline": "Take card payments",
+  "firstRelease": 2010,
+  "creator": "Patrick and John Collison",
+  "maintainer": "Stripe, Inc.",
+  "version": {
+    "label": "Hosted API",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary service, open-source SDKs",
+  "learningCurve": "Moderate",
+  "description": "The developer-favorite payments platform: one-off payments, subscriptions, invoices, marketplaces and more through a clean API. Checkout and Payment Links give you a hosted payment page without building forms.",
+  "useCases": [
+    "Online stores",
+    "SaaS subscriptions",
+    "Marketplaces (Connect)",
+    "Invoicing"
+  ],
+  "notableUsers": [
+    {
+      "name": "Amazon"
+    },
+    {
+      "name": "Shopify"
+    },
+    {
+      "name": "OpenAI"
+    }
+  ],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "Official SDKs for JS, Python, Ruby, PHP, Java, Go and .NET"
+  },
+  "concepts": [
+    {
+      "term": "Checkout",
+      "explanation": "Hosted payment page."
+    },
+    {
+      "term": "Payment Intents",
+      "explanation": "Track a payment through its steps."
+    },
+    {
+      "term": "Webhooks",
+      "explanation": "Stripe tells your server what happened."
+    },
+    {
+      "term": "Test mode",
+      "explanation": "Fake cards for development."
+    },
+    {
+      "term": "Secret vs publishable keys",
+      "explanation": "Only the publishable key goes to the browser."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript · server route",
+      "language": "ts",
+      "code": "import Stripe from \"stripe\";\nconst stripe = new Stripe(process.env.STRIPE_SECRET_KEY!); // secret key stays on the server\n\nexport async function POST() {\n  const session = await stripe.checkout.sessions.create({\n    mode: \"subscription\",\n    line_items: [{ price: \"price_123\", quantity: 1 }],\n    success_url: \"https://example.com/thanks\",\n    cancel_url: \"https://example.com/pricing\",\n  });\n  return Response.json({ url: session.url }); // send the user to Stripe Checkout\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "Common SaaS pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "clerk",
+      "reason": "Clerk Billing is built on Stripe",
+      "resolved": true
+    },
+    {
+      "toolId": "supabase",
+      "reason": "Sync customers",
+      "resolved": true
+    },
+    {
+      "toolId": "resend",
+      "reason": "Send receipts",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Best-in-class docs and API",
+    "Huge feature set",
+    "Works almost everywhere"
+  ],
+  "cons": [
+    "You handle sales tax yourself (unless you add Stripe Tax)",
+    "Fees add up with extra products",
+    "Account reviews can freeze funds"
+  ],
+  "pricing": {
+    "summary": "No monthly fee. Standard US card rate is 2.9% + 30¢ per successful charge; extra products (Billing, Tax, Radar) add fees.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "usageFee": "Stripe: 2.9% + 30¢ per US card charge",
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://stripe.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://stripe.com",
+    "docs": "https://docs.stripe.com"
+  }
+}

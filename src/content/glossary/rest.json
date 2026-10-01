@@ -1,0 +1,7 @@
+{
+  "id": "rest",
+  "term": "REST",
+  "definition": "A common style for web APIs that uses URLs and HTTP methods like GET, POST and DELETE.",
+  "like": "Standard ordering phrases every waiter understands.",
+  "layer": "backend"
+}

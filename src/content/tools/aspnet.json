@@ -1,0 +1,123 @@
+{
+  "id": "aspnet",
+  "name": "ASP.NET Core",
+  "monogram": ".N",
+  "layer": "backend",
+  "subtitle": "Microsoft's cross-platform web framework (C#)",
+  "tagline": "C# for enterprise",
+  "firstRelease": 2016,
+  "creator": "Microsoft",
+  "maintainer": "Microsoft and the .NET Foundation",
+  "version": {
+    "label": ".NET 10 LTS (Nov 2025)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate",
+  "description": "A fast, cross-platform framework for web apps and APIs in C#. It includes dependency injection, authentication through ASP.NET Core Identity, Entity Framework Core for databases, and Blazor for building interactive UIs in C#.",
+  "useCases": [
+    "Enterprise web apps and APIs",
+    "Microsoft and Azure shops",
+    "High-performance services"
+  ],
+  "notableUsers": [
+    {
+      "name": "Stack Overflow"
+    },
+    {
+      "name": "Microsoft"
+    }
+  ],
+  "languages": {
+    "written": "C#",
+    "youWrite": "C# (Razor for HTML views)"
+  },
+  "concepts": [
+    {
+      "term": "Minimal APIs",
+      "explanation": "Define endpoints in a few lines."
+    },
+    {
+      "term": "Controllers",
+      "explanation": "Classes that group related endpoints."
+    },
+    {
+      "term": "Dependency injection",
+      "explanation": "Built into the framework."
+    },
+    {
+      "term": "Entity Framework Core",
+      "explanation": "The default ORM."
+    },
+    {
+      "term": "Middleware pipeline",
+      "explanation": "Ordered request processing."
+    },
+    {
+      "term": "Identity",
+      "explanation": "Built-in user accounts and sign-in."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "C# · Program.cs (minimal API)",
+      "language": "csharp",
+      "code": "var builder = WebApplication.CreateBuilder(args);\nvar app = builder.Build();\n\napp.MapGet(\"/api/greetings/{name}\", (string name) =>\n    Results.Ok(new { message = $\"Hello, {name}\" }));\n\napp.MapPost(\"/api/orders\", (Order order) =>\n    Results.Created($\"/api/orders/{order.Id}\", order));\n\napp.Run();\n\nrecord Order(int Id, string Item, int Quantity);"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "sqlserver",
+      "reason": "Classic Microsoft pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "azure",
+      "reason": "First-class hosting",
+      "resolved": true
+    },
+    {
+      "toolId": "angular",
+      "reason": "Common enterprise front end",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Fully supported via EF Core",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Official images",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Top-tier performance",
+    "Everything included and well documented",
+    "Strong typing and tooling",
+    "Long-term support releases"
+  ],
+  "cons": [
+    "C# and .NET concepts to learn",
+    "Heavier than micro-frameworks",
+    "Smaller startup ecosystem than JS or Python"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://dotnet.microsoft.com/apps/aspnet"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://dotnet.microsoft.com/apps/aspnet",
+    "docs": "https://learn.microsoft.com/aspnet/core/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 19.7,
+    "admired": 61.3
+  }
+}

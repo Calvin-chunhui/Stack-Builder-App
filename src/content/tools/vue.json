@@ -1,0 +1,133 @@
+{
+  "id": "vue",
+  "name": "Vue",
+  "monogram": "Vu",
+  "layer": "frontend",
+  "subtitle": "Progressive UI framework",
+  "tagline": "Gentle learning curve",
+  "firstRelease": 2014,
+  "creator": "Evan You",
+  "maintainer": "Independent core team, sponsor-funded",
+  "version": {
+    "label": "3.5 stable, 3.6 in release candidate",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy to moderate",
+  "description": "A framework for building UIs with HTML-based templates and reactive state. You can adopt it gradually, from one widget on a page to a full single-page app. Single-File Components keep template, logic and styles together in one .vue file.",
+  "useCases": [
+    "Single-page apps",
+    "Admin panels",
+    "Modernizing server-rendered apps",
+    "Interactive widgets"
+  ],
+  "notableUsers": [
+    {
+      "name": "GitLab"
+    },
+    {
+      "name": "Alibaba"
+    },
+    {
+      "name": "The Laravel ecosystem"
+    }
+  ],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "HTML templates plus JavaScript or TypeScript in .vue files"
+  },
+  "concepts": [
+    {
+      "term": "Single-File Components",
+      "explanation": "Template, script and style in one .vue file."
+    },
+    {
+      "term": "Directives",
+      "explanation": "v-if, v-for, v-model and @click in templates."
+    },
+    {
+      "term": "Reactivity",
+      "explanation": "ref and reactive make values that update the UI."
+    },
+    {
+      "term": "Computed properties",
+      "explanation": "Derived values that cache until inputs change."
+    },
+    {
+      "term": "Composition API",
+      "explanation": "Organize logic by feature with setup functions."
+    },
+    {
+      "term": "Props and emits",
+      "explanation": "Pass data down, send events up."
+    },
+    {
+      "term": "Vapor Mode",
+      "explanation": "Opt-in compile mode without a virtual DOM (3.6)."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Vue SFC",
+      "language": "vue",
+      "code": "<script setup>\nimport { ref, computed } from 'vue'\nconst count = ref(0)\nconst double = computed(() => count.value * 2)\n</script>\n\n<template>\n  <button @click=\"count++\">Count: {{ count }} (x2 = {{ double }})</button>\n</template>"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nuxt",
+      "reason": "Vue's full-stack meta-framework",
+      "resolved": true
+    },
+    {
+      "toolId": "Vite",
+      "reason": "Build tool by the same author",
+      "resolved": false
+    },
+    {
+      "toolId": "Pinia",
+      "reason": "Official state management",
+      "resolved": false
+    },
+    {
+      "toolId": "laravel",
+      "reason": "Common pairing via Inertia.js",
+      "resolved": true
+    },
+    {
+      "toolId": "supabase",
+      "reason": "Official client and Nuxt module",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Gentle learning curve and excellent documentation",
+    "Official router and state libraries reduce decision fatigue",
+    "Works as a sprinkle-in or a full framework",
+    "High satisfaction: 84% in State of JS 2025"
+  ],
+  "cons": [
+    "Smaller job market than React",
+    "The Vue 2 to 3 migration was painful",
+    "Two API styles split tutorials and examples",
+    "Template type inference still has rough edges"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://vuejs.org"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://vuejs.org",
+    "docs": "https://vuejs.org/guide/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 17.6,
+    "admired": 50.9,
+    "satisfaction": 84
+  }
+}

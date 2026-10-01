@@ -1,0 +1,118 @@
+{
+  "id": "firebaseauth",
+  "name": "Firebase Auth",
+  "monogram": "FA",
+  "layer": "auth",
+  "subtitle": "Google's managed auth service",
+  "tagline": "Mobile-friendly",
+  "firstRelease": 2016,
+  "creator": "Firebase (founded 2011, joined Google 2014)",
+  "maintainer": "Google",
+  "version": {
+    "label": "Hosted service",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary service, open-source SDKs",
+  "learningCurve": "Easy",
+  "description": "Drop-in authentication for web and mobile: email and password, phone, anonymous and social providers. The Identity Platform upgrade adds MFA, SAML and OIDC, multi-tenancy and blocking functions. Its ID tokens are read by Firestore and Storage Security Rules through request.auth.",
+  "useCases": [
+    "Mobile apps on iOS, Android and Flutter",
+    "Rapid prototypes",
+    "Apps built on Firestore"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "SDKs in JS/TS, Swift, Kotlin, Dart and C++",
+    "youWrite": "JavaScript or TypeScript, or a mobile language"
+  },
+  "concepts": [
+    {
+      "term": "App config",
+      "explanation": "initializeApp() connects to your project."
+    },
+    {
+      "term": "Providers",
+      "explanation": "Google, Apple, GitHub, email, phone and more."
+    },
+    {
+      "term": "onAuthStateChanged",
+      "explanation": "Listen for sign-in and sign-out."
+    },
+    {
+      "term": "ID tokens and claims",
+      "explanation": "JWTs with optional custom claims."
+    },
+    {
+      "term": "Security Rules",
+      "explanation": "request.auth decides data access."
+    },
+    {
+      "term": "Account linking",
+      "explanation": "Upgrade anonymous users to permanent accounts."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JavaScript",
+      "language": "js",
+      "code": "import { initializeApp } from \"firebase/app\";\nimport { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from \"firebase/auth\";\n\nconst app = initializeApp(firebaseConfig);\nconst auth = getAuth(app);\n\nawait signInWithPopup(auth, new GoogleAuthProvider());\nonAuthStateChanged(auth, (user) => {\n  console.log(user ? `Signed in as ${user.uid}` : \"Signed out\");\n});"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "firestore",
+      "reason": "Security Rules read request.auth",
+      "resolved": true
+    },
+    {
+      "toolId": "gcp",
+      "reason": "Same Google Cloud project",
+      "resolved": true
+    },
+    {
+      "toolId": "angular",
+      "reason": "AngularFire",
+      "resolved": true
+    },
+    {
+      "toolId": "react",
+      "reason": "Web SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "Flutter",
+      "reason": "Mobile SDK",
+      "resolved": false
+    }
+  ],
+  "pros": [
+    "Very easy setup, especially on mobile",
+    "Deep integration with Firebase and Google Cloud",
+    "Large free tier",
+    "Reliable at Google scale"
+  ],
+  "cons": [
+    "Google lock-in; exporting users takes work",
+    "Limited flow customization",
+    "Enterprise features need the Identity Platform upgrade",
+    "SMS costs add up"
+  ],
+  "pricing": {
+    "summary": "With Identity Platform: first 50,000 MAU free, then from $0.0055 per MAU. SAML and OIDC: 50 MAU free. First 10 SMS per day free.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://firebase.google.com/products/auth"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://firebase.google.com/products/auth",
+    "docs": "https://firebase.google.com/docs/auth"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "Firebase platform",
+    "used": 13.1,
+    "admired": 45.4
+  }
+}

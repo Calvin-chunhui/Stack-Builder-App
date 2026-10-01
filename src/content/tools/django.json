@@ -1,0 +1,139 @@
+{
+  "id": "django",
+  "name": "Django",
+  "monogram": "Dj",
+  "layer": "backend",
+  "subtitle": "Batteries-included Python framework",
+  "tagline": "Batteries-included Python",
+  "firstRelease": 2005,
+  "creator": "Adrian Holovaty and Simon Willison",
+  "maintainer": "Django Software Foundation",
+  "version": {
+    "label": "6.0 (Dec 2025), 6.1 (Aug 2026)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "BSD-3-Clause",
+  "learningCurve": "Moderate",
+  "description": "A full-stack Python framework with an ORM, migrations, an automatic admin panel, authentication, forms, templates and security protections built in. It was created at a newspaper to ship features fast, and Django 6 added built-in background tasks and native Content Security Policy support.",
+  "useCases": [
+    "Content-heavy sites",
+    "SaaS back ends",
+    "Admin-heavy internal tools",
+    "REST APIs via Django REST Framework",
+    "Data and ML platforms"
+  ],
+  "notableUsers": [
+    {
+      "name": "Instagram"
+    },
+    {
+      "name": "Mozilla"
+    },
+    {
+      "name": "Disqus"
+    }
+  ],
+  "languages": {
+    "written": "Python",
+    "youWrite": "Python plus the Django template language"
+  },
+  "concepts": [
+    {
+      "term": "Models and ORM",
+      "explanation": "Python classes map to database tables."
+    },
+    {
+      "term": "Migrations",
+      "explanation": "Versioned changes to your schema."
+    },
+    {
+      "term": "Views",
+      "explanation": "Function- or class-based request handlers."
+    },
+    {
+      "term": "URLconf",
+      "explanation": "Maps URL patterns to views."
+    },
+    {
+      "term": "Admin site",
+      "explanation": "Auto-generated back office from your models."
+    },
+    {
+      "term": "Middleware",
+      "explanation": "Hooks around every request."
+    },
+    {
+      "term": "Tasks framework",
+      "explanation": "Background work API added in Django 6."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Python",
+      "language": "python",
+      "code": "# models.py\nfrom django.db import models\n\nclass Article(models.Model):\n    title = models.CharField(max_length=200)\n    published = models.DateTimeField(auto_now_add=True)\n\n# views.py\nfrom django.shortcuts import render\nfrom .models import Article\n\ndef article_list(request):\n    articles = Article.objects.order_by(\"-published\")[:10]\n    return render(request, \"articles/list.html\", {\"articles\": articles})"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "postgres",
+      "reason": "Django's best-supported database",
+      "resolved": true
+    },
+    {
+      "toolId": "Django REST Framework",
+      "reason": "APIs",
+      "resolved": false
+    },
+    {
+      "toolId": "redis",
+      "reason": "Cache and Celery broker",
+      "resolved": true
+    },
+    {
+      "toolId": "HTMX",
+      "reason": "Interactivity without a JS framework",
+      "resolved": false
+    },
+    {
+      "toolId": "render",
+      "reason": "Simple managed hosting",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Container deploys",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Admin, auth and ORM included",
+    "Mature security defaults",
+    "Excellent documentation",
+    "Stable LTS releases",
+    "Access to Python's data and AI ecosystem"
+  ],
+  "cons": [
+    "Monolithic and heavier than micro-frameworks",
+    "Async support in the ORM is still partial",
+    "Templates feel dated for rich UIs",
+    "Needs a server host, not a static or edge platform"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.djangoproject.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.djangoproject.com",
+    "docs": "https://docs.djangoproject.com"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 12.6,
+    "admired": 46.4
+  }
+}

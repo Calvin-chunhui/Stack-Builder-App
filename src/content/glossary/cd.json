@@ -1,0 +1,7 @@
+{
+  "id": "cd",
+  "term": "Continuous delivery (CD)",
+  "definition": "Automatically releasing tested code to users.",
+  "like": "Dishes that pass tasting go straight to tables.",
+  "layer": "devops"
+}

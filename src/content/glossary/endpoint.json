@@ -1,0 +1,7 @@
+{
+  "id": "endpoint",
+  "term": "Endpoint",
+  "definition": "One specific address in an API, such as /orders, that does one job.",
+  "like": "A single item on the menu.",
+  "layer": "backend"
+}

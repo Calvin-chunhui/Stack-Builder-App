@@ -1,0 +1,98 @@
+{
+  "id": "resend",
+  "name": "Resend",
+  "monogram": "Rs",
+  "layer": "addons",
+  "category": "email",
+  "subtitle": "Developer email API",
+  "tagline": "Send app emails",
+  "firstRelease": 2023,
+  "creator": "Zeno Rocha",
+  "maintainer": "Resend, Inc.",
+  "version": {
+    "label": "Hosted API",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary (React Email is MIT)",
+  "learningCurve": "Easy",
+  "description": "A modern API for sending transactional email such as sign-up confirmations, receipts and password resets. Its sister project React Email lets you build emails as React components.",
+  "useCases": [
+    "Sign-up and password reset emails",
+    "Receipts",
+    "Notifications"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "SDKs for Node, Python, Ruby, PHP, Go, Java, Elixir and more"
+  },
+  "concepts": [
+    {
+      "term": "Transactional email",
+      "explanation": "Messages triggered by user actions."
+    },
+    {
+      "term": "Domain verification",
+      "explanation": "DNS records prove you own the sender."
+    },
+    {
+      "term": "React Email",
+      "explanation": "Templates as components."
+    },
+    {
+      "term": "Webhooks",
+      "explanation": "Delivered, bounced and opened events."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript",
+      "language": "ts",
+      "code": "import { Resend } from \"resend\";\n\nconst resend = new Resend(process.env.RESEND_API_KEY);\n\nawait resend.emails.send({\n  from: \"Acme <hello@acme.com>\",\n  to: \"ada@example.com\",\n  subject: \"Welcome to Acme\",\n  html: \"<p>Thanks for signing up!</p>\",\n});"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "Very common pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "betterauth",
+      "reason": "Verification emails",
+      "resolved": true
+    },
+    {
+      "toolId": "stripe",
+      "reason": "Receipts",
+      "resolved": true
+    },
+    {
+      "toolId": "supabase",
+      "reason": "Custom SMTP for auth emails",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Clean API and docs",
+    "Generous free tier",
+    "React-based templates"
+  ],
+  "cons": [
+    "Younger than older providers",
+    "Daily cap on free tier",
+    "Marketing features are limited"
+  ],
+  "pricing": {
+    "summary": "Free: 3,000 emails/mo (100 per day). Pro: $20/mo for 50,000. Scale from $90/mo.",
+    "freeTier": true,
+    "entryMonthly": 20,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://resend.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://resend.com",
+    "docs": "https://resend.com/docs"
+  }
+}

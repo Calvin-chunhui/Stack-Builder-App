@@ -1,0 +1,110 @@
+{
+  "id": "neon",
+  "name": "Neon",
+  "monogram": "Nn",
+  "layer": "database",
+  "subtitle": "Serverless Postgres",
+  "tagline": "Serverless Postgres with branching",
+  "firstRelease": 2021,
+  "creator": "Nikita Shamgunov, Heikki Linnakangas and Stas Kelvich",
+  "maintainer": "Databricks (acquired Neon in 2025)",
+  "version": {
+    "label": "Hosted service",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Apache-2.0 core, proprietary cloud",
+  "learningCurve": "Easy",
+  "description": "Real PostgreSQL that separates storage from compute, so databases scale to zero when idle and wake on demand. It can branch a database like Git branches code, and its HTTP driver works from serverless and edge functions.",
+  "useCases": [
+    "Next.js and serverless apps",
+    "Preview databases per pull request",
+    "Side projects that idle a lot",
+    "AI agents that spin up databases"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Rust and C (Postgres)",
+    "youWrite": "SQL, usually through an ORM"
+  },
+  "concepts": [
+    {
+      "term": "Branching",
+      "explanation": "Instant copies of your database for testing."
+    },
+    {
+      "term": "Scale to zero",
+      "explanation": "Compute sleeps when unused."
+    },
+    {
+      "term": "Serverless driver",
+      "explanation": "Query over HTTP or WebSockets."
+    },
+    {
+      "term": "Connection pooling",
+      "explanation": "Built-in PgBouncer endpoint."
+    },
+    {
+      "term": "Compute units",
+      "explanation": "Billing based on CPU and memory used."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript · serverless driver",
+      "language": "ts",
+      "code": "import { neon } from \"@neondatabase/serverless\";\n\n// Works in serverless and edge functions: queries go over HTTP\nconst sql = neon(process.env.DATABASE_URL!);\n\nexport async function getOrders(userId: number) {\n  return await sql`SELECT id, total FROM orders WHERE user_id = ${userId} ORDER BY id DESC`;\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "vercel",
+      "reason": "Official Marketplace database",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "Common pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "drizzle",
+      "reason": "Edge-friendly ORM",
+      "resolved": true
+    },
+    {
+      "toolId": "prisma",
+      "reason": "Supported adapter",
+      "resolved": true
+    },
+    {
+      "toolId": "netlify",
+      "reason": "Powers Netlify DB",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Full Postgres compatibility",
+    "Generous free tier",
+    "Branching is great for previews",
+    "Works from serverless and edge"
+  ],
+  "cons": [
+    "Cold starts of a few hundred milliseconds after idle",
+    "Newer than traditional managed Postgres",
+    "Pricing model is usage-based"
+  ],
+  "pricing": {
+    "summary": "Free plan (0.5 GB storage, 100 compute-hours). Launch plan is usage-based with no monthly minimum. Also sold through the Vercel and Netlify marketplaces.",
+    "freeTier": true,
+    "entryMonthly": 5,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://neon.com"
+  },
+  "flags": [
+    "Owned by Databricks"
+  ],
+  "links": {
+    "site": "https://neon.com",
+    "docs": "https://neon.com/docs"
+  }
+}

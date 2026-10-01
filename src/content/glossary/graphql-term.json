@@ -1,0 +1,7 @@
+{
+  "id": "graphql-term",
+  "term": "GraphQL",
+  "definition": "An API style where the client asks for exactly the fields it wants in one request.",
+  "like": "Ordering a custom plate instead of set combos.",
+  "layer": "addons"
+}

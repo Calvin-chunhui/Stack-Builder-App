@@ -1,0 +1,30 @@
+{
+  "id": "t3",
+  "name": "T3",
+  "parts": "Next.js, tRPC, Prisma, Tailwind, auth",
+  "stack": {
+    "frontend": "nextjs",
+    "mobile": null,
+    "backend": null,
+    "auth": "authjs",
+    "database": "neon",
+    "hosting": "vercel",
+    "devops": [],
+    "addons": [
+      "trpc",
+      "prisma",
+      "tailwind"
+    ]
+  },
+  "origin": "Popularized by Theo Browne through the create-t3-app CLI in 2022.",
+  "goodFor": "Type-safe full-stack TypeScript SaaS deployed on Vercel.",
+  "pros": [
+    "End-to-end type safety",
+    "Modular CLI",
+    "Strong community"
+  ],
+  "cons": [
+    "tRPC ties frontend and backend together",
+    "Its classic auth choice, Auth.js, is now in maintenance"
+  ]
+}

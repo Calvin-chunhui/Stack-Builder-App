@@ -1,0 +1,128 @@
+{
+  "id": "mysql",
+  "name": "MySQL",
+  "monogram": "My",
+  "layer": "database",
+  "subtitle": "Relational database (SQL)",
+  "tagline": "Widely hosted relational",
+  "firstRelease": 1995,
+  "creator": "Michael Widenius, David Axmark and Allan Larsson (MySQL AB)",
+  "maintainer": "Oracle (since 2010)",
+  "version": {
+    "label": "8.4 LTS and 9.x innovation releases",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "GPLv2 community edition, plus commercial editions",
+  "learningCurve": "Easy to moderate",
+  "description": "A fast, widely deployed relational database and the M in LAMP. It powers much of the PHP web including WordPress. InnoDB is its default transactional storage engine, and Vitess and PlanetScale scale it horizontally.",
+  "useCases": [
+    "Web apps",
+    "CMSs like WordPress and Drupal",
+    "E-commerce",
+    "Read-heavy workloads"
+  ],
+  "notableUsers": [
+    {
+      "name": "Meta"
+    },
+    {
+      "name": "YouTube (via Vitess)"
+    },
+    {
+      "name": "GitHub"
+    }
+  ],
+  "languages": {
+    "written": "C and C++",
+    "youWrite": "SQL"
+  },
+  "concepts": [
+    {
+      "term": "InnoDB",
+      "explanation": "Default engine with transactions and row locks."
+    },
+    {
+      "term": "AUTO_INCREMENT",
+      "explanation": "Auto-numbered primary keys."
+    },
+    {
+      "term": "Indexes",
+      "explanation": "Speed up lookups and joins."
+    },
+    {
+      "term": "Transactions",
+      "explanation": "Grouped changes with isolation levels."
+    },
+    {
+      "term": "Replication",
+      "explanation": "Primary and replica copies for scale."
+    },
+    {
+      "term": "utf8mb4",
+      "explanation": "The full Unicode character set to use."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "SQL",
+      "language": "sql",
+      "code": "CREATE TABLE orders (\n  id           BIGINT AUTO_INCREMENT PRIMARY KEY,\n  customer_id  BIGINT NOT NULL,\n  total        DECIMAL(10,2) NOT NULL,\n  created_at   DATETIME DEFAULT CURRENT_TIMESTAMP,\n  INDEX idx_customer (customer_id)\n) ENGINE=InnoDB;\n\nSELECT customer_id, SUM(total) AS lifetime_value\nFROM orders GROUP BY customer_id ORDER BY lifetime_value DESC LIMIT 5;"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "laravel",
+      "reason": "Classic LAMP pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "WordPress",
+      "reason": "Default database",
+      "resolved": false
+    },
+    {
+      "toolId": "rails",
+      "reason": "Supported adapter",
+      "resolved": true
+    },
+    {
+      "toolId": "PlanetScale",
+      "reason": "Managed MySQL on Vitess",
+      "resolved": false
+    },
+    {
+      "toolId": "aws",
+      "reason": "RDS and Aurora",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Every host supports it",
+    "Fast for simple read-heavy queries",
+    "Mature replication and tooling",
+    "Huge community"
+  ],
+  "cons": [
+    "Oracle stewardship led to the MariaDB fork",
+    "Fewer advanced features than Postgres",
+    "GPL and commercial licensing split",
+    "Historic quirks like utf8 vs utf8mb4"
+  ],
+  "pricing": {
+    "summary": "Community edition is free. Oracle sells Enterprise editions; managed options are usage-based.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.mysql.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.mysql.com",
+    "docs": "https://dev.mysql.com/doc/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 40.5,
+    "admired": 43.2
+  }
+}

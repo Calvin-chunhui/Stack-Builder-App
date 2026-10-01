@@ -1,0 +1,93 @@
+{
+  "id": "meilisearch",
+  "name": "Meilisearch",
+  "monogram": "Me",
+  "layer": "addons",
+  "category": "search",
+  "subtitle": "Open-source search engine",
+  "tagline": "Open-source instant search",
+  "firstRelease": 2018,
+  "creator": "Quentin de Quelen, Thomas Payet and Clément Renault",
+  "maintainer": "Meili SAS",
+  "version": {
+    "label": "1.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT (Community edition)",
+  "learningCurve": "Easy",
+  "description": "A fast, typo-tolerant search engine you can run yourself or use in the cloud. It's a popular open-source alternative to Algolia with a simple REST API.",
+  "useCases": [
+    "Site and product search",
+    "Self-hosted search",
+    "Laravel Scout search"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Rust",
+    "youWrite": "REST API with SDKs"
+  },
+  "concepts": [
+    {
+      "term": "Indexes",
+      "explanation": "Collections of documents."
+    },
+    {
+      "term": "Typo tolerance",
+      "explanation": "Finds matches despite mistakes."
+    },
+    {
+      "term": "Filters and facets",
+      "explanation": "Narrow results."
+    },
+    {
+      "term": "Hybrid search",
+      "explanation": "Keyword plus AI embeddings."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Shell + JavaScript",
+      "language": "shell",
+      "code": "docker run -p 7700:7700 getmeili/meilisearch   # self-host in one line\n\n// then search from your app\nimport { MeiliSearch } from \"meilisearch\";\nconst client = new MeiliSearch({ host: \"http://localhost:7700\" });\nawait client.index(\"movies\").addDocuments([{ id: 1, title: \"Arrival\" }]);\nconst { hits } = await client.index(\"movies\").search(\"arival\");"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "laravel",
+      "reason": "Laravel Scout driver",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "One-command self-host",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "Site search",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Open source",
+    "Very easy to run",
+    "Fast"
+  ],
+  "cons": [
+    "Self-hosting means operating it",
+    "Fewer enterprise features than Algolia",
+    "Large datasets need tuning"
+  ],
+  "pricing": {
+    "summary": "Free to self-host. Meilisearch Cloud from $30/mo.",
+    "freeTier": true,
+    "entryMonthly": 30,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.meilisearch.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.meilisearch.com",
+    "docs": "https://www.meilisearch.com/docs"
+  }
+}

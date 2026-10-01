@@ -1,0 +1,7 @@
+{
+  "id": "schema",
+  "term": "Schema",
+  "definition": "The defined structure of your data: which tables or fields exist and their types.",
+  "like": "The pantry's shelf plan.",
+  "layer": "database"
+}

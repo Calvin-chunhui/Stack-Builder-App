@@ -1,0 +1,109 @@
+{
+  "id": "prometheus",
+  "name": "Prometheus",
+  "monogram": "Pm",
+  "layer": "addons",
+  "category": "monitoring",
+  "subtitle": "Open-source metrics and alerting",
+  "tagline": "Open-source metrics",
+  "firstRelease": 2012,
+  "creator": "SoundCloud engineers",
+  "maintainer": "CNCF (Graduated project)",
+  "version": {
+    "label": "3.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Apache-2.0",
+  "learningCurve": "Moderate",
+  "description": "A monitoring system that regularly pulls (scrapes) numeric metrics from your services and stores them as time series. You query with PromQL and set alert rules. It is the standard for Kubernetes monitoring.",
+  "useCases": [
+    "Kubernetes and container monitoring",
+    "Service health alerts",
+    "Self-hosted observability"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Go",
+    "youWrite": "PromQL and YAML config"
+  },
+  "concepts": [
+    {
+      "term": "Scraping",
+      "explanation": "Prometheus pulls metrics from endpoints."
+    },
+    {
+      "term": "Time series",
+      "explanation": "Values tagged with labels over time."
+    },
+    {
+      "term": "PromQL",
+      "explanation": "Its query language."
+    },
+    {
+      "term": "Alertmanager",
+      "explanation": "Routes alerts to people."
+    },
+    {
+      "term": "Exporters",
+      "explanation": "Expose metrics from other systems."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "YAML + PromQL",
+      "language": "yaml",
+      "code": "# prometheus.yml: scrape your app every 15 seconds\nscrape_configs:\n  - job_name: \"web\"\n    scrape_interval: 15s\n    static_configs:\n      - targets: [\"web:3000\"]\n\n# PromQL: requests per second over the last 5 minutes\n# rate(http_requests_total[5m])"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "grafana",
+      "reason": "Dashboards on top",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "Standard cluster monitoring",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Container metrics",
+      "resolved": true
+    },
+    {
+      "toolId": "go",
+      "reason": "Official client library",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Free and widely adopted",
+    "Powerful query language",
+    "Huge exporter ecosystem"
+  ],
+  "cons": [
+    "Needs somewhere long-running to live",
+    "Long-term storage needs add-ons",
+    "Not for logs or traces on its own"
+  ],
+  "pricing": {
+    "summary": "Free and open source. Managed versions exist on major clouds and Grafana Cloud.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://prometheus.io"
+  },
+  "flags": [
+    "CNCF Graduated"
+  ],
+  "links": {
+    "site": "https://prometheus.io",
+    "docs": "https://prometheus.io/docs/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 11.8,
+    "admired": 54.7
+  }
+}

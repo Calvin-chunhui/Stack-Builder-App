@@ -1,0 +1,7 @@
+{
+  "id": "monolith",
+  "term": "Monolith",
+  "definition": "An app built and deployed as one single unit.",
+  "like": "One big kitchen doing everything.",
+  "layer": null
+}

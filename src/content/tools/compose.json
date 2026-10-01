@@ -1,0 +1,108 @@
+{
+  "id": "compose",
+  "name": "Jetpack Compose",
+  "monogram": "JC",
+  "layer": "mobile",
+  "subtitle": "Android's native UI toolkit",
+  "tagline": "Android-only, fully native",
+  "firstRelease": 2021,
+  "creator": "Google",
+  "maintainer": "Google",
+  "version": {
+    "label": "Compose BOM releases",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Apache-2.0",
+  "learningCurve": "Moderate",
+  "description": "Google's recommended way to build native Android interfaces in Kotlin. Like SwiftUI, you describe the UI with functions, and Compose redraws what changes.",
+  "useCases": [
+    "Native Android apps",
+    "Apps using the newest Android features",
+    "Kotlin Multiplatform projects"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Kotlin",
+    "youWrite": "Kotlin"
+  },
+  "concepts": [
+    {
+      "term": "Composables",
+      "explanation": "@Composable functions that emit UI."
+    },
+    {
+      "term": "State and remember",
+      "explanation": "Hold values that trigger recomposition."
+    },
+    {
+      "term": "Modifiers",
+      "explanation": "Chainable size, padding and click behavior."
+    },
+    {
+      "term": "Material 3",
+      "explanation": "Google's design system components."
+    },
+    {
+      "term": "Android Studio",
+      "explanation": "The official IDE."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Kotlin",
+      "language": "kotlin",
+      "code": "@Composable\nfun Counter() {\n    var count by remember { mutableStateOf(0) }\n\n    Column(modifier = Modifier.padding(24.dp)) {\n        Text(\"Tapped $count times\")\n        Button(onClick = { count++ }) {\n            Text(\"Tap me\")\n        }\n    }\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "swiftui",
+      "reason": "Its iOS counterpart",
+      "resolved": true
+    },
+    {
+      "toolId": "firebaseauth",
+      "reason": "Android SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "firestore",
+      "reason": "Realtime sync",
+      "resolved": true
+    },
+    {
+      "toolId": "springboot",
+      "reason": "Kotlin on the server too",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Best Android performance and feel",
+    "Less code than old XML layouts",
+    "Kotlin is modern and pleasant"
+  ],
+  "cons": [
+    "Android only",
+    "iOS needs a separate app",
+    "Ecosystem still migrating from XML views"
+  ],
+  "pricing": {
+    "summary": "Free with Android Studio. Google Play charges $25 once to publish.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "usageFee": "Google Play $25 once",
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://developer.android.com/compose"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://developer.android.com/compose",
+    "docs": "https://developer.android.com/develop/ui/compose/documentation"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "Kotlin language",
+    "used": 10.8,
+    "admired": 51
+  }
+}

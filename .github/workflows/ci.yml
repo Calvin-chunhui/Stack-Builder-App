@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# A newer push to the same branch makes an in-flight run pointless.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Typecheck, test, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # The schema in src/content.config.ts fails the build on bad data, so
+      # `build` is itself the data-validation step.
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test the engine
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      # The compact catalogue shipped to the browser is generated. If someone
+      # edited a content file by hand without rerunning `npm run extract`, the
+      # drift test above fails - this makes the cause obvious.
+      - name: Check the generated catalogue is current
+        run: |
+          npm run extract
+          if ! git diff --quiet -- src/engine/catalog.generated.ts src/engine/compat.generated.ts src/data; then
+            echo "::error::Generated files are out of date. Run 'npm run extract' and commit the result."
+            git diff --stat -- src/engine/catalog.generated.ts src/engine/compat.generated.ts src/data
+            exit 1
+          fi
+
+      - name: Report data freshness
+        run: npm run check:data

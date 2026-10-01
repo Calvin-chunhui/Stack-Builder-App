@@ -1,0 +1,93 @@
+{
+  "id": "algolia",
+  "name": "Algolia",
+  "monogram": "Al",
+  "layer": "addons",
+  "category": "search",
+  "subtitle": "Hosted search API",
+  "tagline": "Instant search box",
+  "firstRelease": 2012,
+  "creator": "Nicolas Dessaigne and Julien Lemoine",
+  "maintainer": "Algolia",
+  "version": {
+    "label": "Hosted API",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary (InstantSearch UI is MIT)",
+  "learningCurve": "Easy",
+  "description": "A hosted search engine that returns results as users type, with typo tolerance, filters and ranking controls. You send it your records and drop in InstantSearch UI components.",
+  "useCases": [
+    "E-commerce search",
+    "Documentation search",
+    "Search-as-you-type"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "C++",
+    "youWrite": "API clients for all major languages"
+  },
+  "concepts": [
+    {
+      "term": "Index",
+      "explanation": "Your searchable records."
+    },
+    {
+      "term": "Records",
+      "explanation": "JSON objects to search."
+    },
+    {
+      "term": "Facets",
+      "explanation": "Filters like brand or price."
+    },
+    {
+      "term": "InstantSearch",
+      "explanation": "Ready-made search UI."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JavaScript",
+      "language": "js",
+      "code": "import { algoliasearch } from \"algoliasearch\";\n\nconst client = algoliasearch(\"APP_ID\", \"SEARCH_ONLY_KEY\");\n\nconst { results } = await client.search({\n  requests: [{ indexName: \"products\", query: \"wireless headphnes\", hitsPerPage: 5 }],\n});\nconsole.log(results[0].hits); // typo-tolerant matches"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "react",
+      "reason": "React InstantSearch",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "Site search",
+      "resolved": true
+    },
+    {
+      "toolId": "sanity",
+      "reason": "Index CMS content",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Very fast results",
+    "Great UI components",
+    "Minimal setup"
+  ],
+  "cons": [
+    "Costs rise with traffic and records",
+    "Proprietary",
+    "Advanced AI features cost more"
+  ],
+  "pricing": {
+    "summary": "Build plan free: 10,000 searches/mo and 1M records. Grow plan: $0.50 per 1,000 extra searches and $0.40 per 1,000 extra records.",
+    "freeTier": true,
+    "entryMonthly": null,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.algolia.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.algolia.com",
+    "docs": "https://www.algolia.com/doc/"
+  }
+}

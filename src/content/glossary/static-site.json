@@ -1,0 +1,7 @@
+{
+  "id": "static-site",
+  "term": "Static site",
+  "definition": "A website made of fixed files that are the same for every visitor, needing no server logic.",
+  "like": "A printed menu: identical for everyone.",
+  "layer": "hosting"
+}

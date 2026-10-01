@@ -1,0 +1,42 @@
+---
+/**
+ * A shared stack: /stack?s=nextjs~~~betterauth~neon~vercel~gha~drizzle.stripe
+ *
+ * The whole stack travels in the URL, so this works with no storage, no
+ * account and no database. The page is static; the island decodes the query
+ * string on the client.
+ */
+import Base from '../layouts/Base.astro';
+import SharedStack from '../components/builder/SharedStack';
+
+// The OG card reads the same ?s= parameter, so a shared link previews as the
+// actual stack rather than a bare URL.
+const shared = Astro.url.searchParams.get('s') ?? '';
+const sharedName = Astro.url.searchParams.get('n') ?? '';
+const ogImage = `/api/og?s=${encodeURIComponent(shared)}${
+  sharedName ? `&n=${encodeURIComponent(sharedName)}` : ''
+}`;
+---
+
+<Base
+  title="Shared stack"
+  description="A shared tech stack and its feasibility report: what works, what needs care and what won't run."
+  section="builder"
+  ogImage={ogImage}
+  noIndex
+>
+  <div class="report">
+    <SharedStack client:load />
+
+    <noscript>
+      <div class="lib-intro">
+        <h1>This report needs JavaScript</h1>
+        <p>
+          The stack is encoded in this page's address and decoded in your browser, so nothing is
+          stored on a server. Browse the <a href="/library">library</a> or the
+          <a href="/library/recipes">stack recipes</a> instead.
+        </p>
+      </div>
+    </noscript>
+  </div>
+</Base>

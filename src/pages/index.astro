@@ -1,0 +1,127 @@
+---
+/**
+ * Learn: the beginner path. Zero framework JavaScript, fully indexable.
+ */
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import FloorPlan from '../components/learn/FloorPlan.astro';
+import Journey from '../components/learn/Journey.astro';
+import { LAYERS, layerColor } from '../data/taxonomy';
+import { TERMS, termChip } from '../lib/glossary';
+import { ICON } from '../lib/icons';
+
+const tools = await getCollection('tools');
+const layerDocs = await getCollection('layers');
+const recipes = await getCollection('recipes');
+
+const placeOf = (id: string) => layerDocs.find((l) => l.data.id === id)?.data.place ?? '';
+const countIn = (id: string) => tools.filter((t) => t.data.layer === id).length;
+
+/** A few terms worth meeting first. */
+const STARTER_TERMS = [
+  'api',
+  'server',
+  'sql',
+  'serverless',
+  'framework',
+  'container',
+  'authentication',
+  'cdn',
+  'orm',
+  'ci',
+];
+
+const featured = recipes.slice(0, 6);
+---
+
+<Base
+  title="Stack Builder"
+  description="Tech stacks explained like a restaurant. Learn what each part of a web app does, build your own stack and check whether it actually works."
+  section="learn"
+>
+  <div class="learn" data-pagefind-body>
+    <header class="learn-hero">
+      <h1>Tech stacks, explained like a restaurant</h1>
+      <p>
+        A tech stack is the set of tools that work together to make an app run. If you've ever eaten
+        at a restaurant, you already understand how the parts fit. Start with the floor plan, follow
+        one order through the kitchen, then build your own stack and check whether it works.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#plan">Explore the floor plan</a>
+        <a class="btn-secondary" href="/builder">Open the builder</a>
+      </div>
+    </header>
+
+    <section class="learn-sec" id="plan">
+      <h2>The floor plan</h2>
+      <p class="sec-lede">
+        Every part of a restaurant has a job. Select an area to see which part of an app it matches.
+      </p>
+      <FloorPlan />
+    </section>
+
+    <section class="learn-sec">
+      <h2>Follow one order</h2>
+      <p class="sec-lede">
+        What happens between tapping a button and seeing the result? Here's the whole trip, step by
+        step.
+      </p>
+      <Journey />
+    </section>
+
+    <section class="learn-sec">
+      <h2>The eight parts of a stack</h2>
+      <p class="sec-lede">
+        Each part has its own hub in the library with a plain-language introduction, a diagram and
+        good first picks.
+      </p>
+      <div class="layer-cards">
+        {
+          LAYERS.map((L) => (
+            <a class="layer-card" href={`/library/${L.id}`} style={`--c:${layerColor(L.id)}`}>
+              <span class="lc-name">
+                {L.name}
+                {L.optional && <small>optional</small>}
+              </span>
+              <span class="lc-place">{placeOf(L.id)}</span>
+              <span class="lc-blurb">{L.blurb}</span>
+              <span class="lc-count">{countIn(L.id)} tools</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="learn-sec">
+      <h2>Words you'll hear</h2>
+      <p class="sec-lede">
+        Tap any underlined word across the site for a quick definition. Here are a few to start
+        with.
+      </p>
+      <div class="chips" set:html={STARTER_TERMS.map(termChip).join('')} />
+      <a class="btn-secondary" href="/glossary" style="margin-top:16px">
+        See all {TERMS.length} terms
+        <Fragment set:html={ICON.next} />
+      </a>
+    </section>
+
+    <section class="learn-sec">
+      <h2>Try a ready-made stack</h2>
+      <p class="sec-lede">
+        Load one into the builder and read its feasibility report, then swap parts and watch the
+        report change.
+      </p>
+      <div class="preset-grid">
+        {
+          featured.map((r) => (
+            <a class="preset" href={`/recipes/${r.data.id}`}>
+              <strong>{r.data.name}</strong>
+              <small>{r.data.parts}</small>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</Base>

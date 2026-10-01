@@ -1,0 +1,101 @@
+{
+  "id": "circleci",
+  "name": "CircleCI",
+  "monogram": "Ci",
+  "layer": "devops",
+  "subtitle": "Hosted CI/CD service",
+  "tagline": "Fast parallel builds",
+  "firstRelease": 2011,
+  "creator": "Paul Biggar and Allen Rohner",
+  "maintainer": "Circle Internet Services, Inc.",
+  "version": {
+    "label": "Hosted service (plus self-hosted server)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Moderate",
+  "description": "A cloud CI/CD service configured with .circleci/config.yml, known for fast Docker-first builds, parallelism with test splitting, and reusable orbs. It works with GitHub, GitLab and Bitbucket.",
+  "useCases": [
+    "Advanced CI independent of your git host",
+    "Mobile builds on macOS",
+    "Large test suites"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "YAML"
+  },
+  "concepts": [
+    {
+      "term": "Jobs, steps and workflows",
+      "explanation": "What runs and in what order."
+    },
+    {
+      "term": "Executors",
+      "explanation": "Docker, machine or macOS environments."
+    },
+    {
+      "term": "Orbs",
+      "explanation": "Packaged, reusable configuration."
+    },
+    {
+      "term": "Caching and workspaces",
+      "explanation": "Speed up and share data between jobs."
+    },
+    {
+      "term": "Test splitting",
+      "explanation": "Divide tests across parallel machines."
+    },
+    {
+      "term": "Credits",
+      "explanation": "Billing unit that varies by machine size."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "YAML · .circleci/config.yml",
+      "language": "yaml",
+      "code": "version: 2.1\njobs:\n  test:\n    docker:\n      - image: cimg/node:24.0\n    steps:\n      - checkout\n      - run: npm ci\n      - run: npm test\nworkflows:\n  ci:\n    jobs:\n      - test"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "docker",
+      "reason": "Docker-first executors",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "Deploy targets",
+      "resolved": true
+    },
+    {
+      "toolId": "terraform",
+      "reason": "Infrastructure pipelines",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Fast and flexible",
+    "Strong parallelism",
+    "Works with any git host",
+    "Good macOS support"
+  ],
+  "cons": [
+    "Losing mindshare to GitHub Actions",
+    "A 2023 security incident required rotating all secrets",
+    "Credit pricing is harder to reason about"
+  ],
+  "pricing": {
+    "summary": "Free: 30,000 credits/mo (about 6,000 small Docker build minutes), up to 5 users. Performance: from $15/mo with 30,000 credits, then $15 per 25,000 credits.",
+    "freeTier": true,
+    "entryMonthly": 15,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://circleci.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://circleci.com",
+    "docs": "https://circleci.com/docs/"
+  }
+}

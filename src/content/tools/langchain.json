@@ -1,0 +1,103 @@
+{
+  "id": "langchain",
+  "name": "LangChain",
+  "monogram": "LC",
+  "layer": "addons",
+  "category": "ai",
+  "subtitle": "Framework for LLM apps and agents",
+  "tagline": "Agents and RAG",
+  "firstRelease": 2022,
+  "creator": "Harrison Chase",
+  "maintainer": "LangChain, Inc.",
+  "version": {
+    "label": "1.x (Oct 2025)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate",
+  "description": "A framework for building apps on language models: connecting models to your documents (retrieval-augmented generation), chaining steps and building agents. LangGraph, its sibling, handles long-running, stateful agents.",
+  "useCases": [
+    "Chat over your own documents (RAG)",
+    "AI agents",
+    "Multi-step AI workflows"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Python and TypeScript",
+    "youWrite": "Python or TypeScript"
+  },
+  "concepts": [
+    {
+      "term": "RAG",
+      "explanation": "Look up relevant documents, then ask the model."
+    },
+    {
+      "term": "Retrievers",
+      "explanation": "Fetch relevant chunks."
+    },
+    {
+      "term": "Agents",
+      "explanation": "Models that decide which tools to call."
+    },
+    {
+      "term": "LangGraph",
+      "explanation": "Graphs of agent steps with memory."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Python",
+      "language": "python",
+      "code": "from langchain.chat_models import init_chat_model\nfrom langchain_core.prompts import ChatPromptTemplate\n\nmodel = init_chat_model(\"anthropic:claude-sonnet-5-5\")\nprompt = ChatPromptTemplate.from_messages([\n    (\"system\", \"Answer using only this context: {context}\"),\n    (\"user\", \"{question}\"),\n])\n\nchain = prompt | model\nanswer = chain.invoke({\"context\": docs_text, \"question\": \"What is the refund policy?\"})"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "fastapi",
+      "reason": "Python AI back ends",
+      "resolved": true
+    },
+    {
+      "toolId": "pinecone",
+      "reason": "Vector store",
+      "resolved": true
+    },
+    {
+      "toolId": "openai",
+      "reason": "Model provider",
+      "resolved": true
+    },
+    {
+      "toolId": "anthropic",
+      "reason": "Model provider",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "pgvector store",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Huge integration library",
+    "Python and TypeScript versions",
+    "Active ecosystem"
+  ],
+  "cons": [
+    "Abstractions can feel heavy",
+    "Frequent API changes historically",
+    "Debugging chains is harder"
+  ],
+  "pricing": {
+    "summary": "Framework is free and open source. LangSmith (tracing and evaluation) has free and paid plans.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.langchain.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.langchain.com",
+    "docs": "https://docs.langchain.com"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "rails",
+  "name": "Rails monolith",
+  "parts": "Rails, PostgreSQL, Fly.io",
+  "stack": {
+    "frontend": null,
+    "mobile": null,
+    "backend": "rails",
+    "auth": null,
+    "database": "postgres",
+    "hosting": "fly",
+    "devops": [
+      "docker",
+      "gha"
+    ],
+    "addons": []
+  },
+  "origin": "DHH's majestic monolith; Rails 8 (2024) made a no-Redis, no-PaaS setup the default.",
+  "goodFor": "Small teams shipping complete SaaS products fast.",
+  "pros": [
+    "One codebase, one deploy",
+    "Convention-driven speed",
+    "Less infrastructure with Rails 8"
+  ],
+  "cons": [
+    "Smaller Ruby hiring pool",
+    "Lower raw performance than Go or Java"
+  ]
+}

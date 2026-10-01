@@ -1,0 +1,94 @@
+{
+  "id": "posthog",
+  "name": "PostHog",
+  "monogram": "PH",
+  "layer": "addons",
+  "category": "monitoring",
+  "subtitle": "Product analytics suite",
+  "tagline": "See how people use your app",
+  "firstRelease": 2020,
+  "creator": "James Hawkins and Tim Glaser",
+  "maintainer": "PostHog, Inc.",
+  "version": {
+    "label": "Hosted or self-hosted",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT core, proprietary cloud features",
+  "learningCurve": "Easy",
+  "description": "An all-in-one tool for understanding users: product analytics, session replay, feature flags, A/B tests, surveys and error tracking. You add a snippet and it starts recording events.",
+  "useCases": [
+    "Tracking sign-ups and funnels",
+    "Watching session replays",
+    "Rolling out features gradually",
+    "A/B testing"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Python and TypeScript",
+    "youWrite": "JS snippet plus SDKs for most languages"
+  },
+  "concepts": [
+    {
+      "term": "Events",
+      "explanation": "Things users do, like signed_up."
+    },
+    {
+      "term": "Funnels",
+      "explanation": "Where users drop off."
+    },
+    {
+      "term": "Feature flags",
+      "explanation": "Turn features on for some users."
+    },
+    {
+      "term": "Session replay",
+      "explanation": "Recorded user sessions."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JavaScript",
+      "language": "js",
+      "code": "import posthog from \"posthog-js\";\n\nposthog.init(\"phc_your_project_key\", { api_host: \"https://us.i.posthog.com\" });\n\n// Track something a user did\nposthog.capture(\"plan_selected\", { plan: \"pro\" });\n\n// Show a feature only to users in a rollout\nif (posthog.isFeatureEnabled(\"new-checkout\")) showNewCheckout();"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "Official SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "reactnative",
+      "reason": "Mobile analytics",
+      "resolved": true
+    },
+    {
+      "toolId": "sentry",
+      "reason": "Errors plus behavior",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Very generous free tier",
+    "Many tools in one",
+    "Open-source roots"
+  ],
+  "cons": [
+    "Privacy and consent work required",
+    "Feature breadth can overwhelm",
+    "Costs grow with traffic"
+  ],
+  "pricing": {
+    "summary": "Free each month: 1 million analytics events, 5,000 session replays and 1 million feature-flag requests. Usage-based beyond that.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://posthog.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://posthog.com",
+    "docs": "https://posthog.com/docs"
+  }
+}

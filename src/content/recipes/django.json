@@ -1,0 +1,30 @@
+{
+  "id": "django",
+  "name": "Django classic",
+  "parts": "Django, htmx, PostgreSQL, Render",
+  "stack": {
+    "frontend": "htmx",
+    "mobile": null,
+    "backend": "django",
+    "auth": null,
+    "database": "postgres",
+    "hosting": "render",
+    "devops": [
+      "gha"
+    ],
+    "addons": [
+      "sentry"
+    ]
+  },
+  "origin": "The canonical Python web stack, now often paired with htmx for interactivity.",
+  "goodFor": "Content sites, SaaS, admin-heavy apps and data or AI products.",
+  "pros": [
+    "Admin, ORM and auth included",
+    "Mostly one language (Python)",
+    "Secure defaults"
+  ],
+  "cons": [
+    "Needs a server host, not Vercel",
+    "Very rich UIs need a JS framework"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "elasticsearch",
+  "name": "Elasticsearch",
+  "monogram": "Es",
+  "layer": "database",
+  "subtitle": "Search and analytics engine",
+  "tagline": "Full-text search at scale",
+  "firstRelease": 2010,
+  "creator": "Shay Banon",
+  "maintainer": "Elastic N.V.",
+  "version": {
+    "label": "9.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "AGPLv3, SSPL or Elastic License (AGPL option added 2024)",
+  "learningCurve": "Moderate to steep",
+  "description": "A distributed engine built on Apache Lucene for searching and analyzing large amounts of text and logs. It usually sits beside a primary database to power search boxes, filters and log analysis rather than replacing it.",
+  "useCases": [
+    "Site and product search",
+    "Log and metrics analysis (the ELK stack)",
+    "Security analytics",
+    "Vector search"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Java",
+    "youWrite": "JSON query DSL over a REST API"
+  },
+  "concepts": [
+    {
+      "term": "Index",
+      "explanation": "A collection of searchable documents."
+    },
+    {
+      "term": "Inverted index",
+      "explanation": "Maps words to the documents containing them."
+    },
+    {
+      "term": "Relevance scoring",
+      "explanation": "Ranks results by how well they match."
+    },
+    {
+      "term": "Shards and replicas",
+      "explanation": "Split and copy data across nodes."
+    },
+    {
+      "term": "ELK stack",
+      "explanation": "Elasticsearch, Logstash and Kibana together."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JSON · search request",
+      "language": "json",
+      "code": "POST /products/_search\n{\n  \"query\": {\n    \"multi_match\": {\n      \"query\": \"wireless headphnes\",\n      \"fields\": [\"name^2\", \"description\"],\n      \"fuzziness\": \"AUTO\"\n    }\n  },\n  \"size\": 10\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "postgres",
+      "reason": "Main database beside it",
+      "resolved": true
+    },
+    {
+      "toolId": "aws",
+      "reason": "OpenSearch Service",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Local clusters",
+      "resolved": true
+    },
+    {
+      "toolId": "grafana",
+      "reason": "Dashboards",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Powerful, fast full-text search",
+    "Scales horizontally",
+    "Rich analytics"
+  ],
+  "cons": [
+    "Heavy to run and tune",
+    "Not a primary database",
+    "License history caused the OpenSearch fork"
+  ],
+  "pricing": {
+    "summary": "Free to self-host. Elastic Cloud is usage-based; AWS offers the OpenSearch fork.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.elastic.co/elasticsearch"
+  },
+  "flags": [
+    "License includes AGPLv3 option since 2024"
+  ],
+  "links": {
+    "site": "https://www.elastic.co/elasticsearch",
+    "docs": "https://www.elastic.co/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 16.7,
+    "admired": 39.4
+  }
+}

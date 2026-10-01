@@ -1,0 +1,112 @@
+{
+  "id": "azure",
+  "name": "Microsoft Azure",
+  "monogram": "Az",
+  "layer": "hosting",
+  "subtitle": "Hyperscale public cloud",
+  "tagline": "Microsoft's cloud",
+  "firstRelease": 2010,
+  "creator": "Microsoft (launched as Windows Azure)",
+  "maintainer": "Microsoft",
+  "version": {
+    "label": "Hosted platform",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Steep",
+  "description": "Microsoft's cloud, second only to AWS in usage. It offers virtual machines, App Service, Functions, managed Kubernetes, Azure SQL, Cosmos DB and Azure OpenAI, with deep ties to .NET, Windows and Microsoft 365.",
+  "useCases": [
+    "Enterprise and .NET workloads",
+    "Companies on Microsoft 365",
+    "Hybrid on-premises and cloud",
+    "AI workloads"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "SDKs for all major languages, the az CLI, Bicep or Terraform"
+  },
+  "concepts": [
+    {
+      "term": "Resource groups",
+      "explanation": "Folders for related resources."
+    },
+    {
+      "term": "App Service",
+      "explanation": "Managed hosting for web apps."
+    },
+    {
+      "term": "Azure Functions",
+      "explanation": "Serverless code."
+    },
+    {
+      "term": "Entra ID",
+      "explanation": "Microsoft's identity service."
+    },
+    {
+      "term": "Subscriptions",
+      "explanation": "Billing boundaries."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Shell · Azure CLI",
+      "language": "shell",
+      "code": "# Create a resource group and deploy a web app from the current folder\naz group create --name my-app-rg --location eastus\naz webapp up --name my-app-2026 --resource-group my-app-rg --runtime \"DOTNETCORE:10.0\""
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "aspnet",
+      "reason": "First-class .NET hosting",
+      "resolved": true
+    },
+    {
+      "toolId": "sqlserver",
+      "reason": "Azure SQL",
+      "resolved": true
+    },
+    {
+      "toolId": "gha",
+      "reason": "Azure login actions",
+      "resolved": true
+    },
+    {
+      "toolId": "terraform",
+      "reason": "Official provider",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "AKS",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Strong enterprise and Microsoft integration",
+    "Global regions",
+    "Excellent .NET support"
+  ],
+  "cons": [
+    "Complex portal and pricing",
+    "Steep learning curve",
+    "Lock-in through proprietary services"
+  ],
+  "pricing": {
+    "summary": "Pay as you go. New accounts get a $200 credit for 30 days plus always-free monthly allowances.",
+    "freeTier": true,
+    "entryMonthly": null,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://azure.microsoft.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://azure.microsoft.com",
+    "docs": "https://learn.microsoft.com/azure/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 26.3,
+    "admired": 49.6
+  }
+}

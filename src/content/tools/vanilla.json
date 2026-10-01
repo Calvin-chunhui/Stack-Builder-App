@@ -1,0 +1,113 @@
+{
+  "id": "vanilla",
+  "name": "HTML, CSS & JavaScript",
+  "monogram": "JS",
+  "layer": "frontend",
+  "subtitle": "The web's three core languages (no framework)",
+  "tagline": "Learn the basics first",
+  "firstRelease": 1995,
+  "creator": "Tim Berners-Lee (HTML, 1991), Håkon Wium Lie (CSS, 1994), Brendan Eich (JavaScript, 1995)",
+  "maintainer": "W3C, WHATWG and Ecma TC39",
+  "version": {
+    "label": "Living standards (ECMAScript updated yearly)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Open web standards",
+  "learningCurve": "Easy",
+  "description": "Every website, whatever framework it uses, ends up as HTML (structure), CSS (appearance) and JavaScript (behavior) in the browser. Writing them directly, without a framework, is the best way to understand what frameworks do for you, and it's all you need for simple sites.",
+  "useCases": [
+    "Learning web development",
+    "Simple websites and landing pages",
+    "Small interactive widgets",
+    "Understanding what frameworks automate"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Implemented by browsers",
+    "youWrite": "HTML, CSS and JavaScript"
+  },
+  "concepts": [
+    {
+      "term": "HTML elements",
+      "explanation": "Tags like <h1>, <p> and <button> describe content."
+    },
+    {
+      "term": "CSS selectors",
+      "explanation": "Rules that pick elements and style them."
+    },
+    {
+      "term": "The DOM",
+      "explanation": "The live tree of elements that JavaScript can change."
+    },
+    {
+      "term": "Events",
+      "explanation": "click, input and submit trigger your code."
+    },
+    {
+      "term": "fetch",
+      "explanation": "Ask a server for data without reloading."
+    },
+    {
+      "term": "Responsive design",
+      "explanation": "Layouts that adapt to phone and desktop."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "HTML + JavaScript",
+      "language": "html",
+      "code": "<button id=\"like\">Like (0)</button>\n\n<script>\n  let likes = 0;\n  const button = document.getElementById(\"like\");\n  button.addEventListener(\"click\", () => {\n    likes++;\n    button.textContent = `Like (${likes})`;\n  });\n</script>"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "netlify",
+      "reason": "Drag-and-drop static hosting",
+      "resolved": true
+    },
+    {
+      "toolId": "cloudflare",
+      "reason": "Free global static hosting",
+      "resolved": true
+    },
+    {
+      "toolId": "htmx",
+      "reason": "Add interactivity without a framework",
+      "resolved": true
+    },
+    {
+      "toolId": "tailwind",
+      "reason": "Utility-first styling",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Nothing to install",
+    "Fastest possible pages",
+    "Skills transfer to every framework",
+    "No build step or dependencies"
+  ],
+  "cons": [
+    "Large apps get hard to organize",
+    "You hand-write updates to the page",
+    "No component system out of the box"
+  ],
+  "pricing": {
+    "summary": "Free. Every browser runs them.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://developer.mozilla.org/en-US/docs/Learn_web_development"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "JavaScript language",
+    "used": 66,
+    "admired": 46.8
+  }
+}

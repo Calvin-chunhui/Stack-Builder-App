@@ -1,0 +1,102 @@
+{
+  "id": "aisdk",
+  "name": "Vercel AI SDK",
+  "monogram": "AI",
+  "layer": "addons",
+  "category": "ai",
+  "subtitle": "TypeScript toolkit for AI apps",
+  "tagline": "Build AI features in TypeScript",
+  "firstRelease": 2023,
+  "creator": "Vercel",
+  "maintainer": "Vercel",
+  "version": {
+    "label": "5.x and later",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Apache-2.0",
+  "learningCurve": "Easy to moderate",
+  "description": "A TypeScript library that gives one consistent API over many AI providers (OpenAI, Anthropic, Google and others), with helpers for streaming chat UIs, structured output and tool calling.",
+  "useCases": [
+    "Chat interfaces",
+    "Switching between AI providers",
+    "Streaming AI responses in React"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "TypeScript"
+  },
+  "concepts": [
+    {
+      "term": "Providers",
+      "explanation": "Swap models by changing one line."
+    },
+    {
+      "term": "streamText",
+      "explanation": "Stream model output."
+    },
+    {
+      "term": "useChat",
+      "explanation": "React hook for chat UIs."
+    },
+    {
+      "term": "Structured output",
+      "explanation": "Get typed JSON back."
+    },
+    {
+      "term": "Tools",
+      "explanation": "Functions the model can call."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript · Next.js route",
+      "language": "ts",
+      "code": "import { streamText } from \"ai\";\nimport { anthropic } from \"@ai-sdk/anthropic\";\n\nexport async function POST(req: Request) {\n  const { messages } = await req.json();\n  const result = streamText({\n    model: anthropic(\"claude-sonnet-5-5\"),   // swap providers by changing this line\n    messages,\n  });\n  return result.toUIMessageStreamResponse();\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "Most common home",
+      "resolved": true
+    },
+    {
+      "toolId": "openai",
+      "reason": "Provider",
+      "resolved": true
+    },
+    {
+      "toolId": "anthropic",
+      "reason": "Provider",
+      "resolved": true
+    },
+    {
+      "toolId": "react",
+      "reason": "UI hooks",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Provider-agnostic",
+    "Great streaming UX helpers",
+    "Well documented"
+  ],
+  "cons": [
+    "JavaScript and TypeScript only",
+    "Fast-moving API",
+    "Abstracts provider-specific features"
+  ],
+  "pricing": {
+    "summary": "Free and open source. You pay the model providers you call.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://ai-sdk.dev"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://ai-sdk.dev",
+    "docs": "https://ai-sdk.dev/docs"
+  }
+}

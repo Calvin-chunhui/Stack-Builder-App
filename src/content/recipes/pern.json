@@ -1,0 +1,28 @@
+{
+  "id": "pern",
+  "name": "PERN",
+  "parts": "PostgreSQL, Express, React, Node",
+  "stack": {
+    "frontend": "react",
+    "mobile": null,
+    "backend": "express",
+    "auth": null,
+    "database": "postgres",
+    "hosting": "railway",
+    "devops": [],
+    "addons": [
+      "prisma"
+    ]
+  },
+  "origin": "MERN with Postgres swapped in, popular as teams wanted relational data.",
+  "goodFor": "JavaScript full-stack apps that need joins, constraints and transactions.",
+  "pros": [
+    "Relational integrity",
+    "Same JS skills as MERN",
+    "Postgres extensions available"
+  ],
+  "cons": [
+    "Still assembles many parts by hand",
+    "SPA SEO trade-offs remain"
+  ]
+}

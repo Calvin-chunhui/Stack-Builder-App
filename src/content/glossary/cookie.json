@@ -1,0 +1,7 @@
+{
+  "id": "cookie",
+  "term": "Cookie",
+  "definition": "A small piece of data a website stores in your browser, often to remember your session.",
+  "like": "A coat-check ticket.",
+  "layer": "auth"
+}

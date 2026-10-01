@@ -1,0 +1,48 @@
+---
+id: devops
+name: "DevOps"
+title: "DevOps: shipping changes safely and often"
+blurb: "Build, ship and automate"
+order: 6
+optional: false
+multi: true
+color: "--ops"
+place: "The operations crew"
+analogy: "Supplier deliveries, health inspections, prep checklists and cleaning schedules. Customers never notice them until something goes wrong."
+zoneLabel: "Loading dock"
+zoneText: "Deliveries, inspections and cleaning routines happen here. DevOps tests, packages and ships new versions safely."
+points:
+  - "CI runs your tests on every change and catches bugs before users do."
+  - "Containers (Docker) package an app so it runs the same everywhere."
+  - "Infrastructure as code (Terraform) keeps your servers written down in files."
+  - "Start with one CI tool; add Kubernetes only when you truly need it."
+terms:
+  - "git"
+  - "repository"
+  - "ci"
+  - "cd"
+  - "pipeline"
+  - "container"
+  - "iac"
+  - "deploy"
+starters:
+  - toolId: "gha"
+    why: "Free for public repos"
+  - toolId: "docker"
+    why: "Learn once, use everywhere"
+  - toolId: "terraform"
+    why: "When you manage cloud resources"
+flow:
+  - step: "Push code"
+    detail: "Saved in Git"
+  - step: "CI runs tests"
+    detail: "Automatic checks"
+  - step: "Build a package"
+    detail: "Often a container"
+  - step: "Deploy"
+    detail: "Release to hosting"
+  - step: "Monitor"
+    detail: "Alerts if it breaks"
+---
+
+DevOps is the set of habits and tools that move code from a developer's laptop to real users reliably. It covers testing every change automatically (CI), releasing automatically (CD), packaging apps into containers, and describing servers as code so they can be rebuilt at any time.

@@ -1,0 +1,98 @@
+{
+  "id": "drizzle",
+  "name": "Drizzle ORM",
+  "monogram": "Dz",
+  "layer": "addons",
+  "category": "data",
+  "subtitle": "Lightweight SQL-like TypeScript ORM",
+  "tagline": "Thin, SQL-like ORM",
+  "firstRelease": 2022,
+  "creator": "Drizzle Team",
+  "maintainer": "Drizzle Team",
+  "version": {
+    "label": "0.x / 1.0 beta",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Apache-2.0",
+  "learningCurve": "Moderate",
+  "description": "A TypeScript ORM whose queries look like SQL, with schemas written in TypeScript. It has no heavy runtime, which makes it popular on serverless and edge platforms.",
+  "useCases": [
+    "Edge and serverless apps",
+    "Developers who like SQL",
+    "Bun and Hono projects"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "TypeScript"
+  },
+  "concepts": [
+    {
+      "term": "Schema in TypeScript",
+      "explanation": "Tables defined as code."
+    },
+    {
+      "term": "SQL-like queries",
+      "explanation": "select().from().where()."
+    },
+    {
+      "term": "drizzle-kit",
+      "explanation": "Migrations and studio."
+    },
+    {
+      "term": "Drivers",
+      "explanation": "Neon, Turso, D1, Postgres, MySQL."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript",
+      "language": "ts",
+      "code": "import { pgTable, serial, text, integer } from \"drizzle-orm/pg-core\";\nimport { eq } from \"drizzle-orm\";\n\nexport const orders = pgTable(\"orders\", {\n  id: serial(\"id\").primaryKey(),\n  item: text(\"item\").notNull(),\n  userId: integer(\"user_id\").notNull(),\n});\n\n// Reads almost like SQL\nconst rows = await db.select().from(orders).where(eq(orders.userId, 42));"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "neon",
+      "reason": "Serverless Postgres",
+      "resolved": true
+    },
+    {
+      "toolId": "turso",
+      "reason": "Edge SQLite",
+      "resolved": true
+    },
+    {
+      "toolId": "hono",
+      "reason": "Edge APIs",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "Full-stack apps",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Tiny and fast",
+    "Feels like SQL",
+    "Great on edge runtimes"
+  ],
+  "cons": [
+    "JavaScript and TypeScript only",
+    "Still pre-1.0",
+    "Fewer guardrails than Prisma"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://orm.drizzle.team"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://orm.drizzle.team",
+    "docs": "https://orm.drizzle.team/docs/overview"
+  }
+}

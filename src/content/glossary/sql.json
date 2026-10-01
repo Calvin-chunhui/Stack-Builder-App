@@ -1,0 +1,7 @@
+{
+  "id": "sql",
+  "term": "SQL",
+  "definition": "The standard language for asking questions of relational databases, like SELECT * FROM orders.",
+  "like": "The pantry's filing system and how you ask for items.",
+  "layer": "database"
+}

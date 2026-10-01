@@ -1,0 +1,146 @@
+{
+  "id": "go",
+  "name": "Go",
+  "monogram": "Go",
+  "layer": "backend",
+  "subtitle": "Compiled server language (net/http, Gin, Echo)",
+  "tagline": "Fast, simple services",
+  "firstRelease": 2009,
+  "creator": "Robert Griesemer, Rob Pike and Ken Thompson at Google",
+  "maintainer": "Google and the Go community",
+  "version": {
+    "label": "1.27 (1.27.1, Sep 2026)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "BSD-3-Clause",
+  "learningCurve": "Easy to moderate",
+  "description": "A simple, statically typed language that compiles to single native binaries. Goroutines and channels make concurrency cheap, and the standard library ships a production-grade HTTP server. Gin and Echo add routing sugar and middleware on top.",
+  "useCases": [
+    "High-throughput APIs",
+    "Microservices",
+    "Cloud infrastructure",
+    "CLIs",
+    "Networking tools"
+  ],
+  "notableUsers": [
+    {
+      "name": "Google"
+    },
+    {
+      "name": "Uber"
+    },
+    {
+      "name": "Cloudflare"
+    },
+    {
+      "name": "Twitch"
+    },
+    {
+      "name": "Dropbox"
+    }
+  ],
+  "languages": {
+    "written": "Go",
+    "youWrite": "Go"
+  },
+  "concepts": [
+    {
+      "term": "Packages and modules",
+      "explanation": "Code organized by package, versioned with go.mod."
+    },
+    {
+      "term": "Interfaces",
+      "explanation": "Implemented implicitly by any type with the right methods."
+    },
+    {
+      "term": "Goroutines",
+      "explanation": "Lightweight threads started with the go keyword."
+    },
+    {
+      "term": "Channels",
+      "explanation": "Typed pipes for passing data between goroutines."
+    },
+    {
+      "term": "Errors as values",
+      "explanation": "Functions return an error you check explicitly."
+    },
+    {
+      "term": "context.Context",
+      "explanation": "Carry deadlines and cancellation through calls."
+    },
+    {
+      "term": "Static binaries",
+      "explanation": "One file to deploy, easy cross-compilation."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Go",
+      "language": "go",
+      "code": "package main\n\nimport (\n    \"encoding/json\"\n    \"net/http\"\n)\n\nfunc main() {\n    mux := http.NewServeMux()\n    mux.HandleFunc(\"GET /users/{id}\", func(w http.ResponseWriter, r *http.Request) {\n        json.NewEncoder(w).Encode(map[string]string{\"id\": r.PathValue(\"id\")})\n    })\n    http.ListenAndServe(\":8080\", mux)\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "postgres",
+      "reason": "Via pgx or sqlc",
+      "resolved": true
+    },
+    {
+      "toolId": "redis",
+      "reason": "go-redis client",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Tiny container images",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "Kubernetes is written in Go",
+      "resolved": true
+    },
+    {
+      "toolId": "fly",
+      "reason": "Fast global deploys",
+      "resolved": true
+    },
+    {
+      "toolId": "gcp",
+      "reason": "Cloud Run",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Excellent performance with low memory use",
+    "Simple concurrency",
+    "Fast compiles and single-binary deploys",
+    "Small language that is easy to read",
+    "Strong standard library"
+  ],
+  "cons": [
+    "Verbose error handling",
+    "Less expressive than many languages",
+    "No dominant batteries-included web framework",
+    "Router ecosystem is fragmented"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://go.dev"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://go.dev",
+    "docs": "https://go.dev/doc/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "Go language",
+    "used": 16.4,
+    "admired": 56.5
+  }
+}

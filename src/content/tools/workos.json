@@ -1,0 +1,102 @@
+{
+  "id": "workos",
+  "name": "WorkOS",
+  "monogram": "Wo",
+  "layer": "auth",
+  "subtitle": "B2B identity: AuthKit, SSO and directory sync",
+  "tagline": "Enterprise-ready B2B auth",
+  "firstRelease": 2019,
+  "creator": "Michael Grinich",
+  "maintainer": "WorkOS, Inc.",
+  "version": {
+    "label": "Hosted service",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary service, open-source SDKs",
+  "learningCurve": "Easy to moderate",
+  "description": "A developer platform for selling software to businesses. AuthKit handles sign-up and sign-in, and add-ons provide enterprise single sign-on (SAML), user provisioning from company directories (SCIM) and audit logs.",
+  "useCases": [
+    "B2B SaaS selling to companies",
+    "Adding enterprise SSO quickly",
+    "Apps that need SCIM provisioning"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "SDKs in Node, Python, Ruby, Go, Java, PHP, .NET and more",
+    "youWrite": "Your app's language"
+  },
+  "concepts": [
+    {
+      "term": "AuthKit",
+      "explanation": "Hosted, customizable sign-in UI."
+    },
+    {
+      "term": "Organizations",
+      "explanation": "Customer companies with members."
+    },
+    {
+      "term": "SSO connections",
+      "explanation": "One per customer's identity provider."
+    },
+    {
+      "term": "Directory Sync",
+      "explanation": "Keep users in step with a company's HR system."
+    },
+    {
+      "term": "Admin Portal",
+      "explanation": "Customers configure SSO themselves."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript · Next.js with AuthKit",
+      "language": "ts",
+      "code": "// middleware or proxy protects routes\nimport { authkitMiddleware } from \"@workos-inc/authkit-nextjs\";\nexport default authkitMiddleware();\n\n// In a server component\nimport { withAuth } from \"@workos-inc/authkit-nextjs\";\n\nexport default async function Page() {\n  const { user } = await withAuth({ ensureSignedIn: true });\n  return <p>Welcome back, {user.firstName}</p>;\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "AuthKit Next.js SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "react",
+      "reason": "React components",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Sync users into your database",
+      "resolved": true
+    },
+    {
+      "toolId": "vercel",
+      "reason": "Common hosting",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Most generous free tier for user management",
+    "Enterprise features without enterprise contracts",
+    "Self-serve admin portal"
+  ],
+  "cons": [
+    "Per-connection SSO costs add up",
+    "B2B focus, fewer consumer features",
+    "Hosted only"
+  ],
+  "pricing": {
+    "summary": "AuthKit user management free up to 1,000,000 MAU, then $2,500 per extra million. Enterprise SSO and directory sync: $125 per connection per month, with volume discounts.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "usageFee": "Enterprise SSO $125 per connection/mo",
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://workos.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://workos.com",
+    "docs": "https://workos.com/docs"
+  }
+}

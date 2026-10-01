@@ -1,0 +1,108 @@
+{
+  "id": "datadog",
+  "name": "Datadog",
+  "monogram": "Dd",
+  "layer": "addons",
+  "category": "monitoring",
+  "subtitle": "Full observability platform",
+  "tagline": "Metrics, logs and traces",
+  "firstRelease": 2010,
+  "creator": "Olivier Pomel and Alexis Lê-Quôc",
+  "maintainer": "Datadog, Inc.",
+  "version": {
+    "label": "Hosted service",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Moderate",
+  "description": "A cloud platform that collects metrics, logs and traces from servers, containers, databases and cloud services into dashboards and alerts. It has hundreds of integrations.",
+  "useCases": [
+    "Monitoring servers and containers",
+    "Application performance tracing",
+    "Log search",
+    "Alerting on-call teams"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Go and Python (agent)",
+    "youWrite": "Agent config plus language SDKs"
+  },
+  "concepts": [
+    {
+      "term": "Agent",
+      "explanation": "Software on each host that ships data."
+    },
+    {
+      "term": "Metrics",
+      "explanation": "Numbers over time."
+    },
+    {
+      "term": "APM traces",
+      "explanation": "Timing for each request."
+    },
+    {
+      "term": "Monitors",
+      "explanation": "Alerts on thresholds."
+    },
+    {
+      "term": "Dashboards",
+      "explanation": "Visual overviews."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "YAML · datadog.yaml (agent)",
+      "language": "yaml",
+      "code": "api_key: ${DD_API_KEY}\nsite: datadoghq.com\nlogs_enabled: true\napm_config:\n  enabled: true\ntags:\n  - env:production\n  - team:checkout"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "k8s",
+      "reason": "Cluster monitoring",
+      "resolved": true
+    },
+    {
+      "toolId": "aws",
+      "reason": "Cloud integrations",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Container metrics",
+      "resolved": true
+    },
+    {
+      "toolId": "springboot",
+      "reason": "APM tracing",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Everything in one place",
+    "Hundreds of integrations",
+    "Polished dashboards"
+  ],
+  "cons": [
+    "Bills grow quickly with hosts, logs and custom metrics",
+    "Many separate products to price",
+    "Overkill for small apps"
+  ],
+  "pricing": {
+    "summary": "Free for up to 5 hosts (1-day retention). Infrastructure Pro $15/host/mo billed annually; APM from $31/host/mo; logs billed per GB.",
+    "freeTier": true,
+    "entryMonthly": 15,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.datadoghq.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.datadoghq.com",
+    "docs": "https://docs.datadoghq.com"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 8.9,
+    "admired": 43.8
+  }
+}

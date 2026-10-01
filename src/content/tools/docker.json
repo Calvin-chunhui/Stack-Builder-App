@@ -1,0 +1,127 @@
+{
+  "id": "docker",
+  "name": "Docker",
+  "monogram": "Dk",
+  "layer": "devops",
+  "subtitle": "Containerization platform",
+  "tagline": "Same app everywhere",
+  "firstRelease": 2013,
+  "creator": "Solomon Hykes at dotCloud",
+  "maintainer": "Docker, Inc. (engine is the open-source Moby project)",
+  "version": {
+    "label": "Current releases",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Engine Apache-2.0; Docker Desktop commercial",
+  "learningCurve": "Moderate",
+  "description": "Packages an app and its dependencies into an image built from a Dockerfile, which runs identically anywhere as an isolated container. Docker Compose defines multi-container setups such as app plus database plus cache for local development.",
+  "useCases": [
+    "Consistent dev environments",
+    "CI builds",
+    "Deploying to any cloud",
+    "Microservices"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Go",
+    "youWrite": "Dockerfile instructions and compose.yaml"
+  },
+  "concepts": [
+    {
+      "term": "Images vs containers",
+      "explanation": "The template versus the running instance."
+    },
+    {
+      "term": "Dockerfile",
+      "explanation": "FROM, RUN, COPY and CMD build an image."
+    },
+    {
+      "term": "Layers and caching",
+      "explanation": "Unchanged steps are reused."
+    },
+    {
+      "term": "Multi-stage builds",
+      "explanation": "Build in one stage, ship a slim final image."
+    },
+    {
+      "term": "Registries",
+      "explanation": "Docker Hub, GHCR and others store images."
+    },
+    {
+      "term": "Volumes",
+      "explanation": "Persist data outside the container."
+    },
+    {
+      "term": "Compose",
+      "explanation": "Run several containers together."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Dockerfile",
+      "language": "dockerfile",
+      "code": "# Multi-stage build for a Node app\nFROM node:24-alpine AS build\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci\nCOPY . .\nRUN npm run build\n\nFROM node:24-alpine\nWORKDIR /app\nCOPY --from=build /app/dist ./dist\nCOPY --from=build /app/node_modules ./node_modules\nEXPOSE 3000\nCMD [\"node\", \"dist/server.js\"]"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "k8s",
+      "reason": "Orchestrate containers at scale",
+      "resolved": true
+    },
+    {
+      "toolId": "gha",
+      "reason": "Build and push in CI",
+      "resolved": true
+    },
+    {
+      "toolId": "fly",
+      "reason": "Deploys Docker images",
+      "resolved": true
+    },
+    {
+      "toolId": "render",
+      "reason": "Deploy any image",
+      "resolved": true
+    },
+    {
+      "toolId": "gcp",
+      "reason": "Cloud Run",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Local database containers",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Solves works-on-my-machine",
+    "Portable across hosts",
+    "Huge image ecosystem",
+    "Near-universal: 71% usage, up 17 points in the Stack Overflow 2025 survey"
+  ],
+  "cons": [
+    "Image bloat and security scanning burden",
+    "Docker Desktop licensing for larger companies",
+    "File-sharing quirks on macOS and Windows",
+    "Extra complexity for simple apps"
+  ],
+  "pricing": {
+    "summary": "Personal: free. Pro: $9/mo billed annually. Team: $15/user/mo annually. Business: $24/user/mo. Companies over 250 employees or $10M revenue need a paid plan for Docker Desktop.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.docker.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.docker.com",
+    "docs": "https://docs.docker.com"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 71.1,
+    "admired": 63.6
+  }
+}

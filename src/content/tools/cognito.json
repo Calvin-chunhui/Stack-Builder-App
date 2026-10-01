@@ -1,0 +1,101 @@
+{
+  "id": "cognito",
+  "name": "Amazon Cognito",
+  "monogram": "Cg",
+  "layer": "auth",
+  "subtitle": "AWS managed user pools",
+  "tagline": "Auth inside AWS",
+  "firstRelease": 2014,
+  "creator": "Amazon Web Services",
+  "maintainer": "Amazon Web Services",
+  "version": {
+    "label": "Hosted service (Lite, Essentials and Plus tiers)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Moderate to steep",
+  "description": "AWS's managed identity service. User pools store accounts and handle sign-in, MFA and social login; identity pools hand out temporary AWS credentials so users can access other AWS services directly.",
+  "useCases": [
+    "Apps already built on AWS",
+    "Serverless back ends with Lambda and API Gateway",
+    "Mobile apps using AWS Amplify"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "AWS SDKs or Amplify libraries in any language"
+  },
+  "concepts": [
+    {
+      "term": "User pools",
+      "explanation": "The directory of your users."
+    },
+    {
+      "term": "Identity pools",
+      "explanation": "Swap sign-in for AWS credentials."
+    },
+    {
+      "term": "Managed login",
+      "explanation": "AWS-hosted sign-in pages."
+    },
+    {
+      "term": "Triggers",
+      "explanation": "Lambda functions during sign-up and sign-in."
+    },
+    {
+      "term": "JWT tokens",
+      "explanation": "ID, access and refresh tokens."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript · AWS Amplify",
+      "language": "ts",
+      "code": "import { Amplify } from \"aws-amplify\";\nimport { signIn, getCurrentUser } from \"aws-amplify/auth\";\n\nAmplify.configure({\n  Auth: { Cognito: { userPoolId: \"us-east-1_ABC123\", userPoolClientId: \"abc123client\" } },\n});\n\nawait signIn({ username: \"ada@example.com\", password: \"correct-horse-battery\" });\nconst user = await getCurrentUser();\nconsole.log(user.userId);"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "aws",
+      "reason": "Lives inside AWS",
+      "resolved": true
+    },
+    {
+      "toolId": "dynamodb",
+      "reason": "Serverless data",
+      "resolved": true
+    },
+    {
+      "toolId": "reactnative",
+      "reason": "Via Amplify",
+      "resolved": true
+    },
+    {
+      "toolId": "terraform",
+      "reason": "Provision user pools",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Cheap at scale",
+    "Deep AWS integration",
+    "Generous free tier"
+  ],
+  "cons": [
+    "Developer experience is widely considered clunky",
+    "Customizing flows is hard",
+    "AWS lock-in"
+  ],
+  "pricing": {
+    "summary": "First 10,000 MAU free each month. Essentials then $0.015 per MAU; Lite from $0.0055 per MAU. SAML/OIDC federation: 50 MAU free, then $0.015 per MAU.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://aws.amazon.com/cognito/"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://aws.amazon.com/cognito/",
+    "docs": "https://docs.aws.amazon.com/cognito/"
+  }
+}

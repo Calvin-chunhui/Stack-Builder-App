@@ -1,0 +1,108 @@
+{
+  "id": "swiftui",
+  "name": "SwiftUI",
+  "monogram": "Sw",
+  "layer": "mobile",
+  "subtitle": "Apple's native UI framework",
+  "tagline": "iPhone-only, fully native",
+  "firstRelease": 2019,
+  "creator": "Apple",
+  "maintainer": "Apple",
+  "version": {
+    "label": "Ships with each iOS release",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary (Swift language is Apache-2.0)",
+  "learningCurve": "Moderate",
+  "description": "Apple's modern way to build apps for iPhone, iPad, Mac, Watch and Vision Pro in Swift. You describe the interface declaratively, and it gets first access to every new Apple feature.",
+  "useCases": [
+    "iPhone and iPad apps",
+    "Apps using the newest Apple features",
+    "Apple Watch and Mac apps"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Swift",
+    "youWrite": "Swift"
+  },
+  "concepts": [
+    {
+      "term": "Views",
+      "explanation": "Structs that describe a piece of UI."
+    },
+    {
+      "term": "@State",
+      "explanation": "Local data that updates the view."
+    },
+    {
+      "term": "Modifiers",
+      "explanation": ".padding() and .font() style views."
+    },
+    {
+      "term": "Navigation",
+      "explanation": "NavigationStack moves between screens."
+    },
+    {
+      "term": "Xcode",
+      "explanation": "Apple's required development tool (Mac only)."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Swift",
+      "language": "swift",
+      "code": "import SwiftUI\n\nstruct CounterView: View {\n    @State private var count = 0\n\n    var body: some View {\n        VStack(spacing: 12) {\n            Text(\"Tapped \\(count) times\")\n            Button(\"Tap me\") { count += 1 }\n                .buttonStyle(.borderedProminent)\n        }\n        .padding()\n    }\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "compose",
+      "reason": "Its Android counterpart",
+      "resolved": true
+    },
+    {
+      "toolId": "firebaseauth",
+      "reason": "iOS SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "supabase",
+      "reason": "Swift SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "fastapi",
+      "reason": "A simple API back end",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Best performance and native feel",
+    "Immediate access to new Apple APIs",
+    "Great tooling in Xcode"
+  ],
+  "cons": [
+    "Apple platforms only",
+    "Requires a Mac",
+    "Android needs a separate app"
+  ],
+  "pricing": {
+    "summary": "Free with Xcode. Publishing needs the Apple Developer Program ($99/yr).",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "usageFee": "Apple Developer Program $99/yr",
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://developer.apple.com/swiftui/"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://developer.apple.com/swiftui/",
+    "docs": "https://developer.apple.com/documentation/swiftui"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "Swift language",
+    "used": 5.4,
+    "admired": 51.9
+  }
+}

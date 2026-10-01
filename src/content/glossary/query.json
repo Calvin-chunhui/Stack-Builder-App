@@ -1,0 +1,7 @@
+{
+  "id": "query",
+  "term": "Query",
+  "definition": "A request to a database to read or change data.",
+  "like": "Asking the pantry for three onions.",
+  "layer": "database"
+}

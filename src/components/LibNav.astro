@@ -1,0 +1,40 @@
+---
+/**
+ * The library sidebar. Plain links, so every section is crawlable.
+ */
+import { getCollection } from 'astro:content';
+import { LAYERS, layerColor } from '../data/taxonomy';
+import { TERMS } from '../lib/glossary';
+
+interface Props {
+  /** Layer id, "all", or "recipes". */
+  current?: string;
+}
+const { current = 'all' } = Astro.props;
+
+const tools = await getCollection('tools');
+const recipes = await getCollection('recipes');
+const countIn = (id: string) => tools.filter((t) => t.data.layer === id).length;
+---
+
+<nav class="lib-nav" aria-label="Library sections">
+  <a href="/library" aria-current={current === 'all' ? 'page' : undefined}>
+    <span class="dot" style="--c:var(--text)"></span>All tools<span class="n">{tools.length}</span>
+  </a>
+  {
+    LAYERS.map((L) => (
+      <a href={`/library/${L.id}`} aria-current={current === L.id ? 'page' : undefined}>
+        <span class="dot" style={`--c:${layerColor(L.id)}`} />
+        {L.name}
+        <span class="n">{countIn(L.id)}</span>
+      </a>
+    ))
+  }
+  <hr />
+  <a href="/library/recipes" aria-current={current === 'recipes' ? 'page' : undefined}>
+    <span class="dot"></span>Stack recipes<span class="n">{recipes.length}</span>
+  </a>
+  <a href="/glossary">
+    <span class="dot"></span>Glossary<span class="n">{TERMS.length}</span>
+  </a>
+</nav>

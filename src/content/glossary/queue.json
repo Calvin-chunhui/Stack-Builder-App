@@ -1,0 +1,7 @@
+{
+  "id": "queue",
+  "term": "Queue and background job",
+  "definition": "Work saved to do later, outside the user's request, like sending emails.",
+  "like": "Prep tasks done after service closes.",
+  "layer": "backend"
+}

@@ -1,0 +1,133 @@
+{
+  "id": "aws",
+  "name": "AWS",
+  "monogram": "Aw",
+  "layer": "hosting",
+  "subtitle": "Hyperscale public cloud",
+  "tagline": "Everything, at any scale",
+  "firstRelease": 2006,
+  "creator": "Amazon",
+  "maintainer": "Amazon Web Services",
+  "version": {
+    "label": "200+ services",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Steep",
+  "description": "On-demand compute (EC2, Lambda, ECS, EKS), storage (S3), databases (RDS, Aurora, DynamoDB), networking, identity and AI services across global regions. It is the most used cloud platform among developers.",
+  "useCases": [
+    "Anything from startups to enterprises",
+    "Serverless back ends",
+    "Data platforms",
+    "Regulated workloads"
+  ],
+  "notableUsers": [
+    {
+      "name": "Netflix"
+    },
+    {
+      "name": "Airbnb"
+    },
+    {
+      "name": "Pinterest"
+    }
+  ],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "SDKs for every major language, the AWS CLI, CloudFormation, CDK or Terraform"
+  },
+  "concepts": [
+    {
+      "term": "Regions and Availability Zones",
+      "explanation": "Where your resources physically run."
+    },
+    {
+      "term": "IAM",
+      "explanation": "Users, roles and policies control access."
+    },
+    {
+      "term": "VPC",
+      "explanation": "Your private network."
+    },
+    {
+      "term": "EC2 vs Lambda vs containers",
+      "explanation": "Servers, functions or managed containers."
+    },
+    {
+      "term": "S3",
+      "explanation": "Object storage buckets."
+    },
+    {
+      "term": "Shared responsibility",
+      "explanation": "AWS secures the cloud; you secure what you put in it."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Shell · AWS CLI",
+      "language": "shell",
+      "code": "# Create a bucket, upload a built site, then call a Lambda function\naws s3 mb s3://my-app-assets-2026\naws s3 sync ./dist s3://my-app-assets-2026 --delete\naws lambda invoke --function-name my-api out.json && cat out.json"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "terraform",
+      "reason": "Infrastructure as code",
+      "resolved": true
+    },
+    {
+      "toolId": "dynamodb",
+      "reason": "Native serverless database",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "EKS managed Kubernetes",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "ECS and Fargate",
+      "resolved": true
+    },
+    {
+      "toolId": "gha",
+      "reason": "OIDC deploys without stored keys",
+      "resolved": true
+    },
+    {
+      "toolId": "springboot",
+      "reason": "Enterprise workloads",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Unmatched breadth and maturity",
+    "Global scale",
+    "Enterprise compliance",
+    "Huge talent pool"
+  ],
+  "cons": [
+    "Complex; IAM alone is a learning curve",
+    "Surprise bills",
+    "Confusing console",
+    "Lock-in through proprietary services"
+  ],
+  "pricing": {
+    "summary": "Pay as you go. New accounts: $100 credit plus up to $100 more; the Free plan lasts up to 6 months. Always free: 1M Lambda requests/mo and 25 GB of DynamoDB.",
+    "freeTier": true,
+    "entryMonthly": null,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://aws.amazon.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://aws.amazon.com",
+    "docs": "https://docs.aws.amazon.com"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 43.3,
+    "admired": 51.9
+  }
+}

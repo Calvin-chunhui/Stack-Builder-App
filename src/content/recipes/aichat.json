@@ -1,0 +1,33 @@
+{
+  "id": "aichat",
+  "name": "AI chat app",
+  "parts": "Next.js, Clerk, Supabase, Claude or GPT",
+  "stack": {
+    "frontend": "nextjs",
+    "mobile": null,
+    "backend": null,
+    "auth": "clerk",
+    "database": "supabase",
+    "hosting": "vercel",
+    "devops": [
+      "gha"
+    ],
+    "addons": [
+      "aisdk",
+      "anthropic",
+      "tailwind",
+      "shadcn"
+    ]
+  },
+  "origin": "The common shape of AI assistant products since 2023.",
+  "goodFor": "Chat interfaces and assistants built on hosted AI models.",
+  "pros": [
+    "Streams AI answers with little code",
+    "Supabase stores chats and vectors (pgvector)",
+    "Starts free except model usage"
+  ],
+  "cons": [
+    "AI usage costs scale with every message",
+    "Several vendors to manage"
+  ]
+}

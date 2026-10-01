@@ -1,0 +1,7 @@
+{
+  "id": "server",
+  "term": "Server",
+  "definition": "A computer that runs your app's code and responds to requests over the internet.",
+  "like": "A kitchen that's always ready for orders.",
+  "layer": "backend"
+}

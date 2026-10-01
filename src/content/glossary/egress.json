@@ -1,0 +1,7 @@
+{
+  "id": "egress",
+  "term": "Egress",
+  "definition": "Data leaving a cloud provider, which is often charged per gigabyte.",
+  "like": "A delivery fee for every box that leaves the warehouse.",
+  "layer": "hosting"
+}

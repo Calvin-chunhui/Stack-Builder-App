@@ -1,0 +1,7 @@
+{
+  "id": "dom",
+  "term": "DOM",
+  "definition": "The browser's live model of a page that JavaScript can read and change.",
+  "like": "The current arrangement of the dining room that staff can rearrange.",
+  "layer": "frontend"
+}

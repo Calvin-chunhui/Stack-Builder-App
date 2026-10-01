@@ -1,0 +1,97 @@
+{
+  "id": "jenkins",
+  "name": "Jenkins",
+  "monogram": "Jk",
+  "layer": "devops",
+  "subtitle": "Self-hosted automation server",
+  "tagline": "The classic self-hosted CI",
+  "firstRelease": 2011,
+  "creator": "Kohsuke Kawaguchi (as Hudson, 2004)",
+  "maintainer": "Jenkins project (Continuous Delivery Foundation)",
+  "version": {
+    "label": "2.x LTS",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate to steep",
+  "description": "The long-standing open-source automation server. You run it yourself and extend it with nearly 2,000 plugins; pipelines are written as code in a Jenkinsfile.",
+  "useCases": [
+    "Self-hosted CI/CD",
+    "Companies with strict on-premises rules",
+    "Highly customized pipelines"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Java",
+    "youWrite": "Jenkinsfile (Groovy-based pipeline syntax)"
+  },
+  "concepts": [
+    {
+      "term": "Pipelines",
+      "explanation": "Stages of build, test and deploy in a Jenkinsfile."
+    },
+    {
+      "term": "Agents",
+      "explanation": "Machines that run the jobs."
+    },
+    {
+      "term": "Plugins",
+      "explanation": "Add integrations and features."
+    },
+    {
+      "term": "Controller",
+      "explanation": "The central Jenkins server."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Groovy · Jenkinsfile",
+      "language": "groovy",
+      "code": "pipeline {\n  agent { docker { image 'node:24' } }\n  stages {\n    stage('Install') { steps { sh 'npm ci' } }\n    stage('Test')    { steps { sh 'npm test' } }\n    stage('Deploy') {\n      when { branch 'main' }\n      steps { sh './deploy.sh' }\n    }\n  }\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "docker",
+      "reason": "Run builds in containers",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "Scale agents",
+      "resolved": true
+    },
+    {
+      "toolId": "ansible",
+      "reason": "Configure servers after builds",
+      "resolved": true
+    },
+    {
+      "toolId": "terraform",
+      "reason": "Infrastructure pipelines",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Free and extremely flexible",
+    "Runs anywhere, including air-gapped networks",
+    "Huge plugin ecosystem"
+  ],
+  "cons": [
+    "You maintain and secure the server",
+    "Plugin sprawl and upgrades",
+    "Dated interface"
+  ],
+  "pricing": {
+    "summary": "Free and open source. You pay for the servers it runs on.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.jenkins.io"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.jenkins.io",
+    "docs": "https://www.jenkins.io/doc/"
+  }
+}

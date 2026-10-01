@@ -1,0 +1,107 @@
+{
+  "id": "sqlserver",
+  "name": "Microsoft SQL Server",
+  "monogram": "MS",
+  "layer": "database",
+  "subtitle": "Enterprise relational database (SQL)",
+  "tagline": "Microsoft's relational database",
+  "firstRelease": 1989,
+  "creator": "Microsoft (originally with Sybase)",
+  "maintainer": "Microsoft",
+  "version": {
+    "label": "SQL Server 2025",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Commercial (free Express and Developer editions)",
+  "learningCurve": "Moderate",
+  "description": "Microsoft's flagship relational database, dominant in enterprises and .NET shops. It uses the T-SQL dialect and comes with strong tooling, business intelligence features and tight Azure integration.",
+  "useCases": [
+    "Enterprise line-of-business apps",
+    ".NET applications",
+    "Reporting and BI",
+    "Regulated industries"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "C and C++",
+    "youWrite": "T-SQL (Transact-SQL)"
+  },
+  "concepts": [
+    {
+      "term": "T-SQL",
+      "explanation": "Microsoft's flavor of SQL with procedural extensions."
+    },
+    {
+      "term": "Stored procedures",
+      "explanation": "Logic that runs inside the database."
+    },
+    {
+      "term": "SQL Server Management Studio",
+      "explanation": "The classic admin tool."
+    },
+    {
+      "term": "Editions",
+      "explanation": "Express, Developer, Standard and Enterprise."
+    },
+    {
+      "term": "Azure SQL",
+      "explanation": "The managed cloud version."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "T-SQL",
+      "language": "sql",
+      "code": "CREATE TABLE Orders (\n  Id         INT IDENTITY(1,1) PRIMARY KEY,\n  CustomerId INT NOT NULL,\n  Total      DECIMAL(10,2) NOT NULL,\n  CreatedAt  DATETIME2 DEFAULT SYSUTCDATETIME()\n);\n\nSELECT TOP 5 CustomerId, SUM(Total) AS LifetimeValue\nFROM Orders\nGROUP BY CustomerId\nORDER BY LifetimeValue DESC;"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "aspnet",
+      "reason": "Classic Microsoft pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "azure",
+      "reason": "Azure SQL Database",
+      "resolved": true
+    },
+    {
+      "toolId": "springboot",
+      "reason": "JDBC support",
+      "resolved": true
+    },
+    {
+      "toolId": "prisma",
+      "reason": "Supported connector",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Mature, fast and reliable",
+    "Excellent tooling",
+    "Strong enterprise features"
+  ],
+  "cons": [
+    "Licensing costs for production",
+    "Historically Windows-centric (now runs on Linux)",
+    "Less common in startups"
+  ],
+  "pricing": {
+    "summary": "Express edition is free (with size limits); Developer edition is free for non-production. Standard and Enterprise are licensed per core. Azure SQL is usage-based.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.microsoft.com/sql-server"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.microsoft.com/sql-server",
+    "docs": "https://learn.microsoft.com/sql/sql-server/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 30.1,
+    "admired": 44.9
+  }
+}

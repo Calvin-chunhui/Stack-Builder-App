@@ -1,0 +1,47 @@
+---
+id: backend
+name: "Backend"
+title: "Backend: the logic behind the scenes"
+blurb: "Business logic and APIs"
+order: 2
+optional: false
+multi: false
+color: "--be"
+place: "The kitchen"
+analogy: "Chefs take order tickets, follow recipes, grab ingredients and send out dishes. Customers never walk in, and they don't need to know how it works."
+zoneLabel: "Kitchen"
+zoneText: "Chefs follow recipes and rules. The backend receives requests, checks them, does the work and prepares a response."
+points:
+  - "It exposes an API: the menu of requests the frontend is allowed to make."
+  - "It keeps secrets such as payment keys safe."
+  - "Pick a language you know; every major language has solid frameworks."
+  - "Next.js, Nuxt and SvelteKit include a light backend, so a separate one is optional."
+terms:
+  - "server"
+  - "api"
+  - "rest"
+  - "json"
+  - "endpoint"
+  - "runtime"
+  - "framework"
+starters:
+  - toolId: "express"
+    why: "JavaScript, minimal"
+  - toolId: "django"
+    why: "Python, batteries included"
+  - toolId: "fastapi"
+    why: "Python APIs"
+flow:
+  - step: "Request arrives"
+    detail: "GET /orders"
+  - step: "Route is matched"
+    detail: "Which code handles it?"
+  - step: "Business logic runs"
+    detail: "Rules and checks"
+  - step: "Database is queried"
+    detail: "Read or write data"
+  - step: "Response is sent"
+    detail: "Usually JSON"
+---
+
+The backend runs on a computer you control, called a server. It receives requests from the frontend, applies the rules (Is this user allowed? Is the item in stock?), reads and writes the database, and sends back answers. Visitors never see it, which is why secret keys and sensitive logic live here.

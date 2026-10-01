@@ -1,0 +1,108 @@
+{
+  "id": "ansible",
+  "name": "Ansible",
+  "monogram": "An",
+  "layer": "devops",
+  "subtitle": "Configuration management and automation",
+  "tagline": "Configure servers as code",
+  "firstRelease": 2012,
+  "creator": "Michael DeHaan",
+  "maintainer": "Red Hat (acquired 2015)",
+  "version": {
+    "label": "ansible-core 2.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "GPLv3",
+  "learningCurve": "Moderate",
+  "description": "A tool that configures servers by describing the desired state in YAML playbooks: install these packages, copy these files, restart this service. It connects over SSH, so no agent software is needed on the servers.",
+  "useCases": [
+    "Setting up and patching servers",
+    "Deploying apps to virtual machines",
+    "Network device automation"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Python",
+    "youWrite": "YAML playbooks"
+  },
+  "concepts": [
+    {
+      "term": "Playbooks",
+      "explanation": "YAML files listing tasks."
+    },
+    {
+      "term": "Inventory",
+      "explanation": "The list of servers to manage."
+    },
+    {
+      "term": "Modules",
+      "explanation": "Reusable actions like apt or copy."
+    },
+    {
+      "term": "Idempotence",
+      "explanation": "Running twice gives the same result."
+    },
+    {
+      "term": "Roles",
+      "explanation": "Packaged, reusable configuration."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "YAML · playbook.yml",
+      "language": "yaml",
+      "code": "- name: Set up web servers\n  hosts: web\n  become: true\n  tasks:\n    - name: Install nginx\n      apt:\n        name: nginx\n        state: present\n    - name: Make sure nginx is running\n      service:\n        name: nginx\n        state: started"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "terraform",
+      "reason": "Terraform creates servers, Ansible configures them",
+      "resolved": true
+    },
+    {
+      "toolId": "digitalocean",
+      "reason": "Configure Droplets",
+      "resolved": true
+    },
+    {
+      "toolId": "aws",
+      "reason": "Configure EC2",
+      "resolved": true
+    },
+    {
+      "toolId": "jenkins",
+      "reason": "Run from pipelines",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Agentless, just SSH",
+    "Readable YAML",
+    "Huge module library"
+  ],
+  "cons": [
+    "Slower on large fleets",
+    "Less useful with serverless or PaaS",
+    "YAML logic gets awkward"
+  ],
+  "pricing": {
+    "summary": "Free and open source. Red Hat sells Ansible Automation Platform.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.ansible.com"
+  },
+  "flags": [
+    "Owned by Red Hat (IBM)"
+  ],
+  "links": {
+    "site": "https://www.ansible.com",
+    "docs": "https://docs.ansible.com"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 11.7,
+    "admired": 49.6
+  }
+}

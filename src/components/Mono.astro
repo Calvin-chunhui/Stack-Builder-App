@@ -1,0 +1,34 @@
+---
+/**
+ * The monogram tile that stands in for a logo.
+ *
+ * Monograms are the default on purpose: a logo file is only added where the
+ * vendor's brand page grants usage rights, which is why `logo` is optional in
+ * the schema.
+ */
+import { layerColor } from '../data/taxonomy';
+import type { LayerId } from '../engine/types';
+
+interface Props {
+  monogram: string;
+  layer: LayerId;
+  logo?: string | undefined;
+  name?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { monogram, layer, logo, name = '', size = 'md' } = Astro.props;
+const cls = ['mono', size === 'lg' ? 'lg' : '', size === 'sm' ? 'sm' : ''].filter(Boolean).join(' ');
+---
+
+{
+  logo ? (
+    <span class={cls} style={`--c:${layerColor(layer)}`}>
+      <img src={logo} alt={name ? `${name} logo` : ''} loading="lazy" decoding="async" />
+    </span>
+  ) : (
+    <span class={cls} style={`--c:${layerColor(layer)}`} aria-hidden="true">
+      {monogram}
+    </span>
+  )
+}

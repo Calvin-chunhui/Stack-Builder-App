@@ -1,0 +1,25 @@
+{
+  "id": "mean",
+  "name": "MEAN",
+  "parts": "MongoDB, Express, Angular, Node",
+  "stack": {
+    "frontend": "angular",
+    "mobile": null,
+    "backend": "express",
+    "auth": null,
+    "database": "mongodb",
+    "hosting": "railway",
+    "devops": [],
+    "addons": []
+  },
+  "origin": "An early all-JavaScript stack, named in a 2013 MongoDB blog post.",
+  "goodFor": "Teams standardized on Angular and JavaScript.",
+  "pros": [
+    "One language everywhere",
+    "Angular's structure for big teams"
+  ],
+  "cons": [
+    "Angular's steep learning curve",
+    "MongoDB's weak spots for relational data"
+  ]
+}

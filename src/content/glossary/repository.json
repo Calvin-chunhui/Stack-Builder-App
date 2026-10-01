@@ -1,0 +1,7 @@
+{
+  "id": "repository",
+  "term": "Repository (repo)",
+  "definition": "A project's folder of code plus its full history, often on GitHub.",
+  "like": "The restaurant's recipe binder.",
+  "layer": "devops"
+}

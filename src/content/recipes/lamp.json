@@ -1,0 +1,30 @@
+{
+  "id": "lamp",
+  "name": "LAMP",
+  "parts": "Linux, Apache, MySQL, PHP",
+  "stack": {
+    "frontend": null,
+    "mobile": null,
+    "backend": "laravel",
+    "auth": null,
+    "database": "mysql",
+    "hosting": "digitalocean",
+    "devops": [
+      "ansible"
+    ],
+    "addons": [
+      "bootstrap"
+    ]
+  },
+  "origin": "Term coined in 1998; it powered the early-2000s web and WordPress. Laravel is its modern PHP framework.",
+  "goodFor": "CMSs, classic PHP apps and Laravel.",
+  "pros": [
+    "Runs on almost any host",
+    "Cheap and battle-tested",
+    "Huge ecosystem"
+  ],
+  "cons": [
+    "Servers need patching and care",
+    "Scaling a monolith needs modern tooling"
+  ]
+}

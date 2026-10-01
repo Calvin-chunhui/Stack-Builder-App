@@ -1,0 +1,119 @@
+{
+  "id": "betterauth",
+  "name": "Better Auth",
+  "monogram": "Ba",
+  "layer": "auth",
+  "subtitle": "Open-source TypeScript auth framework",
+  "tagline": "Open source, runs in your app",
+  "firstRelease": 2024,
+  "creator": "Bereket Engida",
+  "maintainer": "Better Auth team (acquired by Vercel, Jul 2026)",
+  "version": {
+    "label": "1.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate",
+  "description": "A framework-agnostic authentication library for TypeScript that runs in your own app and stores users in your own database. A plugin system adds features such as two-factor auth, passkeys, organizations and magic links. It took over maintenance of Auth.js in 2025 and is its recommended successor.",
+  "useCases": [
+    "New Next.js, SvelteKit, Nuxt or Hono apps",
+    "Teams that want self-owned auth without per-user fees",
+    "Migrating off Auth.js"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "TypeScript"
+  },
+  "concepts": [
+    {
+      "term": "Server instance",
+      "explanation": "betterAuth() configures providers and storage."
+    },
+    {
+      "term": "Database adapters",
+      "explanation": "Works with Postgres, MySQL, SQLite, Prisma, Drizzle and Kysely."
+    },
+    {
+      "term": "Client",
+      "explanation": "createAuthClient() exposes sign-in and session helpers."
+    },
+    {
+      "term": "Plugins",
+      "explanation": "Opt-in 2FA, passkeys, organizations and more."
+    },
+    {
+      "term": "Framework handlers",
+      "explanation": "Mount the auth routes in your framework."
+    },
+    {
+      "term": "Sessions",
+      "explanation": "Database-backed sessions with cookie handling."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript · auth.ts",
+      "language": "ts",
+      "code": "import { betterAuth } from \"better-auth\";\nimport { Pool } from \"pg\";\n\nexport const auth = betterAuth({\n  database: new Pool({ connectionString: process.env.DATABASE_URL }),\n  emailAndPassword: { enabled: true },\n  socialProviders: {\n    github: {\n      clientId: process.env.GITHUB_CLIENT_ID!,\n      clientSecret: process.env.GITHUB_CLIENT_SECRET!,\n    },\n  },\n});"
+    },
+    {
+      "label": "TypeScript · client",
+      "language": "ts",
+      "code": "import { createAuthClient } from \"better-auth/react\";\n\nexport const authClient = createAuthClient();\n\n// In a component:\nawait authClient.signIn.social({ provider: \"github\" });"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "First-class integration",
+      "resolved": true
+    },
+    {
+      "toolId": "svelte",
+      "reason": "SvelteKit integration",
+      "resolved": true
+    },
+    {
+      "toolId": "nuxt",
+      "reason": "Nuxt integration",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Stores users and sessions",
+      "resolved": true
+    },
+    {
+      "toolId": "Drizzle or Prisma",
+      "reason": "Adapters",
+      "resolved": false
+    }
+  ],
+  "pros": [
+    "Free and self-owned",
+    "Plugins cover features that cost extra elsewhere",
+    "Framework-agnostic",
+    "Active development with Vercel backing"
+  ],
+  "cons": [
+    "You run and secure it yourself",
+    "Younger project than Auth0 or Keycloak",
+    "No hosted dashboard like Clerk",
+    "Some worry about Vercel influence over its roadmap"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://better-auth.com"
+  },
+  "flags": [
+    "Owned by Vercel since Jul 2026"
+  ],
+  "links": {
+    "site": "https://better-auth.com",
+    "docs": "https://better-auth.com/docs"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "reactrouter",
+  "name": "React Router (Remix)",
+  "monogram": "RR",
+  "layer": "frontend",
+  "subtitle": "React framework (Remix merged into React Router v7)",
+  "tagline": "Web-standards React framework",
+  "firstRelease": 2014,
+  "creator": "Michael Jackson and Ryan Florence",
+  "maintainer": "Remix team at Shopify",
+  "version": {
+    "label": "v7 (framework mode)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate",
+  "description": "The most widely used React routing library, which in v7 absorbed the Remix framework. In framework mode it adds server rendering, data loaders and form actions built on web standards like Request, Response and HTML forms.",
+  "useCases": [
+    "Full-stack React apps",
+    "Apps that lean on forms and progressive enhancement",
+    "Shopify storefronts (Hydrogen)"
+  ],
+  "notableUsers": [
+    {
+      "name": "Shopify"
+    }
+  ],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "TypeScript or JavaScript with JSX"
+  },
+  "concepts": [
+    {
+      "term": "Routes",
+      "explanation": "URL segments mapped to components."
+    },
+    {
+      "term": "Loaders",
+      "explanation": "Server functions that fetch data before render."
+    },
+    {
+      "term": "Actions",
+      "explanation": "Server functions that handle form submissions."
+    },
+    {
+      "term": "Nested routes",
+      "explanation": "Layouts that wrap child routes."
+    },
+    {
+      "term": "Progressive enhancement",
+      "explanation": "Forms work even before JavaScript loads."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TSX · app/routes/products.tsx",
+      "language": "tsx",
+      "code": "import type { Route } from \"./+types/products\";\n\n// Runs on the server before the page renders\nexport async function loader() {\n  const res = await fetch(\"https://api.example.com/products\");\n  return { products: await res.json() };\n}\n\nexport default function Products({ loaderData }: Route.ComponentProps) {\n  return <ul>{loaderData.products.map((p) => <li key={p.id}>{p.name}</li>)}</ul>;\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "react",
+      "reason": "Built on React",
+      "resolved": true
+    },
+    {
+      "toolId": "vercel",
+      "reason": "Deploy adapter",
+      "resolved": true
+    },
+    {
+      "toolId": "cloudflare",
+      "reason": "Runs on Workers",
+      "resolved": true
+    },
+    {
+      "toolId": "prisma",
+      "reason": "Database access in loaders",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Leans on web standards you already know",
+    "Excellent form handling",
+    "Deploys to many platforms",
+    "Huge existing React Router user base"
+  ],
+  "cons": [
+    "Remix rebranding confused the community",
+    "Smaller ecosystem than Next.js",
+    "Two modes (library and framework) to understand"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://reactrouter.com"
+  },
+  "flags": [
+    "Remix merged into React Router"
+  ],
+  "links": {
+    "site": "https://reactrouter.com",
+    "docs": "https://reactrouter.com/home"
+  }
+}

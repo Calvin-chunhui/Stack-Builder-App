@@ -1,0 +1,103 @@
+{
+  "id": "digitalocean",
+  "name": "DigitalOcean",
+  "monogram": "DO",
+  "layer": "hosting",
+  "subtitle": "Developer-friendly cloud (Droplets and App Platform)",
+  "tagline": "Simple cloud servers",
+  "firstRelease": 2011,
+  "creator": "Ben and Moisey Uretsky",
+  "maintainer": "DigitalOcean Holdings",
+  "version": {
+    "label": "Hosted platform",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy to moderate",
+  "description": "A cloud known for simple pricing and clear tutorials. Droplets are virtual servers you control; App Platform deploys from Git like a PaaS; managed databases and Kubernetes are available too.",
+  "useCases": [
+    "Small businesses and startups",
+    "Learning Linux servers",
+    "LAMP and WordPress",
+    "Simple managed Kubernetes"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "Anything on a Droplet; App Platform detects most languages"
+  },
+  "concepts": [
+    {
+      "term": "Droplets",
+      "explanation": "Virtual servers billed by the hour."
+    },
+    {
+      "term": "App Platform",
+      "explanation": "Git-based PaaS deploys."
+    },
+    {
+      "term": "Managed Databases",
+      "explanation": "Postgres, MySQL, Valkey and MongoDB."
+    },
+    {
+      "term": "Spaces",
+      "explanation": "S3-compatible file storage."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "YAML · App Platform spec",
+      "language": "yaml",
+      "code": "name: my-app\nservices:\n  - name: web\n    github:\n      repo: acme/my-app\n      branch: main\n    build_command: npm run build\n    run_command: npm start\n    http_port: 3000\ndatabases:\n  - name: db\n    engine: PG"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "laravel",
+      "reason": "Popular on Droplets",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Container deploys",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Managed databases",
+      "resolved": true
+    },
+    {
+      "toolId": "terraform",
+      "reason": "Official provider",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Predictable, low pricing",
+    "Famous tutorials",
+    "Simpler than big clouds"
+  ],
+  "cons": [
+    "Fewer services than AWS",
+    "Droplets need server administration",
+    "Fewer regions"
+  ],
+  "pricing": {
+    "summary": "Basic Droplets (virtual servers) from $4/mo. App Platform includes free static sites. New accounts often get $200 credit for 60 days.",
+    "freeTier": false,
+    "entryMonthly": 4,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.digitalocean.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.digitalocean.com",
+    "docs": "https://docs.digitalocean.com"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 10.7,
+    "admired": 46.9
+  }
+}

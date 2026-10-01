@@ -1,0 +1,33 @@
+---
+/**
+ * Boxes and arrows showing how a layer works, step by step.
+ * Wraps to a vertical stack on small screens.
+ */
+import { layerColor } from '../data/taxonomy';
+import type { LayerId } from '../engine/types';
+
+interface Props {
+  steps: { step: string; detail: string }[];
+  layer?: LayerId;
+}
+
+const { steps, layer } = Astro.props;
+---
+
+<ol class="flow" style={`--c:${layer ? layerColor(layer) : 'var(--text)'}`}>
+  {
+    steps.map((s, i) => (
+      <li>
+        <span class="flow-box">
+          <strong>{s.step}</strong>
+          <small>{s.detail}</small>
+        </span>
+        {i < steps.length - 1 && (
+          <span class="flow-arrow" aria-hidden="true">
+            &rarr;
+          </span>
+        )}
+      </li>
+    ))
+  }
+</ol>

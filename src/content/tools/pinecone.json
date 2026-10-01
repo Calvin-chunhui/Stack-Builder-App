@@ -1,0 +1,98 @@
+{
+  "id": "pinecone",
+  "name": "Pinecone",
+  "monogram": "Pn",
+  "layer": "addons",
+  "category": "ai",
+  "subtitle": "Managed vector database",
+  "tagline": "Store AI embeddings",
+  "firstRelease": 2019,
+  "creator": "Edo Liberty",
+  "maintainer": "Pinecone Systems, Inc.",
+  "version": {
+    "label": "Hosted service (serverless)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy",
+  "description": "A database built for embeddings, the lists of numbers AI models use to represent meaning. It finds the most similar items quickly, which powers semantic search and chat over documents.",
+  "useCases": [
+    "Semantic search",
+    "RAG chatbots",
+    "Recommendations"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "SDKs for Python, TypeScript, Java, Go and .NET"
+  },
+  "concepts": [
+    {
+      "term": "Embeddings",
+      "explanation": "Numbers that represent meaning."
+    },
+    {
+      "term": "Similarity search",
+      "explanation": "Find nearest vectors."
+    },
+    {
+      "term": "Namespaces",
+      "explanation": "Partition data per tenant."
+    },
+    {
+      "term": "Metadata filters",
+      "explanation": "Combine meaning with filters."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Python",
+      "language": "python",
+      "code": "from pinecone import Pinecone\n\npc = Pinecone(api_key=\"YOUR_API_KEY\")\nindex = pc.Index(\"docs\")\n\nindex.upsert(vectors=[{\"id\": \"doc-1\", \"values\": embedding, \"metadata\": {\"title\": \"Refunds\"}}])\n\nresults = index.query(vector=question_embedding, top_k=3, include_metadata=True)\nfor match in results.matches:\n    print(match.metadata[\"title\"], match.score)"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "openai",
+      "reason": "Create embeddings",
+      "resolved": true
+    },
+    {
+      "toolId": "langchain",
+      "reason": "Vector store integration",
+      "resolved": true
+    },
+    {
+      "toolId": "fastapi",
+      "reason": "Search APIs",
+      "resolved": true
+    },
+    {
+      "toolId": "aisdk",
+      "reason": "RAG in TypeScript",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "No infrastructure to run",
+    "Fast at scale",
+    "Simple API"
+  ],
+  "cons": [
+    "Another paid service",
+    "Postgres with pgvector may be enough",
+    "Proprietary"
+  ],
+  "pricing": {
+    "summary": "Free Starter plan. Paid plans are usage-based with monthly minimums.",
+    "freeTier": true,
+    "entryMonthly": null,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.pinecone.io"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.pinecone.io",
+    "docs": "https://docs.pinecone.io"
+  }
+}

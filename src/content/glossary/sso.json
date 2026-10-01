@@ -1,0 +1,7 @@
+{
+  "id": "sso",
+  "term": "Single sign-on (SSO)",
+  "definition": "One login that gives access to many apps, common in companies.",
+  "like": "One staff badge that opens every door.",
+  "layer": "auth"
+}

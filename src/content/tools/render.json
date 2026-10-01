@@ -1,0 +1,117 @@
+{
+  "id": "render",
+  "name": "Render",
+  "monogram": "Rn",
+  "layer": "hosting",
+  "subtitle": "Unified PaaS (Heroku-style)",
+  "tagline": "Simple full-stack hosting",
+  "firstRelease": 2019,
+  "creator": "Anurag Goel",
+  "maintainer": "Render Services, Inc.",
+  "version": {
+    "label": "Hosted platform",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy",
+  "description": "Git-based deploys for web services, static sites, background workers, cron jobs, managed Postgres and Redis-compatible Key Value, with infrastructure as code through Blueprints.",
+  "useCases": [
+    "Full-stack apps with a server, database and workers",
+    "Teams moving off Heroku",
+    "Django, Rails, Node and FastAPI apps"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "Node, Python, Ruby, Go, Rust, Elixir or Docker; config in render.yaml"
+  },
+  "concepts": [
+    {
+      "term": "Services",
+      "explanation": "Web, worker, cron and static site types."
+    },
+    {
+      "term": "Blueprints",
+      "explanation": "render.yaml describes your whole setup."
+    },
+    {
+      "term": "Auto-deploy",
+      "explanation": "Deploy on every push."
+    },
+    {
+      "term": "Managed Postgres",
+      "explanation": "Databases next to your services."
+    },
+    {
+      "term": "Preview environments",
+      "explanation": "Temporary copies for pull requests."
+    },
+    {
+      "term": "Zero-downtime deploys",
+      "explanation": "Health checks before switching traffic."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "YAML · render.yaml",
+      "language": "yaml",
+      "code": "services:\n  - type: web\n    name: api\n    runtime: node\n    buildCommand: npm ci && npm run build\n    startCommand: npm start\n    envVars:\n      - key: DATABASE_URL\n        fromDatabase:\n          name: main-db\n          property: connectionString\ndatabases:\n  - name: main-db"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "django",
+      "reason": "Classic Django hosting",
+      "resolved": true
+    },
+    {
+      "toolId": "rails",
+      "reason": "Managed Rails hosting",
+      "resolved": true
+    },
+    {
+      "toolId": "express",
+      "reason": "Always-on Node APIs",
+      "resolved": true
+    },
+    {
+      "toolId": "fastapi",
+      "reason": "Python APIs",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Managed Postgres",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Deploy any image",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Simple and predictable",
+    "Runs servers, workers and cron",
+    "Managed Postgres",
+    "Good docs"
+  ],
+  "cons": [
+    "Free services sleep and cold-start",
+    "Fewer regions than big clouds",
+    "Little edge capability",
+    "Costs rise with instance size"
+  ],
+  "pricing": {
+    "summary": "Hobby workspace: $0 plus compute. Pro workspace: $25/mo. Web services from $7/mo (Starter); free instances sleep after 15 minutes idle. Postgres from $6/mo.",
+    "freeTier": true,
+    "entryMonthly": 7,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://render.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://render.com",
+    "docs": "https://render.com/docs"
+  }
+}

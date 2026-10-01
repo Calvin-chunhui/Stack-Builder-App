@@ -1,0 +1,28 @@
+{
+  "id": "mobile-firebase",
+  "name": "Flutter + Firebase",
+  "parts": "Flutter, Firebase Auth, Firestore",
+  "stack": {
+    "frontend": null,
+    "mobile": "flutter",
+    "backend": null,
+    "auth": "firebaseauth",
+    "database": "firestore",
+    "hosting": "gcp",
+    "devops": [
+      "gha"
+    ],
+    "addons": []
+  },
+  "origin": "Google's own recommended pairing for cross-platform apps.",
+  "goodFor": "Realtime, offline-capable mobile apps.",
+  "pros": [
+    "Official plugins for everything",
+    "Realtime and offline built in",
+    "Generous free tier"
+  ],
+  "cons": [
+    "Google lock-in",
+    "Firestore's per-read pricing needs watching"
+  ]
+}

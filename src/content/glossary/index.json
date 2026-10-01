@@ -1,0 +1,7 @@
+{
+  "id": "index",
+  "term": "Index",
+  "definition": "A lookup structure that makes finding data much faster.",
+  "like": "The labels on pantry shelves.",
+  "layer": "database"
+}

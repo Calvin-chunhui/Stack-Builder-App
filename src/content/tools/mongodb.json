@@ -1,0 +1,130 @@
+{
+  "id": "mongodb",
+  "name": "MongoDB",
+  "monogram": "Mg",
+  "layer": "database",
+  "subtitle": "Document database (NoSQL)",
+  "tagline": "Flexible documents",
+  "firstRelease": 2009,
+  "creator": "10gen (Dwight Merriman, Eliot Horowitz, Kevin Ryan)",
+  "maintainer": "MongoDB, Inc.",
+  "version": {
+    "label": "8.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "SSPL (source-available)",
+  "learningCurve": "Easy",
+  "description": "Stores data as flexible JSON-like documents in collections, with no fixed schema required. It offers rich queries, secondary indexes, an aggregation pipeline, multi-document transactions and horizontal sharding. Atlas, its managed cloud, adds search and vector search.",
+  "useCases": [
+    "Content and catalogs",
+    "IoT and event data",
+    "Prototypes with evolving schemas",
+    "MERN and MEAN apps"
+  ],
+  "notableUsers": [
+    {
+      "name": "eBay"
+    },
+    {
+      "name": "Adobe"
+    },
+    {
+      "name": "Toyota"
+    }
+  ],
+  "languages": {
+    "written": "C++",
+    "youWrite": "MongoDB Query Language through drivers, often with Mongoose"
+  },
+  "concepts": [
+    {
+      "term": "Documents and collections",
+      "explanation": "JSON-like records grouped together."
+    },
+    {
+      "term": "BSON",
+      "explanation": "The binary format documents are stored in."
+    },
+    {
+      "term": "Flexible schema",
+      "explanation": "Optional validation instead of fixed columns."
+    },
+    {
+      "term": "Query operators",
+      "explanation": "$set, $in, $gt and friends."
+    },
+    {
+      "term": "Aggregation pipeline",
+      "explanation": "Stage-by-stage data transformation."
+    },
+    {
+      "term": "Replica sets and sharding",
+      "explanation": "High availability and horizontal scale."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "MongoDB shell",
+      "language": "js",
+      "code": "db.users.insertOne({ name: \"Ada\", tags: [\"admin\"], address: { city: \"London\" } });\n\ndb.users.find({ \"address.city\": \"London\", tags: \"admin\" }).sort({ name: 1 }).limit(10);\n\ndb.orders.aggregate([\n  { $match: { status: \"paid\" } },\n  { $group: { _id: \"$customerId\", total: { $sum: \"$amount\" } } },\n]);"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "express",
+      "reason": "MERN and MEAN stacks",
+      "resolved": true
+    },
+    {
+      "toolId": "node",
+      "reason": "Natural JSON fit",
+      "resolved": true
+    },
+    {
+      "toolId": "Mongoose",
+      "reason": "Schemas for Node",
+      "resolved": false
+    },
+    {
+      "toolId": "nestjs",
+      "reason": "Official module",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "Common full-stack pairing",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Flexible schema speeds early iteration",
+    "Natural fit for JavaScript apps",
+    "Horizontal scaling",
+    "Atlas is feature-rich"
+  ],
+  "cons": [
+    "Not OSI open source (SSPL)",
+    "Relational data and joins are awkward",
+    "Schema discipline moves into app code",
+    "Atlas costs can climb"
+  ],
+  "pricing": {
+    "summary": "Atlas: free M0 cluster (512 MB). Flex: $8 to $30/mo, capped. Dedicated from about $0.08/hr (about $57/mo for M10).",
+    "freeTier": true,
+    "entryMonthly": 8,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.mongodb.com"
+  },
+  "flags": [
+    "Source-available (SSPL)"
+  ],
+  "links": {
+    "site": "https://www.mongodb.com",
+    "docs": "https://www.mongodb.com/docs/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 24,
+    "admired": 45.7
+  }
+}

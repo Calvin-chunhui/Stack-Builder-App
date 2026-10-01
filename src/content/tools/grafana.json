@@ -1,0 +1,98 @@
+{
+  "id": "grafana",
+  "name": "Grafana",
+  "monogram": "Gf",
+  "layer": "addons",
+  "category": "monitoring",
+  "subtitle": "Dashboards and visualization",
+  "tagline": "Dashboards for any data",
+  "firstRelease": 2014,
+  "creator": "Torkel Ödegaard",
+  "maintainer": "Grafana Labs",
+  "version": {
+    "label": "12.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "AGPLv3",
+  "learningCurve": "Easy to moderate",
+  "description": "A tool for building dashboards from many data sources such as Prometheus, Postgres, Elasticsearch and cloud services. Grafana Labs also offers Loki for logs and Tempo for traces.",
+  "useCases": [
+    "Operations dashboards",
+    "Business metrics",
+    "Visualizing Prometheus data"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Go and TypeScript",
+    "youWrite": "Point-and-click dashboards, plus data-source queries"
+  },
+  "concepts": [
+    {
+      "term": "Data sources",
+      "explanation": "Where the numbers come from."
+    },
+    {
+      "term": "Panels",
+      "explanation": "Charts, tables and gauges."
+    },
+    {
+      "term": "Alerts",
+      "explanation": "Notify on thresholds."
+    },
+    {
+      "term": "LGTM stack",
+      "explanation": "Loki, Grafana, Tempo and Mimir."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "PromQL · a Grafana panel query",
+      "language": "text",
+      "code": "# Panel: 95th percentile response time per route\nhistogram_quantile(\n  0.95,\n  sum(rate(http_request_duration_seconds_bucket[5m])) by (le, route)\n)"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "prometheus",
+      "reason": "Classic pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Query business data",
+      "resolved": true
+    },
+    {
+      "toolId": "elasticsearch",
+      "reason": "Log dashboards",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "Cluster dashboards",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Works with almost any data source",
+    "Beautiful dashboards",
+    "Free core"
+  ],
+  "cons": [
+    "Dashboards take effort to design well",
+    "AGPL license matters if you embed it",
+    "Self-hosting adds work"
+  ],
+  "pricing": {
+    "summary": "Free to self-host. Grafana Cloud has a free tier and usage-based paid plans.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://grafana.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://grafana.com",
+    "docs": "https://grafana.com/docs/"
+  }
+}

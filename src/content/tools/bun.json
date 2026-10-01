@@ -1,0 +1,114 @@
+{
+  "id": "bun",
+  "name": "Bun",
+  "monogram": "Bu",
+  "layer": "backend",
+  "subtitle": "All-in-one JavaScript runtime and toolkit",
+  "tagline": "Faster Node alternative",
+  "firstRelease": 2022,
+  "creator": "Jarred Sumner",
+  "maintainer": "Bun team at Anthropic (acquired Dec 2025)",
+  "version": {
+    "label": "1.3 (Oct 2025)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy to moderate",
+  "description": "A JavaScript and TypeScript runtime that aims to replace Node.js, bundling a package manager, bundler and test runner in one fast tool. It is written in Zig on Apple's JavaScriptCore engine and runs most Node code unchanged.",
+  "useCases": [
+    "Faster installs and scripts",
+    "APIs and servers",
+    "Running TypeScript directly",
+    "Replacing several JS tools with one"
+  ],
+  "notableUsers": [
+    {
+      "name": "Anthropic (Claude Code)"
+    }
+  ],
+  "languages": {
+    "written": "Zig and C++ (JavaScriptCore)",
+    "youWrite": "JavaScript or TypeScript"
+  },
+  "concepts": [
+    {
+      "term": "Runtime",
+      "explanation": "Runs JS and TS files directly."
+    },
+    {
+      "term": "bun install",
+      "explanation": "A very fast package manager."
+    },
+    {
+      "term": "Bun.serve",
+      "explanation": "Built-in HTTP server."
+    },
+    {
+      "term": "bun test",
+      "explanation": "Built-in test runner."
+    },
+    {
+      "term": "Node compatibility",
+      "explanation": "Most npm packages just work."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript · server.ts",
+      "language": "ts",
+      "code": "// Run with: bun server.ts  (no build step for TypeScript)\nBun.serve({\n  port: 3000,\n  fetch(req) {\n    const url = new URL(req.url);\n    if (url.pathname === \"/api/time\") return Response.json({ now: Date.now() });\n    return new Response(\"Hello from Bun\");\n  },\n});"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "hono",
+      "reason": "Lightweight APIs",
+      "resolved": true
+    },
+    {
+      "toolId": "drizzle",
+      "reason": "Works natively",
+      "resolved": true
+    },
+    {
+      "toolId": "sqlite",
+      "reason": "Built-in bun:sqlite",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Official images",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Much faster installs and startup",
+    "One tool instead of four",
+    "Runs TypeScript without setup",
+    "Strong backing"
+  ],
+  "cons": [
+    "Some Node APIs still differ",
+    "Fewer hosts support it natively than Node",
+    "Younger and changing quickly"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://bun.sh"
+  },
+  "flags": [
+    "Owned by Anthropic since Dec 2025"
+  ],
+  "links": {
+    "site": "https://bun.sh",
+    "docs": "https://bun.sh/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 5.5,
+    "admired": 55.8
+  }
+}

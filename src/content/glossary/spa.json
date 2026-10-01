@@ -1,0 +1,7 @@
+{
+  "id": "spa",
+  "term": "Single-page app (SPA)",
+  "definition": "A web app that loads once and then updates the screen with JavaScript instead of loading new pages.",
+  "like": "The waiter brings courses to your table instead of moving you to a new room each time.",
+  "layer": "frontend"
+}

@@ -1,0 +1,114 @@
+{
+  "id": "firestore",
+  "name": "Firebase Firestore",
+  "monogram": "Fs",
+  "layer": "database",
+  "subtitle": "Managed NoSQL document database",
+  "tagline": "Real-time sync",
+  "firstRelease": 2017,
+  "creator": "Firebase team at Google",
+  "maintainer": "Google",
+  "version": {
+    "label": "Hosted service (GA 2019)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy",
+  "description": "A document database with realtime listeners, offline sync on mobile and web, automatic scaling, and Security Rules that control access directly from the client. It is the successor to the original Firebase Realtime Database.",
+  "useCases": [
+    "Mobile apps",
+    "Chat and collaboration",
+    "Prototypes",
+    "Offline-capable apps"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "SDK calls in JS/TS, Swift, Kotlin or Dart, plus the Security Rules language"
+  },
+  "concepts": [
+    {
+      "term": "Documents and collections",
+      "explanation": "Nested subcollections instead of tables."
+    },
+    {
+      "term": "Realtime listeners",
+      "explanation": "onSnapshot pushes changes as they happen."
+    },
+    {
+      "term": "Composite indexes",
+      "explanation": "Required for multi-field queries."
+    },
+    {
+      "term": "Security Rules",
+      "explanation": "Access control evaluated per request."
+    },
+    {
+      "term": "Denormalization",
+      "explanation": "Duplicate data because there are no joins."
+    },
+    {
+      "term": "Offline persistence",
+      "explanation": "Reads and writes work without a connection."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JavaScript",
+      "language": "js",
+      "code": "import { getFirestore, collection, addDoc, query, where, onSnapshot } from \"firebase/firestore\";\n\nconst db = getFirestore(app);\nawait addDoc(collection(db, \"messages\"), {\n  text: \"hi\", uid: auth.currentUser.uid, createdAt: Date.now(),\n});\n\nconst q = query(collection(db, \"messages\"), where(\"uid\", \"==\", auth.currentUser.uid));\nonSnapshot(q, (snap) => snap.forEach((doc) => console.log(doc.data())));"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "firebaseauth",
+      "reason": "Security Rules read request.auth",
+      "resolved": true
+    },
+    {
+      "toolId": "gcp",
+      "reason": "Cloud Functions and Cloud Run",
+      "resolved": true
+    },
+    {
+      "toolId": "angular",
+      "reason": "AngularFire",
+      "resolved": true
+    },
+    {
+      "toolId": "Flutter",
+      "reason": "Mobile SDK",
+      "resolved": false
+    }
+  ],
+  "pros": [
+    "Realtime and offline out of the box",
+    "No servers to run",
+    "Tight integration with Firebase Auth",
+    "Scales automatically"
+  ],
+  "cons": [
+    "No joins and limited queries",
+    "Costs per read and write can spike",
+    "Strong Google lock-in",
+    "Complex data needs a SQL database"
+  ],
+  "pricing": {
+    "summary": "Spark plan: free daily quotas. Blaze plan: pay per read, write and GB stored.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://firebase.google.com/products/firestore"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://firebase.google.com/products/firestore",
+    "docs": "https://firebase.google.com/docs/firestore"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "Cloud Firestore",
+    "used": 5.7,
+    "admired": 40.1
+  }
+}

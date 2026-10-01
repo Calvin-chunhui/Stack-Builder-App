@@ -1,0 +1,135 @@
+---
+/**
+ * Every term in plain language, with an everyday comparison.
+ *
+ * Filtering is links rather than JavaScript (?layer=auth), so each view is a
+ * real URL that search engines can index.
+ */
+import Base from '../layouts/Base.astro';
+import { TERMS, groupByLetter } from '../lib/glossary';
+import { LAYERS, layerColor, layerName } from '../data/taxonomy';
+
+export const prerender = true;
+
+const filter = 'all';
+const letters = groupByLetter(TERMS);
+---
+
+<Base
+  title="Glossary"
+  description={`${TERMS.length} technical terms explained in plain language, each with an everyday comparison.`}
+  section="learn"
+>
+  <div class="gloss" data-pagefind-body>
+    <div class="lib-intro">
+      <h1>Glossary</h1>
+      <p>
+        Every term in plain language, with an everyday comparison. {TERMS.length} terms.
+      </p>
+    </div>
+
+    <div class="gloss-controls">
+      <label class="search gloss-search">
+        <span class="sr-only">Search terms</span>
+        <input type="search" id="glossSearch" placeholder="Search terms" autocomplete="off" />
+      </label>
+      <div class="chips" role="group" aria-label="Filter by layer">
+        <button class="chip" data-gl="all" aria-pressed={filter === 'all'}>All</button>
+        <button class="chip" data-gl="general" aria-pressed="false">General</button>
+        {
+          LAYERS.map((L) => (
+            <button
+              class="chip"
+              data-gl={L.id}
+              aria-pressed="false"
+              style={`--c:${layerColor(L.id)}`}
+            >
+              {L.name}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    <div id="glossResults">
+      {
+        letters.map(([letter, terms]) => (
+          <section class="gloss-letter" data-letter={letter}>
+            <h2>{letter}</h2>
+            <dl>
+              {terms.map((t) => (
+                <div
+                  class="gloss-item"
+                  id={`g-${t.id}`}
+                  data-layer={t.layer ?? 'general'}
+                  data-search={`${t.term} ${t.definition} ${t.like ?? ''}`.toLowerCase()}
+                >
+                  <dt>
+                    {t.term}
+                    {t.layer && (
+                      <a class="pill layer" href={`/library/${t.layer}`} style={`--c:${layerColor(t.layer)}`}>
+                        {layerName(t.layer)}
+                      </a>
+                    )}
+                  </dt>
+                  <dd>
+                    {t.definition}
+                    {t.like && (
+                      <span class="gloss-like">
+                        Like {t.like.charAt(0).toLowerCase() + t.like.slice(1)}
+                      </span>
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ))
+      }
+    </div>
+    <p class="no-match" id="glossEmpty" hidden>No terms match your search.</p>
+  </div>
+</Base>
+
+<script>
+  // Progressive enhancement: all 80 terms are already in the HTML. This only
+  // hides the ones that do not match, so the page works without JavaScript.
+  const search = document.getElementById('glossSearch') as HTMLInputElement | null;
+  const chips = [...document.querySelectorAll<HTMLElement>('[data-gl]')];
+  const items = [...document.querySelectorAll<HTMLElement>('.gloss-item')];
+  const sections = [...document.querySelectorAll<HTMLElement>('.gloss-letter')];
+  const empty = document.getElementById('glossEmpty');
+
+  let layer = 'all';
+
+  function apply() {
+    const q = (search?.value ?? '').trim().toLowerCase();
+    let shown = 0;
+
+    for (const item of items) {
+      const matchesLayer = layer === 'all' || item.dataset.layer === layer;
+      const matchesQuery = !q || (item.dataset.search ?? '').includes(q);
+      const show = matchesLayer && matchesQuery;
+      item.hidden = !show;
+      if (show) shown++;
+    }
+
+    // Hide a letter heading once every term under it is filtered out.
+    for (const section of sections) {
+      const any = [...section.querySelectorAll<HTMLElement>('.gloss-item')].some((i) => !i.hidden);
+      section.hidden = !any;
+    }
+
+    if (empty) empty.hidden = shown > 0;
+  }
+
+  search?.addEventListener('input', apply);
+
+  for (const chip of chips) {
+    chip.addEventListener('click', () => {
+      layer = chip.dataset.gl!;
+      for (const c of chips) c.setAttribute('aria-pressed', String(c === chip));
+      apply();
+    });
+  }
+</script>

@@ -1,0 +1,7 @@
+{
+  "id": "backend-term",
+  "term": "Backend",
+  "definition": "The server-side part of an app that handles logic, data and security.",
+  "like": "The kitchen.",
+  "layer": "backend"
+}

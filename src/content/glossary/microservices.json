@@ -1,0 +1,7 @@
+{
+  "id": "microservices",
+  "term": "Microservices",
+  "definition": "An app split into many small services that talk to each other.",
+  "like": "Separate stations for pastry, grill and salads.",
+  "layer": null
+}

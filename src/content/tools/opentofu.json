@@ -1,0 +1,99 @@
+{
+  "id": "opentofu",
+  "name": "OpenTofu",
+  "monogram": "OT",
+  "layer": "devops",
+  "subtitle": "Open-source infrastructure as code (Terraform fork)",
+  "tagline": "Open-source Terraform",
+  "firstRelease": 2023,
+  "creator": "Community fork of Terraform 1.5",
+  "maintainer": "Linux Foundation (CNCF project since 2025)",
+  "version": {
+    "label": "1.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MPL-2.0",
+  "learningCurve": "Moderate",
+  "description": "A community fork created when HashiCorp moved Terraform to a non-open-source license in 2023. It keeps the same HCL language and works with the same providers, and has added features such as encrypted state.",
+  "useCases": [
+    "Infrastructure as code with an open license",
+    "Replacing Terraform without rewriting",
+    "Vendors embedding IaC in products"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Go",
+    "youWrite": "HCL"
+  },
+  "concepts": [
+    {
+      "term": "Drop-in compatibility",
+      "explanation": "Most Terraform code runs unchanged."
+    },
+    {
+      "term": "Providers",
+      "explanation": "Same plugins as Terraform."
+    },
+    {
+      "term": "State encryption",
+      "explanation": "Protect secrets in state files."
+    },
+    {
+      "term": "Plan and apply",
+      "explanation": "Preview, then change."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "HCL",
+      "language": "hcl",
+      "code": "terraform {\n  required_providers {\n    aws = { source = \"hashicorp/aws\" }\n  }\n}\n\nresource \"aws_s3_bucket\" \"assets\" {\n  bucket = \"my-app-assets-2026\"\n}\n# Run: tofu init && tofu plan && tofu apply"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "terraform",
+      "reason": "Its origin",
+      "resolved": true
+    },
+    {
+      "toolId": "aws",
+      "reason": "Provision resources",
+      "resolved": true
+    },
+    {
+      "toolId": "gha",
+      "reason": "Plan on PR",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "Provision clusters",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Truly open source",
+    "Compatible with Terraform",
+    "Community governance"
+  ],
+  "cons": [
+    "Ecosystem tooling still catching up",
+    "Paths slowly diverge from Terraform",
+    "Less commercial support"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://opentofu.org"
+  },
+  "flags": [
+    "Linux Foundation project"
+  ],
+  "links": {
+    "site": "https://opentofu.org",
+    "docs": "https://opentofu.org/docs/"
+  }
+}

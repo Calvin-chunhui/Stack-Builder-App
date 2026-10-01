@@ -1,0 +1,94 @@
+{
+  "id": "paddle",
+  "name": "Paddle",
+  "monogram": "Pd",
+  "layer": "addons",
+  "category": "payments",
+  "subtitle": "Merchant of record for software",
+  "tagline": "Payments with tax handled",
+  "firstRelease": 2012,
+  "creator": "Christian Owens and Harrison Rose",
+  "maintainer": "Paddle.com Market Ltd",
+  "version": {
+    "label": "Paddle Billing",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy to moderate",
+  "description": "Paddle acts as the legal seller of your software, so it calculates, collects and files sales tax and VAT worldwide for you. You get checkout, subscriptions and invoicing in one fee.",
+  "useCases": [
+    "SaaS selling globally",
+    "Indie software makers",
+    "Teams avoiding tax registration"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "Paddle.js on the frontend plus API or SDKs on the server"
+  },
+  "concepts": [
+    {
+      "term": "Merchant of record",
+      "explanation": "Paddle is the seller on the receipt."
+    },
+    {
+      "term": "Paddle.js checkout",
+      "explanation": "Overlay or inline checkout."
+    },
+    {
+      "term": "Webhooks",
+      "explanation": "Subscription events to your server."
+    },
+    {
+      "term": "Tax remittance",
+      "explanation": "Paddle files taxes for you."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "HTML + JavaScript · Paddle.js",
+      "language": "html",
+      "code": "<script src=\"https://cdn.paddle.com/paddle/v2/paddle.js\"></script>\n<script>\n  Paddle.Initialize({ token: \"live_client_side_token\" });\n  function buy() {\n    Paddle.Checkout.open({ items: [{ priceId: \"pri_123\", quantity: 1 }] });\n  }\n</script>\n<button onclick=\"buy()\">Subscribe</button>"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "SaaS apps",
+      "resolved": true
+    },
+    {
+      "toolId": "supabase",
+      "reason": "Store subscription status",
+      "resolved": true
+    },
+    {
+      "toolId": "laravel",
+      "reason": "Laravel Cashier support",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Global tax compliance handled",
+    "One fee covers a lot",
+    "Fewer back-office tools needed"
+  ],
+  "cons": [
+    "Higher fee than Stripe's base rate",
+    "Software and digital goods only",
+    "Less flexible checkout"
+  ],
+  "pricing": {
+    "summary": "No monthly fee. 5% + 50¢ per transaction, which includes sales tax and VAT handling.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "usageFee": "Paddle: 5% + 50¢ per sale",
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.paddle.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.paddle.com",
+    "docs": "https://developer.paddle.com"
+  }
+}

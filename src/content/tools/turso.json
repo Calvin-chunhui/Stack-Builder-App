@@ -1,0 +1,97 @@
+{
+  "id": "turso",
+  "name": "Turso",
+  "monogram": "Tu",
+  "layer": "database",
+  "subtitle": "Hosted SQLite (libSQL) at the edge",
+  "tagline": "Edge SQLite",
+  "firstRelease": 2023,
+  "creator": "Glauber Costa and Pekka Enberg (ChiselStrike)",
+  "maintainer": "Turso (ChiselStrike, Inc.)",
+  "version": {
+    "label": "Hosted service",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "libSQL is MIT; cloud is proprietary",
+  "learningCurve": "Easy",
+  "description": "A hosted database built on libSQL, an open fork of SQLite. It can replicate databases close to users and embed read replicas inside your app, and it makes a database-per-user design cheap.",
+  "useCases": [
+    "Edge and serverless apps that want SQLite",
+    "Database-per-tenant SaaS",
+    "Local-first apps with sync"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "C and Rust",
+    "youWrite": "SQL (SQLite dialect)"
+  },
+  "concepts": [
+    {
+      "term": "libSQL",
+      "explanation": "An open-contribution fork of SQLite."
+    },
+    {
+      "term": "Embedded replicas",
+      "explanation": "A local copy that syncs from the cloud."
+    },
+    {
+      "term": "Database per tenant",
+      "explanation": "Thousands of small databases."
+    },
+    {
+      "term": "HTTP protocol",
+      "explanation": "Query from edge runtimes."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript",
+      "language": "ts",
+      "code": "import { createClient } from \"@libsql/client\";\n\nconst db = createClient({\n  url: process.env.TURSO_DATABASE_URL!,\n  authToken: process.env.TURSO_AUTH_TOKEN,\n});\n\nawait db.execute(\"CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY, body TEXT)\");\nawait db.execute({ sql: \"INSERT INTO notes (body) VALUES (?)\", args: [\"Hello from the edge\"] });\nconst { rows } = await db.execute(\"SELECT * FROM notes\");"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "drizzle",
+      "reason": "First-class support",
+      "resolved": true
+    },
+    {
+      "toolId": "cloudflare",
+      "reason": "Edge runtimes",
+      "resolved": true
+    },
+    {
+      "toolId": "hono",
+      "reason": "Edge APIs",
+      "resolved": true
+    },
+    {
+      "toolId": "vercel",
+      "reason": "Serverless functions",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "SQLite simplicity with a network",
+    "Cheap multi-tenant setups",
+    "Works from edge functions"
+  ],
+  "cons": [
+    "Younger platform",
+    "SQLite write limits still apply",
+    "Needs libSQL-aware drivers"
+  ],
+  "pricing": {
+    "summary": "Free tier; Developer plan $4.99/mo; higher usage-based plans.",
+    "freeTier": true,
+    "entryMonthly": 5,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://turso.tech"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://turso.tech",
+    "docs": "https://docs.turso.tech"
+  }
+}

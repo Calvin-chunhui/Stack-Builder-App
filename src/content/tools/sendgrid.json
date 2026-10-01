@@ -1,0 +1,100 @@
+{
+  "id": "sendgrid",
+  "name": "SendGrid",
+  "monogram": "SG",
+  "layer": "addons",
+  "category": "email",
+  "subtitle": "Email API and marketing platform",
+  "tagline": "High-volume email",
+  "firstRelease": 2009,
+  "creator": "Isaac Saldana, Jose Lopez and Tim Jenkins",
+  "maintainer": "Twilio (acquired 2019)",
+  "version": {
+    "label": "Hosted API",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy to moderate",
+  "description": "One of the largest email delivery platforms, handling transactional and marketing email. It offers an API and SMTP relay, templates, analytics and dedicated IPs on higher plans.",
+  "useCases": [
+    "High-volume transactional email",
+    "Marketing campaigns",
+    "Teams already using Twilio"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "SDKs for all major languages, or SMTP"
+  },
+  "concepts": [
+    {
+      "term": "API vs SMTP",
+      "explanation": "Send via HTTP or classic mail protocol."
+    },
+    {
+      "term": "Dynamic templates",
+      "explanation": "Stored templates with variables."
+    },
+    {
+      "term": "Sender authentication",
+      "explanation": "SPF, DKIM and DMARC setup."
+    },
+    {
+      "term": "Dedicated IP",
+      "explanation": "Your own sending reputation."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Python",
+      "language": "python",
+      "code": "import os\nfrom sendgrid import SendGridAPIClient\nfrom sendgrid.helpers.mail import Mail\n\nmessage = Mail(\n    from_email=\"hello@acme.com\",\n    to_emails=\"ada@example.com\",\n    subject=\"Your receipt\",\n    html_content=\"<p>Thanks for your order.</p>\",\n)\nSendGridAPIClient(os.environ[\"SENDGRID_API_KEY\"]).send(message)"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "django",
+      "reason": "SMTP backend",
+      "resolved": true
+    },
+    {
+      "toolId": "springboot",
+      "reason": "Java SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "aspnet",
+      "reason": ".NET SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "laravel",
+      "reason": "Mail driver",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Proven at huge volume",
+    "Marketing and transactional in one place",
+    "Works with any language"
+  ],
+  "cons": [
+    "Free plan removed",
+    "Developer experience feels dated",
+    "Support complaints since acquisition"
+  ],
+  "pricing": {
+    "summary": "No permanent free plan since 2025 (60-day trial). Email API Essentials from $19.95/mo; Pro from $89.95/mo.",
+    "freeTier": false,
+    "entryMonthly": 19.95,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://sendgrid.com"
+  },
+  "flags": [
+    "Owned by Twilio"
+  ],
+  "links": {
+    "site": "https://sendgrid.com",
+    "docs": "https://www.twilio.com/docs/sendgrid"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": "sentry",
+  "name": "Sentry",
+  "monogram": "Se",
+  "layer": "addons",
+  "category": "monitoring",
+  "subtitle": "Error tracking and performance monitoring",
+  "tagline": "Know when your app breaks",
+  "firstRelease": 2008,
+  "creator": "David Cramer (company founded 2012)",
+  "maintainer": "Functional Software, Inc.",
+  "version": {
+    "label": "Hosted or self-hosted",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Functional Source License (source-available)",
+  "learningCurve": "Easy",
+  "description": "Captures crashes and errors from your frontend, backend and mobile apps with the exact line of code, the user's browser and what they did before it broke. It also traces slow requests and records session replays.",
+  "useCases": [
+    "Catching production errors",
+    "Finding slow endpoints",
+    "Mobile crash reporting"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Python and Rust",
+    "youWrite": "SDK for your language (a few lines of setup)"
+  },
+  "concepts": [
+    {
+      "term": "Events and issues",
+      "explanation": "Errors grouped into problems."
+    },
+    {
+      "term": "Stack traces",
+      "explanation": "Where the error happened."
+    },
+    {
+      "term": "Releases",
+      "explanation": "Tie errors to a deploy."
+    },
+    {
+      "term": "Tracing",
+      "explanation": "Follow a request across services."
+    },
+    {
+      "term": "Session replay",
+      "explanation": "Watch what the user saw."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JavaScript",
+      "language": "js",
+      "code": "import * as Sentry from \"@sentry/browser\";\n\nSentry.init({\n  dsn: \"https://examplePublicKey@o0.ingest.sentry.io/0\",\n  tracesSampleRate: 0.1,   // record 10% of requests for performance\n});\n\n// Errors are captured automatically; you can also report manually:\ntry { riskyThing(); } catch (err) { Sentry.captureException(err); }"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "Official SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "django",
+      "reason": "Sentry started in Django",
+      "resolved": true
+    },
+    {
+      "toolId": "reactnative",
+      "reason": "Mobile crashes",
+      "resolved": true
+    },
+    {
+      "toolId": "gha",
+      "reason": "Upload source maps in CI",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Fast to set up",
+    "Rich error context",
+    "Supports almost every platform"
+  ],
+  "cons": [
+    "Event volume pricing can spike",
+    "Can be noisy without filtering",
+    "Not fully open source"
+  ],
+  "pricing": {
+    "summary": "Developer: free (5,000 errors/mo, 1 user). Team: $26/mo. Business: $80/mo.",
+    "freeTier": true,
+    "entryMonthly": 26,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://sentry.io"
+  },
+  "flags": [
+    "Source-available (FSL)"
+  ],
+  "links": {
+    "site": "https://sentry.io",
+    "docs": "https://docs.sentry.io"
+  }
+}

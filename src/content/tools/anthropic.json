@@ -1,0 +1,110 @@
+{
+  "id": "anthropic",
+  "name": "Anthropic API (Claude)",
+  "monogram": "An",
+  "layer": "addons",
+  "category": "ai",
+  "subtitle": "Hosted AI models (Claude family)",
+  "tagline": "Add AI features",
+  "firstRelease": 2023,
+  "creator": "Anthropic",
+  "maintainer": "Anthropic",
+  "version": {
+    "label": "Hosted API",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy",
+  "description": "An API for Anthropic's Claude models, used for writing, analysis, coding, working with long documents and building agents that use tools. Also available through AWS Bedrock and Google Vertex AI.",
+  "useCases": [
+    "Assistants and chat",
+    "Document analysis",
+    "Coding tools",
+    "Agents that call your functions"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "Official SDKs for Python and TypeScript, plus others"
+  },
+  "concepts": [
+    {
+      "term": "Messages API",
+      "explanation": "Send a conversation, get a reply."
+    },
+    {
+      "term": "System prompt",
+      "explanation": "Set the model's role and rules."
+    },
+    {
+      "term": "Tool use",
+      "explanation": "The model can request your functions."
+    },
+    {
+      "term": "Streaming",
+      "explanation": "Stream tokens as they arrive."
+    },
+    {
+      "term": "Context window",
+      "explanation": "How much text fits in one request."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Python",
+      "language": "python",
+      "code": "import anthropic\n\nclient = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from the environment\n\nmessage = client.messages.create(\n    model=\"claude-sonnet-5-5\",\n    max_tokens=500,\n    messages=[{\"role\": \"user\", \"content\": \"Summarize this order history in one sentence: ...\"}],\n)\nprint(message.content[0].text)"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "aisdk",
+      "reason": "Unified TypeScript toolkit",
+      "resolved": true
+    },
+    {
+      "toolId": "langchain",
+      "reason": "Agent framework",
+      "resolved": true
+    },
+    {
+      "toolId": "fastapi",
+      "reason": "Python back ends",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "Chat interfaces",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Strong at long documents and coding",
+    "Available on major clouds",
+    "Mature SDKs"
+  ],
+  "cons": [
+    "Costs scale with usage",
+    "Outputs can be wrong",
+    "Keys must stay on your server"
+  ],
+  "pricing": {
+    "summary": "Pay per token in and out; prices vary by model. See Anthropic's pricing page.",
+    "freeTier": false,
+    "entryMonthly": null,
+    "usageFee": "AI models: pay per token",
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.anthropic.com/api"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.anthropic.com/api",
+    "docs": "https://docs.claude.com"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "Claude Sonnet models used for development",
+    "used": 42.8,
+    "admired": 67.5
+  }
+}

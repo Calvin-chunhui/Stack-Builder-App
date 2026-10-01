@@ -1,0 +1,200 @@
+---
+/**
+ * One page per recipe, with its full feasibility report rendered at build time
+ * by the same engine the builder uses.
+ */
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Mono from '../../components/Mono.astro';
+import {
+  GROUPS,
+  assess,
+  encodeStack,
+  normalizeStack,
+  pickedIds,
+  summarize,
+  tool,
+  verdictText,
+} from '../../engine';
+import { LAYERS, layerColor, layerName } from '../../data/taxonomy';
+import { ICON, SEV_ICON, verdictIcon } from '../../lib/icons';
+
+export const getStaticPaths = (async () => {
+  const recipes = await getCollection('recipes');
+  return recipes.map((entry) => ({ params: { id: entry.data.id }, props: { entry } }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const r = entry.data;
+
+const stack = normalizeStack(r.stack);
+const a = assess(stack);
+const sm = summarize(stack);
+const [headline, sub] = verdictText(a);
+const encoded = encodeStack(stack);
+
+const allTools = await getCollection('tools');
+const byId = new Map(allTools.map((x) => [x.data.id, x.data]));
+
+/** The picks, grouped by layer, for the parts list. */
+const byLayer = LAYERS.map((L) => {
+  const v = stack[L.id];
+  const ids = Array.isArray(v) ? v : v ? [v] : [];
+  return { layer: L, tools: ids.map((id) => byId.get(id)).filter(Boolean) };
+}).filter((g) => g.tools.length > 0);
+
+const canStartFree = sm.paidNow.length
+  ? `No: ${sm.paidNow.map((id) => tool(id)?.name ?? id).join(', ')} ${sm.paidNow.length > 1 ? 'have' : 'has'} no free tier (about $${sm.startCost}/mo)`
+  : 'Yes, free tiers cover every part';
+---
+
+<Base
+  title={`${r.name} stack`}
+  description={`${r.parts}. ${r.origin} Best for ${r.goodFor.charAt(0).toLowerCase() + r.goodFor.slice(1)}`}
+  section="library"
+  ogImage={`/api/og?s=${encodeURIComponent(encoded)}&n=${encodeURIComponent(r.name)}`}
+>
+  <div class="report" data-pagefind-body>
+    <div class="crumbs">
+      <a class="back" href="/library/recipes">
+        <Fragment set:html={ICON.back} />
+        All stack recipes
+      </a>
+      <a
+        class="btn-primary"
+        href={`/builder?s=${encodeURIComponent(encoded)}&n=${encodeURIComponent(r.name)}`}
+        style="padding:10px 18px"
+      >
+        Load into builder
+        <Fragment set:html={ICON.next} />
+      </a>
+    </div>
+
+    <header class={`report-head v-${a.verdict}`}>
+      <div>
+        <p class="v-kicker">Stack recipe</p>
+        <h1>{r.name}</h1>
+        <p class="parts" style="color:var(--muted);margin-top:6px">{r.parts}</p>
+        <p class="report-verdict">
+          <Fragment set:html={verdictIcon(a.verdict)} />
+          <span><b>{headline}.</b> {sub}</span>
+        </p>
+      </div>
+      {
+        a.verdict !== 'empty' && (
+          <div class="v-score big" style={`--p:${a.score}`}>
+            <b>{a.score}</b>
+            <small>/100</small>
+          </div>
+        )
+      }
+    </header>
+
+    <section class="report-sec">
+      <h2>Where it came from</h2>
+      <p class="sec-lede" style="max-width:78ch">{r.origin}</p>
+      <p style="max-width:78ch">
+        <b>Best for</b> {r.goodFor.charAt(0).toLowerCase() + r.goodFor.slice(1)}
+      </p>
+
+      <div class="procon" style="margin-top:20px">
+        <div>
+          <h3><Fragment set:html={ICON.ok} /> Strengths</h3>
+          <ul>{r.pros.map((x) => <li>{x}</li>)}</ul>
+        </div>
+        <div class="cons">
+          <h3><Fragment set:html={ICON.warn} /> Trade-offs</h3>
+          <ul>{r.cons.map((x) => <li>{x}</li>)}</ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="report-sec">
+      <h2>The {pickedIds(stack).length} parts</h2>
+      {
+        byLayer.map((g) => (
+          <>
+            <h3 class="subhead">
+              {layerName(g.layer.id)}
+            </h3>
+            <div class="lib-grid">
+              {g.tools.map((x) => (
+                <a
+                  class="lib-card"
+                  href={`/library/tool/${x!.id}`}
+                  style={`--c:${layerColor(x!.layer)}`}
+                >
+                  <Mono monogram={x!.monogram} layer={x!.layer} logo={x!.logo} name={x!.name} />
+                  <span>
+                    <strong>{x!.name}</strong>
+                    <small>{x!.tagline}</small>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </>
+        ))
+      }
+    </section>
+
+    <dl class="report-stats" style="margin-top:40px">
+      <div><dt>Can you start free?</dt><dd>{canStartFree}</dd></div>
+      <div>
+        <dt>Once you outgrow free tiers</dt>
+        <dd>Roughly ${sm.later}/mo in entry plans{sm.usage ? ', plus usage-based charges' : ''}</dd>
+      </div>
+      <div><dt>Difficulty</dt><dd>{sm.complexity} ({sm.parts} parts)</dd></div>
+      <div><dt>You'll write</dt><dd>{sm.langs.join(', ')}</dd></div>
+    </dl>
+    {sm.fees.length > 0 && <p class="report-fees"><b>Per-use fees:</b> {sm.fees.join(' · ')}</p>}
+
+    <section class="report-sec">
+      <h2>Every check, by connection</h2>
+      {
+        GROUPS.map((g) => {
+          const items = a.items.filter((i) => i.group === g.id);
+          const status = a.groupStatus[g.id];
+          return (
+            <div class={`rg rg-${status}`}>
+              <h3>
+                {status === 'none' ? (
+                  <span class="g-dot" />
+                ) : (
+                  <Fragment set:html={SEV_ICON[status]} />
+                )}
+                {g.name} <small>{g.q}</small>
+              </h3>
+              {items.length ? (
+                items.map((item) => (
+                  <div class="note">
+                    <Fragment set:html={SEV_ICON[item.severity]} />
+                    <div>
+                      <p set:html={item.message} />
+                      {item.ids.length > 0 && (
+                        <p class="note-tools">
+                          {item.ids
+                            .filter((id) => byId.has(id))
+                            .map((id) => (
+                              <a href={`/library/tool/${id}`}>{byId.get(id)!.name}</a>
+                            ))}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p class="rg-empty">Nothing to check in this connection for this stack.</p>
+              )}
+            </div>
+          );
+        })
+      }
+    </section>
+
+    <p class="report-disclaimer">
+      This is a guide based on documented capabilities as of September 2026, not a guarantee. Always
+      try a small prototype before committing.
+    </p>
+  </div>
+</Base>

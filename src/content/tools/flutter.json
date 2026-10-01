@@ -1,0 +1,119 @@
+{
+  "id": "flutter",
+  "name": "Flutter",
+  "monogram": "Fl",
+  "layer": "mobile",
+  "subtitle": "Cross-platform UI toolkit",
+  "tagline": "One codebase, polished UI",
+  "firstRelease": 2018,
+  "creator": "Google",
+  "maintainer": "Google",
+  "version": {
+    "label": "3.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "BSD-3-Clause",
+  "learningCurve": "Moderate",
+  "description": "Google's toolkit for building apps for iOS, Android, web and desktop from one codebase written in Dart. It draws every pixel itself with its own rendering engine, so apps look identical on every device.",
+  "useCases": [
+    "Cross-platform mobile apps",
+    "Branded, highly custom UIs",
+    "Apps that also target desktop"
+  ],
+  "notableUsers": [
+    {
+      "name": "Google Pay"
+    },
+    {
+      "name": "BMW"
+    },
+    {
+      "name": "Alibaba (Xianyu)"
+    }
+  ],
+  "languages": {
+    "written": "C++ and Dart",
+    "youWrite": "Dart"
+  },
+  "concepts": [
+    {
+      "term": "Widgets",
+      "explanation": "Everything on screen is a widget."
+    },
+    {
+      "term": "Stateless vs stateful",
+      "explanation": "Widgets with or without changing data."
+    },
+    {
+      "term": "Hot reload",
+      "explanation": "See code changes instantly."
+    },
+    {
+      "term": "Layouts",
+      "explanation": "Row, Column and Stack arrange widgets."
+    },
+    {
+      "term": "State management",
+      "explanation": "Provider, Riverpod or Bloc."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Dart",
+      "language": "dart",
+      "code": "class Counter extends StatefulWidget {\n  const Counter({super.key});\n  @override\n  State<Counter> createState() => _CounterState();\n}\n\nclass _CounterState extends State<Counter> {\n  int count = 0;\n  @override\n  Widget build(BuildContext context) {\n    return ElevatedButton(\n      onPressed: () => setState(() => count++),\n      child: Text('Tapped $count times'),\n    );\n  }\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "firebaseauth",
+      "reason": "First-class FlutterFire plugins",
+      "resolved": true
+    },
+    {
+      "toolId": "firestore",
+      "reason": "Realtime data",
+      "resolved": true
+    },
+    {
+      "toolId": "supabase",
+      "reason": "Official Dart SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "gha",
+      "reason": "Automated builds",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Consistent look on every platform",
+    "Fast hot reload",
+    "Strong Google tooling",
+    "Good performance"
+  ],
+  "cons": [
+    "Dart is a new language for most",
+    "Apps are larger than native",
+    "Native look-and-feel takes extra work"
+  ],
+  "pricing": {
+    "summary": "Free and open source. Store fees: $99/yr (Apple), $25 once (Google Play).",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "usageFee": "Store fees: Apple $99/yr, Google Play $25 once",
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://flutter.dev"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://flutter.dev",
+    "docs": "https://docs.flutter.dev"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "Dart language",
+    "used": 5.9,
+    "admired": 47
+  }
+}

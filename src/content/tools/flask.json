@@ -1,0 +1,108 @@
+{
+  "id": "flask",
+  "name": "Flask",
+  "monogram": "Fk",
+  "layer": "backend",
+  "subtitle": "Python micro-framework",
+  "tagline": "Small, simple Python",
+  "firstRelease": 2010,
+  "creator": "Armin Ronacher",
+  "maintainer": "Pallets project",
+  "version": {
+    "label": "3.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "BSD-3-Clause",
+  "learningCurve": "Easy",
+  "description": "A small Python web framework that gives you routing and templates and lets you add everything else through extensions. It started as an April Fools' joke and became one of the most used Python frameworks.",
+  "useCases": [
+    "Small web apps and APIs",
+    "Prototypes",
+    "ML model demos",
+    "Learning backend basics"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Python",
+    "youWrite": "Python and Jinja templates"
+  },
+  "concepts": [
+    {
+      "term": "Routes",
+      "explanation": "@app.route maps URLs to functions."
+    },
+    {
+      "term": "Jinja templates",
+      "explanation": "HTML with placeholders."
+    },
+    {
+      "term": "Blueprints",
+      "explanation": "Split a big app into modules."
+    },
+    {
+      "term": "Extensions",
+      "explanation": "Add databases, auth and forms as needed."
+    },
+    {
+      "term": "Request context",
+      "explanation": "Access the current request anywhere."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Python",
+      "language": "python",
+      "code": "from flask import Flask, jsonify, render_template\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef home():\n    return render_template(\"home.html\", title=\"Welcome\")\n\n@app.route(\"/api/items/<int:item_id>\")\ndef get_item(item_id):\n    return jsonify({\"id\": item_id, \"name\": \"Notebook\"})"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "htmx",
+      "reason": "Server-rendered interactivity",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Via SQLAlchemy",
+      "resolved": true
+    },
+    {
+      "toolId": "sqlite",
+      "reason": "Simplest start",
+      "resolved": true
+    },
+    {
+      "toolId": "render",
+      "reason": "Easy Python hosting",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Very easy to start",
+    "Flexible",
+    "Huge extension ecosystem",
+    "Great for learning"
+  ],
+  "cons": [
+    "You assemble auth, ORM and structure yourself",
+    "Async is less natural than FastAPI",
+    "Large apps need discipline"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://flask.palletsprojects.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://flask.palletsprojects.com",
+    "docs": "https://flask.palletsprojects.com/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 14.4,
+    "admired": 41.7
+  }
+}

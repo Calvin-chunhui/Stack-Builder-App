@@ -1,0 +1,7 @@
+{
+  "id": "edge",
+  "term": "Edge computing",
+  "definition": "Running code in many locations close to users instead of one central server.",
+  "like": "Tiny kiosks on every corner.",
+  "layer": "hosting"
+}

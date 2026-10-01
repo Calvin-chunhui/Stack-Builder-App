@@ -1,0 +1,7 @@
+{
+  "id": "hosting-term",
+  "term": "Hosting",
+  "definition": "Renting computers that run your app and make it reachable online.",
+  "like": "Renting the building.",
+  "layer": "hosting"
+}

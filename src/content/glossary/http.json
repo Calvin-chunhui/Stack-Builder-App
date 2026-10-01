@@ -1,0 +1,7 @@
+{
+  "id": "http",
+  "term": "HTTP and HTTPS",
+  "definition": "The protocol browsers and servers use to talk. HTTPS is the encrypted, secure version.",
+  "like": "The language waiters and chefs speak; HTTPS is speaking in code so nobody eavesdrops.",
+  "layer": "hosting"
+}

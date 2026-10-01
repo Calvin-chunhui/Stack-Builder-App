@@ -1,0 +1,7 @@
+{
+  "id": "css",
+  "term": "CSS",
+  "definition": "The language that controls how a page looks: colors, fonts, spacing and layout.",
+  "like": "Paint, furniture and decoration.",
+  "layer": "frontend"
+}

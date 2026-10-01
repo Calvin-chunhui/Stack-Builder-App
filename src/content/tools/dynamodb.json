@@ -1,0 +1,123 @@
+{
+  "id": "dynamodb",
+  "name": "DynamoDB",
+  "monogram": "Dy",
+  "layer": "database",
+  "subtitle": "Serverless key-value and document database",
+  "tagline": "Serverless on AWS",
+  "firstRelease": 2012,
+  "creator": "Amazon Web Services",
+  "maintainer": "Amazon Web Services",
+  "version": {
+    "label": "Hosted service",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Moderate to steep",
+  "description": "A fully managed database with single-digit-millisecond performance at any scale, inspired by Amazon's 2007 Dynamo paper. You design tables around your access patterns using partition and sort keys, and it offers global tables, streams, TTL and transactions.",
+  "useCases": [
+    "High-scale serverless back ends",
+    "Gaming",
+    "Shopping carts",
+    "IoT"
+  ],
+  "notableUsers": [
+    {
+      "name": "Amazon.com"
+    },
+    {
+      "name": "Lyft"
+    },
+    {
+      "name": "Disney+"
+    }
+  ],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "AWS SDKs (JS/TS, Python, Java, Go) and optionally PartiQL"
+  },
+  "concepts": [
+    {
+      "term": "Tables and items",
+      "explanation": "Rows are items with flexible attributes."
+    },
+    {
+      "term": "Partition and sort keys",
+      "explanation": "Decide how data is stored and queried."
+    },
+    {
+      "term": "Single-table design",
+      "explanation": "Many entity types in one table."
+    },
+    {
+      "term": "Secondary indexes",
+      "explanation": "GSIs and LSIs for other access patterns."
+    },
+    {
+      "term": "Query vs Scan",
+      "explanation": "Targeted lookups versus reading everything."
+    },
+    {
+      "term": "Capacity modes",
+      "explanation": "On-demand or provisioned throughput."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JavaScript · AWS SDK v3",
+      "language": "js",
+      "code": "import { DynamoDBClient } from \"@aws-sdk/client-dynamodb\";\nimport { DynamoDBDocumentClient, PutCommand, QueryCommand } from \"@aws-sdk/lib-dynamodb\";\n\nconst doc = DynamoDBDocumentClient.from(new DynamoDBClient({}));\nawait doc.send(new PutCommand({\n  TableName: \"App\",\n  Item: { pk: \"USER#42\", sk: \"ORDER#2026-09-30\", total: 99 },\n}));\n\nconst { Items } = await doc.send(new QueryCommand({\n  TableName: \"App\",\n  KeyConditionExpression: \"pk = :pk\",\n  ExpressionAttributeValues: { \":pk\": \"USER#42\" },\n}));"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "aws",
+      "reason": "Lives inside AWS",
+      "resolved": true
+    },
+    {
+      "toolId": "AWS Lambda",
+      "reason": "Native serverless pairing",
+      "resolved": false
+    },
+    {
+      "toolId": "terraform",
+      "reason": "Infrastructure as code",
+      "resolved": true
+    },
+    {
+      "toolId": "node",
+      "reason": "AWS SDK v3",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Fully managed and serverless",
+    "Predictable low latency at huge scale",
+    "Deep AWS integration",
+    "Global tables"
+  ],
+  "cons": [
+    "Access patterns must be designed up front",
+    "Ad-hoc queries and joins are limited",
+    "AWS lock-in",
+    "Costs are hard to predict at high throughput"
+  ],
+  "pricing": {
+    "summary": "Always free: 25 GB of storage. Then pay per request (on-demand) or for provisioned capacity.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://aws.amazon.com/dynamodb/"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://aws.amazon.com/dynamodb/",
+    "docs": "https://docs.aws.amazon.com/dynamodb/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 9.8,
+    "admired": 39.7
+  }
+}

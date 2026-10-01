@@ -1,0 +1,7 @@
+{
+  "id": "paas",
+  "term": "PaaS",
+  "definition": "Platform-as-a-service: you give it code and it handles servers, like Render or Heroku.",
+  "like": "A fully equipped kitchen you rent by the month.",
+  "layer": "hosting"
+}

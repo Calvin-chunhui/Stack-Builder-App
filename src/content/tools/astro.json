@@ -1,0 +1,145 @@
+{
+  "id": "astro",
+  "name": "Astro",
+  "monogram": "As",
+  "layer": "frontend",
+  "subtitle": "Content-focused framework (islands)",
+  "tagline": "Content-heavy sites",
+  "firstRelease": 2022,
+  "creator": "Fred K. Schott and team",
+  "maintainer": "Astro team at Cloudflare (since Jan 2026)",
+  "version": {
+    "label": "6 (Mar 2026)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy",
+  "description": "A framework that ships zero JavaScript by default. Pages render to HTML at build time or on the server, and only interactive islands (components from React, Vue, Svelte, Solid and others) load in the browser. Content Collections give type-safe Markdown or CMS content.",
+  "useCases": [
+    "Blogs",
+    "Documentation",
+    "Marketing and landing pages",
+    "E-commerce storefronts"
+  ],
+  "notableUsers": [
+    {
+      "name": "Cloudflare docs"
+    },
+    {
+      "name": "Porsche"
+    },
+    {
+      "name": "NBC News"
+    },
+    {
+      "name": "IKEA"
+    },
+    {
+      "name": "OpenAI"
+    }
+  ],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": ".astro files (frontmatter plus a JSX-like template), Markdown and MDX"
+  },
+  "concepts": [
+    {
+      "term": "Islands architecture",
+      "explanation": "Interactive components hydrate independently on a static page."
+    },
+    {
+      "term": "Zero JS by default",
+      "explanation": "Pages are plain HTML unless you opt in."
+    },
+    {
+      "term": "client: directives",
+      "explanation": "client:load, client:visible and client:idle control hydration."
+    },
+    {
+      "term": "Content Collections",
+      "explanation": "Schema-validated Markdown, MDX or CMS content."
+    },
+    {
+      "term": "File-based routing",
+      "explanation": "Files in src/pages become routes."
+    },
+    {
+      "term": "Adapters",
+      "explanation": "Switch from static output to on-demand rendering."
+    },
+    {
+      "term": "Server islands",
+      "explanation": "Render dynamic parts of a page separately on the server."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Astro · src/pages/index.astro",
+      "language": "astro",
+      "code": "---\n// Frontmatter runs at build or request time, never in the browser\nimport Counter from '../components/Counter.jsx';\nconst posts = await fetch('https://api.example.com/posts').then((r) => r.json());\n---\n<h1>Latest posts</h1>\n<ul>{posts.map((p) => <li>{p.title}</li>)}</ul>\n<Counter client:visible />"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "cloudflare",
+      "reason": "First-class Workers support since Astro 6",
+      "resolved": true
+    },
+    {
+      "toolId": "netlify",
+      "reason": "Official adapter",
+      "resolved": true
+    },
+    {
+      "toolId": "vercel",
+      "reason": "Official adapter",
+      "resolved": true
+    },
+    {
+      "toolId": "Headless CMS",
+      "reason": "Sanity, Contentful or Storyblok",
+      "resolved": false
+    },
+    {
+      "toolId": "react",
+      "reason": "Use React components as islands",
+      "resolved": true
+    },
+    {
+      "toolId": "Starlight",
+      "reason": "Astro's documentation theme",
+      "resolved": false
+    }
+  ],
+  "pros": [
+    "Top-tier performance and Core Web Vitals",
+    "Use any UI framework, or several at once",
+    "Excellent developer experience for content",
+    "Highest satisfaction of any meta-framework in State of JS 2025 (94%)"
+  ],
+  "cons": [
+    "Not ideal for highly interactive, app-like products",
+    "Sharing state between islands takes extra work",
+    "Some worry about a Cloudflare bias, though both companies have committed to portability"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://astro.build"
+  },
+  "flags": [
+    "Owned by Cloudflare since Jan 2026"
+  ],
+  "links": {
+    "site": "https://astro.build",
+    "docs": "https://docs.astro.build"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 4.5,
+    "admired": 62.2,
+    "satisfaction": 94
+  }
+}

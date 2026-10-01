@@ -1,0 +1,134 @@
+{
+  "id": "fastapi",
+  "name": "FastAPI",
+  "monogram": "Fa",
+  "layer": "backend",
+  "subtitle": "Async Python API framework",
+  "tagline": "Quick, typed Python APIs",
+  "firstRelease": 2018,
+  "creator": "Sebastián Ramírez",
+  "maintainer": "Sebastián Ramírez and contributors",
+  "version": {
+    "label": "0.x (widely used in production)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy to moderate",
+  "description": "A framework for building HTTP APIs using Python type hints. Those hints drive request validation, serialization and automatic interactive documentation. It is async-native and built on Starlette and Pydantic.",
+  "useCases": [
+    "REST APIs",
+    "ML model serving",
+    "AI and LLM back ends",
+    "Microservices"
+  ],
+  "notableUsers": [
+    {
+      "name": "Microsoft"
+    },
+    {
+      "name": "Uber"
+    },
+    {
+      "name": "Netflix"
+    }
+  ],
+  "languages": {
+    "written": "Python",
+    "youWrite": "Python with type hints"
+  },
+  "concepts": [
+    {
+      "term": "Path operations",
+      "explanation": "Decorators like @app.get define endpoints."
+    },
+    {
+      "term": "Type hints as validation",
+      "explanation": "Declared types are checked on every request."
+    },
+    {
+      "term": "Pydantic models",
+      "explanation": "Classes that describe request and response bodies."
+    },
+    {
+      "term": "Depends",
+      "explanation": "Dependency injection for shared logic."
+    },
+    {
+      "term": "async/await",
+      "explanation": "Handle many requests concurrently."
+    },
+    {
+      "term": "Automatic docs",
+      "explanation": "Interactive OpenAPI docs at /docs."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Python",
+      "language": "python",
+      "code": "from fastapi import FastAPI\nfrom pydantic import BaseModel\n\napp = FastAPI()\n\nclass Item(BaseModel):\n    name: str\n    price: float\n\n@app.post(\"/items/\")\nasync def create_item(item: Item):\n    return {\"name\": item.name, \"price_with_tax\": item.price * 1.2}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "postgres",
+      "reason": "Via SQLAlchemy or SQLModel",
+      "resolved": true
+    },
+    {
+      "toolId": "redis",
+      "reason": "Caching and queues",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Container deploys",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "A common front end",
+      "resolved": true
+    },
+    {
+      "toolId": "gcp",
+      "reason": "Cloud Run container hosting",
+      "resolved": true
+    },
+    {
+      "toolId": "railway",
+      "reason": "Quick deploys",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Fast to write and fast at runtime",
+    "Automatic API docs",
+    "Strong validation and type safety",
+    "Natural fit for AI and ML work",
+    "Grew 5 points in the Stack Overflow 2025 survey"
+  ],
+  "cons": [
+    "APIs only: no admin, ORM or auth included",
+    "Project structure is up to you",
+    "Pre-1.0 version and single lead maintainer",
+    "Mixing in blocking libraries hurts async performance"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://fastapi.tiangolo.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://fastapi.tiangolo.com",
+    "docs": "https://fastapi.tiangolo.com/tutorial/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 14.8,
+    "admired": 55.5
+  }
+}

@@ -1,0 +1,106 @@
+---
+/**
+ * One request, start to finish. A genuine sequence, so it is numbered.
+ *
+ * All six steps render server-side and all but the first are hidden, so the
+ * content is in the HTML (and indexable) before any JavaScript runs.
+ */
+import { JOURNEY } from '../../data/learn.generated';
+import { linkTerms } from '../../lib/glossary';
+import { ICON } from '../../lib/icons';
+
+/** The five actors the dots move between. */
+const NODES: [string, string, string][] = [
+  ['fe', 'You (frontend)', '--fe'],
+  ['api', 'API', '--text'],
+  ['auth', 'Auth', '--auth'],
+  ['be', 'Backend', '--be'],
+  ['db', 'Database', '--db'],
+];
+
+const lastIndex = JOURNEY.length - 1;
+---
+
+<div class="journey" id="journey" data-nodes={JSON.stringify(JOURNEY.map((s) => s.node))}>
+  <ol class="j-track">
+    {
+      NODES.map(([id, label, color]) => (
+        <li class={`j-node${JOURNEY[0]!.node === id ? ' is-on' : ''}`} data-node={id} style={`--c:var(${color})`}>
+          <span class="j-dot" aria-hidden="true"></span>
+          {label}
+        </li>
+      ))
+    }
+  </ol>
+
+  {
+    JOURNEY.map((step, i) => (
+      <div class="j-card" data-step-card={i} hidden={i !== 0}>
+        <p class="j-count">Step {i + 1} of {JOURNEY.length}</p>
+        <h3>{step.title}</h3>
+        <p set:html={linkTerms(step.text, 3)} />
+        <p class="j-food"><span>In the restaurant</span> {step.food}</p>
+
+        <div class="j-nav">
+          <button class="btn-secondary" data-step="-1" disabled={i === 0}>
+            <Fragment set:html={ICON.back} />
+            Previous
+          </button>
+          <div class="j-dots">
+            {JOURNEY.map((_, j) => (
+              <button
+                class={`j-pip${j === i ? ' is-on' : ''}`}
+                data-step-to={j}
+                aria-label={`Go to step ${j + 1}`}
+              />
+            ))}
+          </div>
+          <button class="btn-primary" data-step="1" disabled={i === lastIndex}>
+            Next
+            <Fragment set:html={ICON.next} />
+          </button>
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  const root = document.getElementById('journey');
+  if (root) {
+    const cards = [...root.querySelectorAll<HTMLElement>('[data-step-card]')];
+    const nodes = [...root.querySelectorAll<HTMLElement>('[data-node]')];
+    // The node each step highlights, read off the rendered cards' order.
+    const stepNodes = JSON.parse(root.dataset.nodes ?? '[]') as string[];
+    let current = 0;
+
+    const show = (next: number, focusDir?: number) => {
+      current = Math.max(0, Math.min(cards.length - 1, next));
+      for (const [i, card] of cards.entries()) card.hidden = i !== current;
+
+      const activeNode = stepNodes[current];
+      for (const n of nodes) n.classList.toggle('is-on', n.dataset.node === activeNode);
+
+      // The last step is the response travelling back to the screen.
+      root.classList.toggle('is-back', current === cards.length - 1);
+
+      if (focusDir) {
+        const selector = focusDir > 0 ? '[data-step="1"]' : '[data-step="-1"]';
+        cards[current]?.querySelector<HTMLElement>(selector)?.focus();
+      }
+    };
+
+    root.addEventListener('click', (e) => {
+      const el = (e.target as Element | null)?.closest<HTMLElement>('[data-step],[data-step-to]');
+      if (!el) return;
+      if (el.dataset.stepTo !== undefined) {
+        show(Number(el.dataset.stepTo));
+      } else {
+        const delta = Number(el.dataset.step);
+        show(current + delta, delta);
+      }
+    });
+
+    show(0);
+  }
+</script>

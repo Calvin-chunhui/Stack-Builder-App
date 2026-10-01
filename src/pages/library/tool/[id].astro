@@ -1,0 +1,326 @@
+---
+/**
+ * One page per tool, statically generated. 100 of them.
+ *
+ * These are the reference library and the reason search is the growth channel,
+ * so they ship as HTML with no framework runtime.
+ */
+import type { GetStaticPaths } from 'astro';
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import Mono from '../../../components/Mono.astro';
+import { addonCatName, layerColor } from '../../../data/taxonomy';
+import { linkTerms, termChip } from '../../../lib/glossary';
+import { ICON } from '../../../lib/icons';
+
+export const getStaticPaths = (async () => {
+  const tools = await getCollection('tools');
+  return tools.map((entry) => ({ params: { id: entry.data.id }, props: { entry } }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const t = entry.data;
+const color = layerColor(t.layer);
+
+const layerDoc = await getEntry('layers', t.layer);
+const L = layerDoc!.data;
+
+// Resolve pairings to real records where one exists; `resolved: false` entries
+// name a library that has no page of its own (e.g. "Vite").
+const allTools = await getCollection('tools');
+const byId = new Map(allTools.map((x) => [x.data.id, x.data]));
+const pairs = t.pairsWith.map((p) => ({ ...p, tool: byId.get(p.toolId) }));
+
+/**
+ * Marks whole-line comments so they can be dimmed. Deliberately not a real
+ * highlighter: comments carry the explanation, and the rest reads fine plain.
+ */
+const isComment = (line: string): boolean => {
+  const tr = line.trim();
+  return tr.startsWith('//') || (tr.startsWith('#') && !tr.startsWith('#{')) || tr.startsWith('<!--');
+};
+
+const samples = t.codeSamples.map((sample, i) => ({
+  ...sample,
+  domId: `code-${t.id}-${i}`,
+  lines: sample.code.split('\n').map((text) => ({ text, comment: isComment(text) })),
+}));
+
+const verified = new Date(t.pricing.lastVerified).toLocaleDateString('en-GB', {
+  month: 'long',
+  year: 'numeric',
+});
+
+const description = `${t.name}: ${t.subtitle}. ${t.description.slice(0, 150)}`;
+---
+
+<Base title={t.name} description={description} section="library">
+  <article class="tool" data-pagefind-body>
+    <div class="crumbs">
+      <a class="back" href={`/library/${t.layer}`}>
+        <Fragment set:html={ICON.back} />
+        All {L.name} tools
+      </a>
+      <a class="btn-primary" href={`/builder?add=${t.id}`} style="padding:10px 18px">
+        <Fragment set:html={ICON.plus} />
+        Add to a stack
+      </a>
+    </div>
+
+    <header class="tool-hero" style={`--c:${color}`}>
+      <Mono monogram={t.monogram} layer={t.layer} logo={t.logo} name={t.name} size="lg" />
+      <div>
+        <h1>{t.name}</h1>
+        <div class="tool-kind">
+          <a class="pill layer" href={`/library/${t.layer}`}>{L.name}</a>
+          {t.category && <span class="pill">{addonCatName(t.category)}</span>}
+          <span class="pill">{t.subtitle}</span>
+          {t.flags.map((f) => <span class="pill flag">{f}</span>)}
+        </div>
+      </div>
+    </header>
+
+    <dl class="facts">
+      <div class="fact"><dt>First released</dt><dd>{t.firstRelease}</dd></div>
+      <div class="fact"><dt>Created by</dt><dd>{t.creator}</dd></div>
+      <div class="fact"><dt>Maintained by</dt><dd>{t.maintainer}</dd></div>
+      <div class="fact">
+        <dt>Latest</dt>
+        <dd>
+          {t.version.label}
+          <span class="verified">Checked {verified}</span>
+        </dd>
+      </div>
+      <div class="fact"><dt>License</dt><dd>{t.license}</dd></div>
+      <div class="fact">
+        <dt>Learning curve</dt>
+        <dd>
+          {t.learningCurve}
+          {t.learningCurveNote && <span class="verified">{t.learningCurveNote}</span>}
+        </dd>
+      </div>
+    </dl>
+
+    <div class="tool-body" style={`--c:${color}`}>
+      <div>
+        <section class="sec">
+          <h2>What it is</h2>
+          <p set:html={linkTerms(t.description, 5)} />
+          <div class="fits">
+            <span class="fits-k">Where it fits</span>
+            {t.name} belongs to the <a class="mini-link" href={`/library/${t.layer}`}>{L.name}</a>
+            {' '}layer. In the restaurant, that's <b>{L.place.toLowerCase()}</b>:{' '}
+            {L.analogy.charAt(0).toLowerCase() + L.analogy.slice(1)}
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2>What it's used for</h2>
+          <ul class="uses">{t.useCases.map((u) => <li>{u}</li>)}</ul>
+        </section>
+
+        <section class="sec">
+          <h2>How it's written</h2>
+          <dl class="kv" style="margin-bottom:14px">
+            <dt>You write</dt><dd>{t.languages.youWrite}</dd>
+            <dt>Built with</dt><dd>{t.languages.written}</dd>
+          </dl>
+
+          {
+            samples.map((sample) => (
+              <div class="code">
+                <div class="code-bar">
+                  <span>{sample.label}</span>
+                  <button data-copy-target={sample.domId}>Copy</button>
+                </div>
+                <pre id={sample.domId}><code>{sample.lines.map((line, n) => (
+                  <>{line.comment ? <span class="cm">{line.text}</span> : line.text}{n < sample.lines.length - 1 ? '\n' : ''}</>
+                ))}</code></pre>
+              </div>
+            ))
+          }
+        </section>
+
+        <section class="sec">
+          <h2>Core concepts</h2>
+          <dl class="concepts">
+            {
+              t.concepts.map((c) => (
+                <div class="concept">
+                  <dt>{c.term}</dt>
+                  <dd>{c.explanation}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </section>
+
+        <section class="sec">
+          <h2>Pros and cons</h2>
+          <div class="procon">
+            <div>
+              <h3><Fragment set:html={ICON.ok} /> Strengths</h3>
+              <ul>{t.pros.map((x) => <li>{x}</li>)}</ul>
+            </div>
+            <div class="cons">
+              <h3><Fragment set:html={ICON.warn} /> Trade-offs</h3>
+              <ul>{t.cons.map((x) => <li>{x}</li>)}</ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2>Key terms for this layer</h2>
+          <div class="chips" set:html={L.terms.map((x) => termChip(x.id)).join('')} />
+        </section>
+      </div>
+
+      <aside>
+        <div class="aside-card">
+          <h3>Pairs well with</h3>
+          <div class="pairs">
+            {
+              pairs.map((p) =>
+                p.tool ? (
+                  <a class="pair" href={`/library/tool/${p.tool.id}`}>
+                    <Mono
+                      monogram={p.tool.monogram}
+                      layer={p.tool.layer}
+                      logo={p.tool.logo}
+                      name={p.tool.name}
+                    />
+                    <span>
+                      <strong>{p.tool.name}</strong>
+                      <small>{p.reason}</small>
+                    </span>
+                  </a>
+                ) : (
+                  <div class="pair">
+                    <span
+                      class="mono"
+                      style="--c:var(--panel-2);color:var(--muted)"
+                      aria-hidden="true"
+                    >
+                      {p.toolId.slice(0, 2)}
+                    </span>
+                    <span>
+                      <strong>{p.toolId}</strong>
+                      <small>{p.reason}</small>
+                    </span>
+                  </div>
+                ),
+              )
+            }
+          </div>
+        </div>
+
+        <div class="aside-card">
+          <h3>Popularity</h3>
+          {
+            t.surveys ? (
+              <>
+                {t.surveys.used !== undefined && (
+                  <div class="bar">
+                    <div class="bar-top">
+                      <span>Used it in the past year</span>
+                      <b>{t.surveys.used}%</b>
+                    </div>
+                    <div class="bar-track">
+                      <div
+                        class="bar-fill"
+                        style={`width:${Math.min(t.surveys.used, 100)}%;--c:${color}`}
+                      />
+                    </div>
+                    {t.surveys.category && (
+                      <div class="src" style="margin-top:4px">
+                        Figure is for {t.surveys.category}
+                      </div>
+                    )}
+                  </div>
+                )}
+                {t.surveys.admired !== undefined && (
+                  <div class="bar">
+                    <div class="bar-top">
+                      <span>Admired by its users</span>
+                      <b>{t.surveys.admired}%</b>
+                    </div>
+                    <div class="bar-track">
+                      <div
+                        class="bar-fill"
+                        style={`width:${Math.min(t.surveys.admired, 100)}%;--c:${color}`}
+                      />
+                    </div>
+                  </div>
+                )}
+                {t.surveys.satisfaction !== undefined && (
+                  <div class="bar">
+                    <div class="bar-top">
+                      <span>Satisfaction (State of JS 2025)</span>
+                      <b>{t.surveys.satisfaction}%</b>
+                    </div>
+                    <div class="bar-track">
+                      <div
+                        class="bar-fill"
+                        style={`width:${Math.min(t.surveys.satisfaction, 100)}%;--c:${color}`}
+                      />
+                    </div>
+                  </div>
+                )}
+                <p class="src">
+                  {t.surveys.source}. Admired means current users who want to keep using it.
+                </p>
+              </>
+            ) : (
+              <p>Not covered by the Stack Overflow 2025 or State of JS 2025 surveys.</p>
+            )
+          }
+        </div>
+
+        <div class="aside-card">
+          <h3>Pricing</h3>
+          <p>{t.pricing.summary}</p>
+          {t.pricing.usageFee && <p><b>Per use:</b> {t.pricing.usageFee}</p>}
+          <p class="src">
+            Checked {verified} against
+            <a href={t.pricing.sourceUrl} target="_blank" rel="noopener"> the vendor's own page</a>.
+            Vendors change prices often, so confirm before you budget.
+          </p>
+        </div>
+
+        {
+          t.notableUsers.length > 0 && (
+            <div class="aside-card">
+              <h3>Known users</h3>
+              <ul class="users">
+                {t.notableUsers.map((u) => (
+                  <li>
+                    {u.sourceUrl ? (
+                      <a href={u.sourceUrl} target="_blank" rel="noopener">
+                        {u.name}
+                      </a>
+                    ) : (
+                      u.name
+                    )}
+                  </li>
+                ))}
+              </ul>
+              <p class="src">Publicly documented by the company or project.</p>
+            </div>
+          )
+        }
+
+        <div class="aside-card">
+          <h3>Official links</h3>
+          <div class="linkrow">
+            <a href={t.links.site} target="_blank" rel="noopener">
+              Website <Fragment set:html={ICON.ext} />
+            </a>
+            <a href={t.links.docs} target="_blank" rel="noopener">
+              Documentation <Fragment set:html={ICON.ext} />
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,131 @@
+{
+  "id": "nuxt",
+  "name": "Nuxt",
+  "monogram": "Nu",
+  "layer": "frontend",
+  "subtitle": "Vue meta-framework",
+  "tagline": "Vue with SSR built in",
+  "firstRelease": 2016,
+  "creator": "Alexandre and Sébastien Chopin",
+  "maintainer": "Nuxt core team (NuxtLabs, acquired by Vercel in 2025)",
+  "version": {
+    "label": "4.x (mid-2025)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate",
+  "description": "Nuxt is to Vue what Next.js is to React. It adds file-based routing, server-side and static rendering, auto-imports, server API routes through the Nitro engine, and a module ecosystem. Nitro lets the same app deploy to Node servers, serverless functions or edge runtimes.",
+  "useCases": [
+    "SEO-friendly Vue apps",
+    "Content sites",
+    "E-commerce storefronts",
+    "Full-stack Vue apps"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "Vue Single-File Components and TypeScript"
+  },
+  "concepts": [
+    {
+      "term": "File-based routing",
+      "explanation": "Files in app/pages become routes."
+    },
+    {
+      "term": "Auto-imports",
+      "explanation": "Components and composables are available without imports."
+    },
+    {
+      "term": "useFetch and useAsyncData",
+      "explanation": "Data fetching that works with server rendering."
+    },
+    {
+      "term": "Nitro server routes",
+      "explanation": "API endpoints in the server/api folder."
+    },
+    {
+      "term": "Route rules",
+      "explanation": "Mix SSR, static and cached rendering per route."
+    },
+    {
+      "term": "Modules",
+      "explanation": "Plug-ins like Nuxt UI, Content and Image."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Vue SFC · app/pages/posts/[id].vue",
+      "language": "vue",
+      "code": "<script setup lang=\"ts\">\nconst route = useRoute()\nconst { data: post } = await useFetch(`/api/posts/${route.params.id}`)\n</script>\n\n<template>\n  <article v-if=\"post\"><h1>{{ post.title }}</h1></article>\n</template>"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "vue",
+      "reason": "The UI framework underneath",
+      "resolved": true
+    },
+    {
+      "toolId": "Nuxt UI",
+      "reason": "Official component library",
+      "resolved": false
+    },
+    {
+      "toolId": "Pinia",
+      "reason": "State management",
+      "resolved": false
+    },
+    {
+      "toolId": "supabase",
+      "reason": "Official Nuxt module",
+      "resolved": true
+    },
+    {
+      "toolId": "vercel",
+      "reason": "Nitro deploy preset",
+      "resolved": true
+    },
+    {
+      "toolId": "netlify",
+      "reason": "Nitro deploy preset",
+      "resolved": true
+    },
+    {
+      "toolId": "cloudflare",
+      "reason": "Nitro deploy preset",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Great developer experience from conventions and auto-imports",
+    "Deploy anywhere through Nitro presets",
+    "Rich module ecosystem",
+    "Smooth upgrade from Nuxt 3 to 4"
+  ],
+  "cons": [
+    "Auto-import magic can hide where things come from",
+    "Smaller ecosystem than Next.js",
+    "The Nuxt 2 to 3 migration was painful",
+    "Vapor Mode support is still limited"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://nuxt.com"
+  },
+  "flags": [
+    "Backed by Vercel"
+  ],
+  "links": {
+    "site": "https://nuxt.com",
+    "docs": "https://nuxt.com/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 4,
+    "admired": 46.4,
+    "satisfaction": 80
+  }
+}

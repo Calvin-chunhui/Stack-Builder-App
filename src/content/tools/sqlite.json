@@ -1,0 +1,127 @@
+{
+  "id": "sqlite",
+  "name": "SQLite",
+  "monogram": "Sl",
+  "layer": "database",
+  "subtitle": "Embedded, file-based SQL database",
+  "tagline": "One file, zero setup",
+  "firstRelease": 2000,
+  "creator": "D. Richard Hipp",
+  "maintainer": "SQLite core team",
+  "version": {
+    "label": "3.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Public domain",
+  "learningCurve": "Easy",
+  "description": "A complete SQL database in a small C library that reads and writes a single file, with no server process. It is the most widely deployed database engine in the world, and tools like Litestream, Turso and D1, plus Rails 8 defaults, make it practical for web production.",
+  "useCases": [
+    "Mobile and desktop apps",
+    "Browsers and embedded devices",
+    "Local-first apps",
+    "Tests and prototypes",
+    "Small to medium web apps"
+  ],
+  "notableUsers": [
+    {
+      "name": "Every iPhone and Android device"
+    },
+    {
+      "name": "Chrome and Firefox"
+    }
+  ],
+  "languages": {
+    "written": "C",
+    "youWrite": "SQL through bindings in almost every language"
+  },
+  "concepts": [
+    {
+      "term": "Single-file database",
+      "explanation": "The whole database is one file."
+    },
+    {
+      "term": "Embedded",
+      "explanation": "Runs inside your app's process."
+    },
+    {
+      "term": "Type affinity",
+      "explanation": "Flexible typing unless you use STRICT tables."
+    },
+    {
+      "term": "WAL mode",
+      "explanation": "Better concurrency for readers and a writer."
+    },
+    {
+      "term": "One writer at a time",
+      "explanation": "Writes are serialized."
+    },
+    {
+      "term": "Replication tools",
+      "explanation": "Litestream and LiteFS copy it elsewhere."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Python",
+      "language": "python",
+      "code": "import sqlite3\n\ncon = sqlite3.connect(\"app.db\")\ncon.execute(\"PRAGMA journal_mode=WAL;\")\ncon.execute(\"CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY, body TEXT NOT NULL)\")\ncon.execute(\"INSERT INTO notes (body) VALUES (?)\", (\"Hello SQLite\",))\ncon.commit()\nfor row in con.execute(\"SELECT id, body FROM notes ORDER BY id DESC\"):\n    print(row)"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "rails",
+      "reason": "Production defaults in Rails 8",
+      "resolved": true
+    },
+    {
+      "toolId": "django",
+      "reason": "Default development database",
+      "resolved": true
+    },
+    {
+      "toolId": "cloudflare",
+      "reason": "D1 is hosted SQLite",
+      "resolved": true
+    },
+    {
+      "toolId": "fly",
+      "reason": "LiteFS and Litestream",
+      "resolved": true
+    },
+    {
+      "toolId": "Drizzle or Prisma",
+      "reason": "ORM support",
+      "resolved": false
+    }
+  ],
+  "pros": [
+    "Zero setup and zero operations",
+    "Very fast reads",
+    "Public domain",
+    "Extremely well tested",
+    "Backups are a file copy"
+  ],
+  "cons": [
+    "Only one writer at a time",
+    "Multi-server setups need replication tools",
+    "No users or permissions",
+    "Loose typing unless you opt into STRICT"
+  ],
+  "pricing": {
+    "summary": "Free (public domain). Hosted variants such as Turso and Cloudflare D1 have their own plans.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://sqlite.org"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://sqlite.org",
+    "docs": "https://sqlite.org/docs.html"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 37.5,
+    "admired": 59
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "id": "vercel",
+  "name": "Vercel",
+  "monogram": "Vc",
+  "layer": "hosting",
+  "subtitle": "Frontend cloud and serverless platform",
+  "tagline": "Frontend-first deploys",
+  "firstRelease": 2015,
+  "creator": "Guillermo Rauch (founded as ZEIT)",
+  "maintainer": "Vercel, Inc.",
+  "version": {
+    "label": "Hosted platform",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy",
+  "description": "A Git-connected platform that builds and deploys frontend and full-stack JavaScript apps, with a preview URL for every push. Static assets are served from a global CDN and server code runs as serverless functions. Databases come through Marketplace partners such as Neon and Supabase.",
+  "useCases": [
+    "Next.js apps",
+    "Marketing sites",
+    "E-commerce front ends",
+    "AI apps"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "JS/TS frameworks, with Python, Go and Ruby function runtimes; config in vercel.json"
+  },
+  "concepts": [
+    {
+      "term": "Preview deployments",
+      "explanation": "Every branch and pull request gets its own URL."
+    },
+    {
+      "term": "Framework detection",
+      "explanation": "Zero-config builds for popular frameworks."
+    },
+    {
+      "term": "Functions",
+      "explanation": "Server code that scales per request."
+    },
+    {
+      "term": "Edge network",
+      "explanation": "Global CDN for static assets."
+    },
+    {
+      "term": "Environment variables",
+      "explanation": "Separate values per environment."
+    },
+    {
+      "term": "Marketplace storage",
+      "explanation": "Postgres, Redis and more from partners."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JSON · vercel.json",
+      "language": "json",
+      "code": "{\n  \"$schema\": \"https://openapi.vercel.sh/vercel.json\",\n  \"redirects\": [\n    { \"source\": \"/blog/:slug\", \"destination\": \"/posts/:slug\", \"permanent\": true }\n  ],\n  \"headers\": [\n    { \"source\": \"/(.*)\", \"headers\": [{ \"key\": \"X-Frame-Options\", \"value\": \"DENY\" }] }\n  ]\n}"
+    },
+    {
+      "label": "Shell",
+      "language": "shell",
+      "code": "npm i -g vercel && vercel   # deploy a preview\nvercel --prod               # promote to production"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "Zero-config, built by the same team",
+      "resolved": true
+    },
+    {
+      "toolId": "nuxt",
+      "reason": "Nitro preset",
+      "resolved": true
+    },
+    {
+      "toolId": "svelte",
+      "reason": "SvelteKit adapter",
+      "resolved": true
+    },
+    {
+      "toolId": "Neon",
+      "reason": "Serverless Postgres via Marketplace",
+      "resolved": false
+    },
+    {
+      "toolId": "supabase",
+      "reason": "Marketplace integration",
+      "resolved": true
+    },
+    {
+      "toolId": "clerk",
+      "reason": "Common auth pairing",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Best developer experience for Next.js",
+    "Instant previews",
+    "Global edge network",
+    "Minimal operations"
+  ],
+  "cons": [
+    "No long-running servers or background workers",
+    "Usage costs can spike",
+    "Some lock-in to Next.js features",
+    "No native database since Vercel Postgres ended"
+  ],
+  "pricing": {
+    "summary": "Hobby: free for non-commercial use. Pro: $20/mo per seat, including $20 of usage credit. Enterprise: custom.",
+    "freeTier": true,
+    "entryMonthly": 20,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://vercel.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://vercel.com",
+    "docs": "https://vercel.com/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 10.6,
+    "admired": 44.4
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "mau",
+  "term": "MAU",
+  "definition": "Monthly active users: how many different people used your app in a month. Many services price by it.",
+  "like": "Counting unique diners per month.",
+  "layer": "auth"
+}

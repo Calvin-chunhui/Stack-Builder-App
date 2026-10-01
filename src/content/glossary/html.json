@@ -1,0 +1,7 @@
+{
+  "id": "html",
+  "term": "HTML",
+  "definition": "The language that describes the structure and content of a web page: headings, paragraphs, buttons.",
+  "like": "The skeleton of a building.",
+  "layer": "frontend"
+}

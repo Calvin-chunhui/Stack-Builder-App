@@ -1,0 +1,123 @@
+{
+  "id": "railway",
+  "name": "Railway",
+  "monogram": "Rw",
+  "layer": "hosting",
+  "subtitle": "Usage-based PaaS with a visual canvas",
+  "tagline": "Deploy from a repo",
+  "firstRelease": 2020,
+  "creator": "Jake Cooper",
+  "maintainer": "Railway Corp.",
+  "version": {
+    "label": "Hosted platform",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy",
+  "description": "Deploy services from GitHub or Docker images and add Postgres, MySQL, Redis or MongoDB in one click. Services connect over private networking on a visual project canvas, billed by the second for what you use.",
+  "useCases": [
+    "Side projects",
+    "Startups",
+    "Full-stack apps with databases",
+    "Bots and workers"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "Any language via auto-build or Docker; config in railway.json"
+  },
+  "concepts": [
+    {
+      "term": "Projects and services",
+      "explanation": "Your app pieces on one canvas."
+    },
+    {
+      "term": "Environments",
+      "explanation": "Separate copies like staging and production."
+    },
+    {
+      "term": "Templates",
+      "explanation": "One-click starters."
+    },
+    {
+      "term": "Variable references",
+      "explanation": "Wire services together with shared variables."
+    },
+    {
+      "term": "Private networking",
+      "explanation": "Services talk without going public."
+    },
+    {
+      "term": "Usage billing",
+      "explanation": "Pay per second for CPU, RAM and egress."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JSON · railway.json",
+      "language": "json",
+      "code": "{\n  \"$schema\": \"https://railway.com/railway.schema.json\",\n  \"build\": { \"builder\": \"RAILPACK\" },\n  \"deploy\": {\n    \"startCommand\": \"npm start\",\n    \"healthcheckPath\": \"/health\",\n    \"restartPolicyType\": \"ON_FAILURE\"\n  }\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "express",
+      "reason": "Quick Node APIs",
+      "resolved": true
+    },
+    {
+      "toolId": "nestjs",
+      "reason": "Structured Node back ends",
+      "resolved": true
+    },
+    {
+      "toolId": "fastapi",
+      "reason": "Python APIs",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "One-click database",
+      "resolved": true
+    },
+    {
+      "toolId": "redis",
+      "reason": "One-click cache",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Deploy any image",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Very fast setup",
+    "Databases right next to your app",
+    "Pleasant UI",
+    "Runs long-lived processes"
+  ],
+  "cons": [
+    "Usage costs can be unpredictable",
+    "Idle containers still cost money",
+    "Fewer enterprise controls",
+    "Limited regions"
+  ],
+  "pricing": {
+    "summary": "Trial: one-time $5 credit, then a Free plan with $1/mo credit. Hobby: $5/mo including $5 of usage. Pro: $20/mo including $20 of usage.",
+    "freeTier": true,
+    "entryMonthly": 5,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://railway.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://railway.com",
+    "docs": "https://docs.railway.com"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 1.5,
+    "admired": 47.1
+  }
+}

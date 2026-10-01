@@ -1,0 +1,116 @@
+{
+  "id": "clerk",
+  "name": "Clerk",
+  "monogram": "Cl",
+  "layer": "auth",
+  "subtitle": "Hosted user management with drop-in UI",
+  "tagline": "Drop-in sign-in UI",
+  "firstRelease": 2019,
+  "creator": "Colin and Braden Sidoti",
+  "maintainer": "Clerk, Inc. (venture-backed)",
+  "version": {
+    "label": "Hosted service",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary service, open-source SDKs",
+  "learningCurve": "Easy",
+  "description": "A hosted service that gives you pre-built sign-in and sign-up components, user profiles, organizations for B2B apps, MFA, passkeys and session management. You add a provider and components instead of building auth screens yourself. It bills retained users, meaning people who come back 24 hours or more after signing up.",
+  "useCases": [
+    "Next.js and React SaaS apps",
+    "B2B apps that need organizations and roles",
+    "Getting production auth running in minutes"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "SDKs in TypeScript, Go, Python, Ruby and more",
+    "youWrite": "TypeScript or JSX"
+  },
+  "concepts": [
+    {
+      "term": "ClerkProvider",
+      "explanation": "Wraps your app and supplies session context."
+    },
+    {
+      "term": "Pre-built components",
+      "explanation": "<SignIn />, <UserButton /> and friends."
+    },
+    {
+      "term": "Route protection",
+      "explanation": "Middleware or proxy decides who can see what."
+    },
+    {
+      "term": "auth() helper",
+      "explanation": "Read the signed-in user on the server."
+    },
+    {
+      "term": "Session tokens",
+      "explanation": "Short-lived JWTs verified on each request."
+    },
+    {
+      "term": "Organizations",
+      "explanation": "Multi-tenant teams with roles."
+    },
+    {
+      "term": "Webhooks",
+      "explanation": "Sync users into your own database."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TSX · Next.js server component",
+      "language": "tsx",
+      "code": "import { auth, currentUser } from '@clerk/nextjs/server'\n\nexport default async function Dashboard() {\n  const { userId } = await auth()\n  if (!userId) return <p>Please sign in.</p>\n  const user = await currentUser()\n  return <h1>Welcome, {user?.firstName}</h1>\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "Best-supported framework",
+      "resolved": true
+    },
+    {
+      "toolId": "react",
+      "reason": "Component SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "vercel",
+      "reason": "Common hosting pair",
+      "resolved": true
+    },
+    {
+      "toolId": "supabase",
+      "reason": "JWT integration with Row Level Security",
+      "resolved": true
+    },
+    {
+      "toolId": "Stripe",
+      "reason": "Clerk Billing",
+      "resolved": false
+    }
+  ],
+  "pros": [
+    "Fastest route to polished auth",
+    "Excellent Next.js developer experience",
+    "B2B organizations built in",
+    "Generous free tier of 50,000 retained users"
+  ],
+  "cons": [
+    "Vendor lock-in: user data lives in Clerk",
+    "Costs rise with scale and add-ons",
+    "Less control over flows than self-hosting",
+    "Depends on a third party's uptime"
+  ],
+  "pricing": {
+    "summary": "Hobby: free up to 50,000 monthly retained users per app. Pro: $25/mo ($20/mo billed annually), then $0.02 per extra retained user. Business: $300/mo. Enterprise: custom.",
+    "freeTier": true,
+    "entryMonthly": 25,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://clerk.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://clerk.com",
+    "docs": "https://clerk.com/docs"
+  }
+}

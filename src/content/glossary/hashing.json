@@ -1,0 +1,7 @@
+{
+  "id": "hashing",
+  "term": "Password hashing",
+  "definition": "Scrambling passwords one-way before storing them, so leaks don't reveal them.",
+  "like": "Storing a fingerprint instead of the actual key.",
+  "layer": "auth"
+}

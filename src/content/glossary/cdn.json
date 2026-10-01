@@ -1,0 +1,7 @@
+{
+  "id": "cdn",
+  "term": "CDN",
+  "definition": "A network of servers worldwide that keeps copies of your files close to users.",
+  "like": "Branch pantries in every neighborhood.",
+  "layer": "hosting"
+}

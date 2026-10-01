@@ -1,0 +1,123 @@
+{
+  "id": "nestjs",
+  "name": "NestJS",
+  "monogram": "Ne",
+  "layer": "backend",
+  "subtitle": "Structured Node.js framework",
+  "tagline": "Structured TypeScript servers",
+  "firstRelease": 2017,
+  "creator": "Kamil Myśliwiec",
+  "maintainer": "Nest core team",
+  "version": {
+    "label": "11 (2025)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate to steep",
+  "description": "A TypeScript framework for building large Node.js back ends with modules, controllers, providers and dependency injection. Its architecture is inspired by Angular, and it runs on Express or Fastify under the hood.",
+  "useCases": [
+    "Enterprise APIs",
+    "Microservices",
+    "GraphQL servers",
+    "Large team codebases"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "TypeScript with decorators"
+  },
+  "concepts": [
+    {
+      "term": "Modules",
+      "explanation": "Group controllers and providers by feature."
+    },
+    {
+      "term": "Controllers",
+      "explanation": "Handle incoming requests with decorated methods."
+    },
+    {
+      "term": "Providers and DI",
+      "explanation": "Services injected through constructors."
+    },
+    {
+      "term": "Decorators",
+      "explanation": "@Get, @Post and @Injectable describe behavior."
+    },
+    {
+      "term": "Pipes",
+      "explanation": "Validate and transform input."
+    },
+    {
+      "term": "Guards",
+      "explanation": "Decide whether a request may proceed."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript · users.controller.ts",
+      "language": "ts",
+      "code": "import { Controller, Get, Param } from '@nestjs/common';\nimport { UsersService } from './users.service';\n\n@Controller('users')\nexport class UsersController {\n  constructor(private readonly usersService: UsersService) {}\n\n  @Get(':id')\n  findOne(@Param('id') id: string) {\n    return this.usersService.findOne(id);\n  }\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "angular",
+      "reason": "Same architectural style",
+      "resolved": true
+    },
+    {
+      "toolId": "node",
+      "reason": "Runtime underneath",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Via TypeORM or Prisma",
+      "resolved": true
+    },
+    {
+      "toolId": "GraphQL",
+      "reason": "First-class module",
+      "resolved": false
+    },
+    {
+      "toolId": "docker",
+      "reason": "Container deploys",
+      "resolved": true
+    },
+    {
+      "toolId": "auth0",
+      "reason": "JWT validation with Passport",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Clear structure scales to big teams",
+    "TypeScript-first with strong tooling",
+    "Batteries for GraphQL, microservices and WebSockets",
+    "Familiar to Angular developers"
+  ],
+  "cons": [
+    "More boilerplate than Express",
+    "Decorator magic can obscure behavior",
+    "Steeper learning curve"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://nestjs.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://nestjs.com",
+    "docs": "https://docs.nestjs.com"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 6.7,
+    "admired": 49.8,
+    "satisfaction": 73
+  }
+}

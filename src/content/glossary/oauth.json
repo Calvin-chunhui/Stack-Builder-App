@@ -1,0 +1,7 @@
+{
+  "id": "oauth",
+  "term": "OAuth",
+  "definition": "A standard that lets you sign in with another account, like Google, without sharing your password.",
+  "like": "A friend vouches for you at the door.",
+  "layer": "auth"
+}

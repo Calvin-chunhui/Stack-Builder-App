@@ -1,0 +1,98 @@
+{
+  "id": "strapi",
+  "name": "Strapi",
+  "monogram": "Sr",
+  "layer": "addons",
+  "category": "cms",
+  "subtitle": "Open-source self-hosted headless CMS",
+  "tagline": "CMS you host yourself",
+  "firstRelease": 2015,
+  "creator": "Pierre Burgy, Aurélien Georget and Jim Laurie",
+  "maintainer": "Strapi Solutions SAS",
+  "version": {
+    "label": "5 (Sept 2024)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT (Community edition)",
+  "learningCurve": "Easy to moderate",
+  "description": "A Node.js headless CMS you run on your own server with your own database. You design content types in an admin panel and it generates REST and GraphQL APIs automatically.",
+  "useCases": [
+    "Content APIs for websites and apps",
+    "Teams that must own their data",
+    "Jamstack sites"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript (Node.js)",
+    "youWrite": "Admin panel, plus JavaScript or TypeScript for customization"
+  },
+  "concepts": [
+    {
+      "term": "Content types",
+      "explanation": "Models built in the admin."
+    },
+    {
+      "term": "Auto-generated APIs",
+      "explanation": "REST and GraphQL."
+    },
+    {
+      "term": "Roles and permissions",
+      "explanation": "Who can read or edit."
+    },
+    {
+      "term": "Plugins",
+      "explanation": "Extend the CMS."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Shell + HTTP",
+      "language": "shell",
+      "code": "npx create-strapi@latest my-cms   # creates the admin panel and API\n\n# After adding an \"article\" content type in the admin panel:\nGET https://cms.example.com/api/articles?sort=publishedAt:desc&pagination[limit]=10\nAuthorization: Bearer YOUR_API_TOKEN"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "postgres",
+      "reason": "Recommended database",
+      "resolved": true
+    },
+    {
+      "toolId": "render",
+      "reason": "Always-on Node hosting",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "Frontend",
+      "resolved": true
+    },
+    {
+      "toolId": "astro",
+      "reason": "Static content sites",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Free and self-owned",
+    "APIs generated for you",
+    "Works with any frontend"
+  ],
+  "cons": [
+    "You host and maintain it",
+    "Needs an always-on server and SQL database",
+    "Major version upgrades take effort"
+  ],
+  "pricing": {
+    "summary": "Community edition free to self-host. Strapi Cloud and paid self-hosted plans add hosting and features.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://strapi.io"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://strapi.io",
+    "docs": "https://docs.strapi.io"
+  }
+}

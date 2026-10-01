@@ -1,0 +1,7 @@
+{
+  "id": "authorization",
+  "term": "Authorization",
+  "definition": "Deciding what an authenticated user is allowed to do.",
+  "like": "Only managers may enter the office.",
+  "layer": "auth"
+}

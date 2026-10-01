@@ -1,0 +1,7 @@
+{
+  "id": "nosql",
+  "term": "NoSQL",
+  "definition": "Databases that don't use fixed tables, such as document or key-value stores.",
+  "like": "Labeled boxes of any shape instead of fixed shelves.",
+  "layer": "database"
+}

@@ -1,0 +1,75 @@
+---
+/**
+ * Search across every tool page, hub, recipe and glossary term.
+ *
+ * Pagefind builds a static index from the generated HTML after `astro build`
+ * (see the `build` script), so there is no search service to run and no API to
+ * pay for. Its UI bundle is served from /pagefind/, which only exists in a
+ * production build, so it is loaded at runtime rather than imported.
+ */
+import Base from '../layouts/Base.astro';
+
+const q = Astro.url.searchParams.get('q') ?? '';
+---
+
+<Base
+  title="Search"
+  description="Search every tool, layer introduction, stack recipe and glossary term."
+  noIndex
+>
+  <div class="gloss">
+    <div class="lib-intro">
+      <h1>Search</h1>
+      <p>Tools, layer introductions, stack recipes and glossary terms.</p>
+    </div>
+
+    <div class="pagefind-wrap" id="search"></div>
+
+    <noscript>
+      <p class="no-match">
+        Search needs JavaScript. Browse the <a href="/library">library by layer</a> or the
+        <a href="/glossary">glossary</a> instead.
+      </p>
+    </noscript>
+  </div>
+</Base>
+
+<script is:inline define:vars={{ initialQuery: q }}>
+  (function () {
+    var host = document.getElementById('search');
+    if (!host) return;
+
+    function fallback() {
+      host.innerHTML =
+        '<p class="no-match">The search index is created by <code>npm run build</code>, ' +
+        'so it is not available in dev. Browse the <a href="/library">library</a> ' +
+        'or the <a href="/glossary">glossary</a> instead.</p>';
+    }
+
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = '/pagefind/pagefind-ui.css';
+    document.head.appendChild(css);
+
+    var js = document.createElement('script');
+    js.src = '/pagefind/pagefind-ui.js';
+    js.onerror = fallback;
+    js.onload = function () {
+      if (typeof window.PagefindUI !== 'function') return fallback();
+      new window.PagefindUI({
+        element: '#search',
+        showSubResults: true,
+        showImages: false,
+        pageSize: 10,
+      });
+      if (initialQuery) {
+        var input = host.querySelector('input');
+        if (input) {
+          input.value = initialQuery;
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }
+    };
+    document.head.appendChild(js);
+  })();
+</script>

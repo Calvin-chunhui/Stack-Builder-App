@@ -1,0 +1,7 @@
+{
+  "id": "migration",
+  "term": "Migration",
+  "definition": "A versioned change to your database structure, like adding a column.",
+  "like": "Rearranging shelves according to a written plan.",
+  "layer": "database"
+}

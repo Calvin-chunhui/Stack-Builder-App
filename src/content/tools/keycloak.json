@@ -1,0 +1,115 @@
+{
+  "id": "keycloak",
+  "name": "Keycloak",
+  "monogram": "Kc",
+  "layer": "auth",
+  "subtitle": "Self-hosted identity and access management",
+  "tagline": "Run your own identity",
+  "firstRelease": 2014,
+  "creator": "Bill Burke and Stian Thorgersen at Red Hat",
+  "maintainer": "CNCF (Incubating) with Red Hat",
+  "version": {
+    "label": "26.7 (26.7.4, Sep 2026)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Apache-2.0",
+  "learningCurve": "Steep",
+  "description": "A full identity server you run yourself. It provides single sign-on across apps, OIDC, OAuth 2.0 and SAML, LDAP and Active Directory federation, social and enterprise identity brokering, MFA and a themeable login page.",
+  "useCases": [
+    "On-premises or sovereign identity",
+    "Microservice SSO",
+    "B2B federation",
+    "Replacing costly hosted identity"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Java (on Quarkus)",
+    "youWrite": "Admin UI, JSON or REST API, plus any OIDC library"
+  },
+  "concepts": [
+    {
+      "term": "Realms",
+      "explanation": "Isolated tenants with their own users and settings."
+    },
+    {
+      "term": "Clients",
+      "explanation": "Apps registered to use Keycloak."
+    },
+    {
+      "term": "Users, groups and roles",
+      "explanation": "Who can do what."
+    },
+    {
+      "term": "Identity brokering",
+      "explanation": "Sign in through Google, Azure AD and others."
+    },
+    {
+      "term": "User federation",
+      "explanation": "Connect LDAP or Active Directory."
+    },
+    {
+      "term": "Authentication flows",
+      "explanation": "Configurable login steps."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JavaScript · keycloak-js",
+      "language": "js",
+      "code": "import Keycloak from 'keycloak-js';\n\nconst keycloak = new Keycloak({\n  url: 'https://auth.example.com',\n  realm: 'myrealm',\n  clientId: 'my-spa',\n});\n\nconst authenticated = await keycloak.init({ onLoad: 'login-required', pkceMethod: 'S256' });\nif (authenticated) {\n  await fetch('/api/data', { headers: { Authorization: `Bearer ${keycloak.token}` } });\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "springboot",
+      "reason": "OAuth2 resource server",
+      "resolved": true
+    },
+    {
+      "toolId": "angular",
+      "reason": "Enterprise SPAs",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "Keycloak Operator",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Its backing database",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Official image",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "No per-user fees",
+    "Full-featured and standards-compliant",
+    "Self-hosted for data sovereignty",
+    "CNCF governance plus Red Hat backing"
+  ],
+  "cons": [
+    "You operate upgrades, high availability and patches",
+    "Resource-heavy",
+    "Complex admin concepts",
+    "Theming the login UI is clunky"
+  ],
+  "pricing": {
+    "summary": "Free and open source. You pay for your own servers, or for Red Hat's supported build.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.keycloak.org"
+  },
+  "flags": [
+    "CNCF Incubating"
+  ],
+  "links": {
+    "site": "https://www.keycloak.org",
+    "docs": "https://www.keycloak.org/documentation"
+  }
+}

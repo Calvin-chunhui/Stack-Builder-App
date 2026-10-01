@@ -1,0 +1,7 @@
+{
+  "id": "cache",
+  "term": "Cache",
+  "definition": "A fast, temporary copy of data kept close by to avoid slow lookups.",
+  "like": "Keeping popular ingredients at the chef's station.",
+  "layer": "database"
+}

@@ -1,0 +1,98 @@
+{
+  "id": "prisma",
+  "name": "Prisma",
+  "monogram": "Pr",
+  "layer": "addons",
+  "category": "data",
+  "subtitle": "TypeScript ORM",
+  "tagline": "Type-safe database access",
+  "firstRelease": 2019,
+  "creator": "Prisma (formerly Graphcool, founded 2016)",
+  "maintainer": "Prisma Data, Inc.",
+  "version": {
+    "label": "7 (Nov 2025)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Apache-2.0",
+  "learningCurve": "Easy to moderate",
+  "description": "An ORM for Node.js and TypeScript: you describe your data in a schema file, and Prisma generates a fully typed client plus migrations. Version 7 removed the Rust engine for smaller, faster deploys.",
+  "useCases": [
+    "TypeScript back ends",
+    "Next.js apps",
+    "Teams that want autocomplete for queries"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "Prisma schema language plus TypeScript"
+  },
+  "concepts": [
+    {
+      "term": "schema.prisma",
+      "explanation": "One file describing models."
+    },
+    {
+      "term": "Prisma Client",
+      "explanation": "Generated, typed query API."
+    },
+    {
+      "term": "Migrations",
+      "explanation": "Schema changes as versioned SQL."
+    },
+    {
+      "term": "Relations",
+      "explanation": "Linked models with type safety."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Prisma schema + TypeScript",
+      "language": "prisma",
+      "code": "// schema.prisma\nmodel User {\n  id     Int     @id @default(autoincrement())\n  email  String  @unique\n  orders Order[]\n}\nmodel Order {\n  id     Int  @id @default(autoincrement())\n  total  Int\n  user   User @relation(fields: [userId], references: [id])\n  userId Int\n}\n\n// app code: fully typed\nconst user = await prisma.user.findUnique({ where: { email: \"ada@example.com\" }, include: { orders: true } });"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "Very common pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Most-used database with Prisma",
+      "resolved": true
+    },
+    {
+      "toolId": "nestjs",
+      "reason": "Official recipe",
+      "resolved": true
+    },
+    {
+      "toolId": "neon",
+      "reason": "Serverless adapter",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Excellent type safety and autocomplete",
+    "Readable schema",
+    "Great migrations"
+  ],
+  "cons": [
+    "JavaScript and TypeScript only",
+    "Abstraction hides some SQL power",
+    "Complex queries may need raw SQL"
+  ],
+  "pricing": {
+    "summary": "ORM is free and open source. Prisma Postgres (managed database) has free and paid plans.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.prisma.io"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.prisma.io",
+    "docs": "https://www.prisma.io/docs"
+  }
+}

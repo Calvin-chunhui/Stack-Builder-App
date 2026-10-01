@@ -1,0 +1,104 @@
+{
+  "id": "tailwind",
+  "name": "Tailwind CSS",
+  "monogram": "Tw",
+  "layer": "addons",
+  "category": "styling",
+  "subtitle": "Utility-first CSS framework",
+  "tagline": "Style with small utility classes",
+  "firstRelease": 2017,
+  "creator": "Adam Wathan",
+  "maintainer": "Tailwind Labs",
+  "version": {
+    "label": "v4 (Jan 2025)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy",
+  "description": "Instead of writing CSS files, you style elements with small classes right in your markup, like flex, p-4 and text-lg. A build step removes unused classes so the final CSS stays tiny.",
+  "useCases": [
+    "Styling any web frontend quickly",
+    "Design systems",
+    "Prototypes that become production"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript and Rust (v4 engine)",
+    "youWrite": "Class names in HTML or JSX"
+  },
+  "concepts": [
+    {
+      "term": "Utility classes",
+      "explanation": "One small job per class."
+    },
+    {
+      "term": "Responsive prefixes",
+      "explanation": "md: and lg: apply at screen sizes."
+    },
+    {
+      "term": "Theme",
+      "explanation": "Colors and spacing defined once."
+    },
+    {
+      "term": "State variants",
+      "explanation": "hover: and focus: styles."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "HTML with Tailwind classes",
+      "language": "html",
+      "code": "<div class=\"max-w-sm rounded-xl bg-white p-6 shadow-md\">\n  <h2 class=\"text-xl font-bold text-slate-900\">Pro plan</h2>\n  <p class=\"mt-2 text-slate-600\">Everything you need to launch.</p>\n  <button class=\"mt-4 rounded-lg bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500\">\n    Choose plan\n  </button>\n</div>"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "Default in create-next-app",
+      "resolved": true
+    },
+    {
+      "toolId": "shadcn",
+      "reason": "Built on Tailwind",
+      "resolved": true
+    },
+    {
+      "toolId": "react",
+      "reason": "Works in JSX",
+      "resolved": true
+    },
+    {
+      "toolId": "laravel",
+      "reason": "Common pairing",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Very fast to style",
+    "Consistent spacing and colors",
+    "Tiny production CSS"
+  ],
+  "cons": [
+    "Busy-looking markup",
+    "Another vocabulary to learn",
+    "Design still needs taste"
+  ],
+  "pricing": {
+    "summary": "Free and open source. Paid UI kits (Tailwind Plus) are optional.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://tailwindcss.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://tailwindcss.com",
+    "docs": "https://tailwindcss.com/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "Tailwind CSS 4",
+    "used": 21.8,
+    "admired": 62.1
+  }
+}

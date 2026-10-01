@@ -1,0 +1,7 @@
+{
+  "id": "api",
+  "term": "API",
+  "definition": "A defined set of requests one program can make to another, and the answers it gets back.",
+  "like": "A menu: you can only order what's listed.",
+  "layer": "backend"
+}

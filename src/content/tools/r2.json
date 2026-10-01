@@ -1,0 +1,93 @@
+{
+  "id": "r2",
+  "name": "Cloudflare R2",
+  "monogram": "R2",
+  "layer": "addons",
+  "category": "storage",
+  "subtitle": "S3-compatible storage without egress fees",
+  "tagline": "Storage with no download fees",
+  "firstRelease": 2022,
+  "creator": "Cloudflare",
+  "maintainer": "Cloudflare",
+  "version": {
+    "label": "Hosted service",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy",
+  "description": "Object storage that speaks the S3 API but charges nothing when users download files. It sits on Cloudflare's network and pairs naturally with Workers.",
+  "useCases": [
+    "Images and media served to many users",
+    "Moving off S3 to cut bandwidth bills",
+    "Files for Workers apps"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "Any S3 SDK, or Workers bindings"
+  },
+  "concepts": [
+    {
+      "term": "S3 compatibility",
+      "explanation": "Point S3 tools at R2."
+    },
+    {
+      "term": "Zero egress",
+      "explanation": "No download charges."
+    },
+    {
+      "term": "Public buckets",
+      "explanation": "Serve files via a domain."
+    },
+    {
+      "term": "Workers bindings",
+      "explanation": "Direct access from Workers."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript · inside a Cloudflare Worker",
+      "language": "ts",
+      "code": "export default {\n  async fetch(request, env) {\n    const key = new URL(request.url).pathname.slice(1);\n    if (request.method === \"PUT\") {\n      await env.MY_BUCKET.put(key, request.body);\n      return new Response(\"Saved\");\n    }\n    const file = await env.MY_BUCKET.get(key);\n    return file ? new Response(file.body) : new Response(\"Not found\", { status: 404 });\n  },\n};"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "cloudflare",
+      "reason": "Native to Workers",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "User uploads",
+      "resolved": true
+    },
+    {
+      "toolId": "hono",
+      "reason": "Edge file APIs",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "No egress fees",
+    "Works with S3 tools",
+    "Simple pricing"
+  ],
+  "cons": [
+    "Fewer advanced features than S3",
+    "Cloudflare lock-in for bindings",
+    "Newer service"
+  ],
+  "pricing": {
+    "summary": "Free monthly allowance for storage and operations; then pay per GB stored. No fees for data downloaded (egress).",
+    "freeTier": true,
+    "entryMonthly": null,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.cloudflare.com/developer-platform/products/r2/"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.cloudflare.com/developer-platform/products/r2/",
+    "docs": "https://developers.cloudflare.com/r2/"
+  }
+}

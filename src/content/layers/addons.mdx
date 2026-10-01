@@ -1,0 +1,46 @@
+---
+id: addons
+name: "Add-ons"
+title: "Add-ons: services you plug in"
+blurb: "Services you plug in"
+order: 7
+optional: true
+multi: true
+color: "--add"
+place: "Suppliers and contractors"
+analogy: "The card machine company, the laundry service, the linen supplier. Specialists handle these jobs so the kitchen can focus on cooking."
+zoneLabel: "Suppliers"
+zoneText: "The card machine company and the linen service. Add-ons are outside specialists: payments, email, search, AI."
+points:
+  - "Keep their secret keys on your backend, never in the browser."
+  - "Most have free tiers, so costs grow as you succeed."
+  - "Every add-on is another dependency, so check pricing and lock-in."
+  - "Webhooks let a service tell your app when something happens, like a payment succeeding."
+terms:
+  - "sdk"
+  - "api-key"
+  - "webhook"
+  - "orm"
+  - "lock-in"
+  - "free-tier"
+starters:
+  - toolId: "stripe"
+    why: "Take payments"
+  - toolId: "sentry"
+    why: "Catch errors"
+  - toolId: "tailwind"
+    why: "Style quickly"
+flow:
+  - step: "Your backend"
+    detail: "Holds the secret key"
+  - step: "Calls the service API"
+    detail: "Charge, send, search"
+  - step: "Service does the work"
+    detail: "Payments, email, AI"
+  - step: "Webhook reports back"
+    detail: "Paid, delivered, failed"
+  - step: "Your app updates"
+    detail: "Shows the result"
+---
+
+Most apps rely on specialist services for hard problems: taking payments, sending email, search, tracking errors, storing files or calling AI models. You connect them with an API key and their SDK and usually pay per use. Libraries such as ORMs and styling frameworks are add-ons that live inside your code instead.

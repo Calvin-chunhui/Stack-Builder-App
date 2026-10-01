@@ -1,0 +1,154 @@
+{
+  "id": "react",
+  "name": "React",
+  "monogram": "Re",
+  "layer": "frontend",
+  "subtitle": "UI library",
+  "tagline": "Flexible UI library",
+  "firstRelease": 2013,
+  "creator": "Jordan Walke at Facebook",
+  "maintainer": "React Foundation (Linux Foundation)",
+  "version": {
+    "label": "19.2 (Oct 2025)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate",
+  "description": "A JavaScript library for building user interfaces out of reusable components. You describe what the screen should look like for a given state, and React updates the page efficiently when that state changes. It only handles the view, so routing, data fetching and server rendering come from frameworks such as Next.js.",
+  "useCases": [
+    "Single-page apps",
+    "Dashboards",
+    "Complex interactive UIs",
+    "Mobile apps via React Native"
+  ],
+  "notableUsers": [
+    {
+      "name": "Meta (Facebook, Instagram)"
+    },
+    {
+      "name": "Netflix"
+    },
+    {
+      "name": "Airbnb"
+    },
+    {
+      "name": "Discord"
+    }
+  ],
+  "languages": {
+    "written": "JavaScript (with Flow types)",
+    "youWrite": "JavaScript or TypeScript with JSX"
+  },
+  "concepts": [
+    {
+      "term": "Components",
+      "explanation": "Functions that return a piece of UI."
+    },
+    {
+      "term": "JSX",
+      "explanation": "HTML-like syntax written inside JavaScript."
+    },
+    {
+      "term": "Props",
+      "explanation": "Read-only inputs passed from a parent to a child."
+    },
+    {
+      "term": "State",
+      "explanation": "Data local to a component; changing it re-renders."
+    },
+    {
+      "term": "Hooks",
+      "explanation": "useState, useEffect and friends add state and side effects."
+    },
+    {
+      "term": "Reconciliation",
+      "explanation": "React compares UI trees and applies the smallest DOM change."
+    },
+    {
+      "term": "One-way data flow",
+      "explanation": "Data flows down through props, events flow up through callbacks."
+    },
+    {
+      "term": "Server Components",
+      "explanation": "Render on the server with zero client JavaScript (via frameworks)."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JSX",
+      "language": "jsx",
+      "code": "import { useState } from \"react\";\n\nexport default function Counter({ label }) {\n  const [count, setCount] = useState(0);\n  return (\n    <button onClick={() => setCount(count + 1)}>\n      {label}: {count}\n    </button>\n  );\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "Full-stack framework built on React",
+      "resolved": true
+    },
+    {
+      "toolId": "Vite",
+      "reason": "Fast setup for a plain SPA",
+      "resolved": false
+    },
+    {
+      "toolId": "TypeScript",
+      "reason": "Type-safe components",
+      "resolved": false
+    },
+    {
+      "toolId": "Tailwind CSS",
+      "reason": "Utility-first styling",
+      "resolved": false
+    },
+    {
+      "toolId": "TanStack Query",
+      "reason": "Server-state caching",
+      "resolved": false
+    },
+    {
+      "toolId": "express",
+      "reason": "A separate API back end",
+      "resolved": true
+    },
+    {
+      "toolId": "clerk",
+      "reason": "Drop-in sign-in components",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Largest ecosystem and job market of any UI library",
+    "Its component model is an industry standard",
+    "React Native reuses the same skills on mobile",
+    "Strong TypeScript support",
+    "Neutral governance under the Linux Foundation",
+    "React Compiler 1.0 now handles memoization automatically"
+  ],
+  "cons": [
+    "Only a library, so you choose routing, data and build tools yourself",
+    "Hooks have pitfalls such as stale closures and effect dependencies",
+    "Frequent paradigm shifts: classes, then hooks, then Server Components",
+    "Heavier bundles than Svelte or Solid"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://react.dev"
+  },
+  "flags": [
+    "Foundation-governed since Feb 2026"
+  ],
+  "links": {
+    "site": "https://react.dev",
+    "docs": "https://react.dev/learn"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 44.7,
+    "admired": 52.1,
+    "satisfaction": 72
+  }
+}

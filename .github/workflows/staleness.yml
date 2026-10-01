@@ -1,0 +1,78 @@
+name: Data freshness
+
+on:
+  schedule:
+    # 09:00 UTC on the first of each month.
+    - cron: '0 9 1 * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  staleness:
+    name: Flag records past their verification window
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Build the report
+        id: report
+        run: |
+          {
+            echo 'body<<REPORT_EOF'
+            node scripts/check-staleness.ts --markdown
+            echo REPORT_EOF
+          } >> "$GITHUB_OUTPUT"
+
+      # Exits non-zero when something is stale, which gates the issue below.
+      - name: Is anything stale?
+        id: check
+        continue-on-error: true
+        run: node scripts/check-staleness.ts --fail
+
+      - name: Open or update the review issue
+        if: steps.check.outcome == 'failure'
+        uses: actions/github-script@v8
+        env:
+          REPORT: ${{ steps.report.outputs.body }}
+        with:
+          script: |
+            const title = 'Data review: tool prices and versions need re-checking';
+            const body = process.env.REPORT;
+
+            // Reuse one open issue rather than filing a new one every month.
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'data-freshness',
+            });
+
+            const existing = open.find((i) => i.title === title);
+
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: `Monthly re-check:\n\n${body}`,
+              });
+              core.notice(`Updated issue #${existing.number}`);
+            } else {
+              const { data: created } = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['data-freshness'],
+              });
+              core.notice(`Opened issue #${created.number}`);
+            }

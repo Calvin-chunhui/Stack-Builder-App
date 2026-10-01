@@ -1,0 +1,7 @@
+{
+  "id": "mfa",
+  "term": "Two-factor auth (MFA)",
+  "definition": "Requiring a second proof, like a code on your phone, in addition to a password.",
+  "like": "Showing ID as well as giving your name.",
+  "layer": "auth"
+}

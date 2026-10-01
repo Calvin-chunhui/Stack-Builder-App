@@ -1,0 +1,7 @@
+{
+  "id": "api-key",
+  "term": "API key",
+  "definition": "A secret code that identifies your app to a service. Keep it on the server.",
+  "like": "The key to the supplier's warehouse.",
+  "layer": "addons"
+}

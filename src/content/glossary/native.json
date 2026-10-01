@@ -1,0 +1,7 @@
+{
+  "id": "native",
+  "term": "Native app",
+  "definition": "An app built specifically for one platform using its own language and tools.",
+  "like": "A chef trained in one cuisine.",
+  "layer": "mobile"
+}

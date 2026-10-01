@@ -1,0 +1,120 @@
+{
+  "id": "solid",
+  "name": "SolidJS",
+  "monogram": "So",
+  "layer": "frontend",
+  "subtitle": "Reactive UI library (signals)",
+  "tagline": "Fine-grained reactivity",
+  "firstRelease": 2021,
+  "creator": "Ryan Carniato",
+  "maintainer": "Community core team",
+  "version": {
+    "label": "1.x (2.0 in development)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate",
+  "description": "A JSX library that looks like React, but components run only once. Signals update exactly the DOM nodes that depend on them, with no virtual DOM and no re-renders, which puts it among the fastest frameworks in benchmarks. Solid popularized the signals pattern that Angular, Vue and Svelte later adopted.",
+  "useCases": [
+    "Performance-critical UIs",
+    "Embedded widgets",
+    "React-style syntax without re-render overhead"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "JavaScript or TypeScript with JSX"
+  },
+  "concepts": [
+    {
+      "term": "Signals",
+      "explanation": "createSignal returns a getter and a setter."
+    },
+    {
+      "term": "Memos",
+      "explanation": "createMemo caches derived values."
+    },
+    {
+      "term": "Effects",
+      "explanation": "createEffect runs when its signals change."
+    },
+    {
+      "term": "Components run once",
+      "explanation": "No re-render; only bound nodes update."
+    },
+    {
+      "term": "Control-flow components",
+      "explanation": "<Show> and <For> instead of inline logic."
+    },
+    {
+      "term": "Stores",
+      "explanation": "Nested reactive state."
+    },
+    {
+      "term": "SolidStart",
+      "explanation": "The meta-framework for SSR and routing."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JSX",
+      "language": "jsx",
+      "code": "import { createSignal } from \"solid-js\";\n\nfunction Counter() {\n  const [count, setCount] = createSignal(0);\n  // The component body runs once; only the text node updates\n  return (\n    <button onClick={() => setCount(count() + 1)}>\n      Count: {count()}\n    </button>\n  );\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "SolidStart",
+      "reason": "Official meta-framework",
+      "resolved": false
+    },
+    {
+      "toolId": "Vite",
+      "reason": "Build tool",
+      "resolved": false
+    },
+    {
+      "toolId": "TanStack",
+      "reason": "Query and Router support Solid",
+      "resolved": false
+    },
+    {
+      "toolId": "astro",
+      "reason": "Use Solid islands",
+      "resolved": true
+    },
+    {
+      "toolId": "netlify",
+      "reason": "Easy static and SSR hosting",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Exceptional runtime performance",
+    "Familiar JSX syntax",
+    "Small bundles",
+    "Highest satisfaction of any UI framework in State of JS 2025 (89%)"
+  ],
+  "cons": [
+    "Small ecosystem and job market",
+    "Gotchas such as destructuring props breaking reactivity",
+    "Few UI kits",
+    "The 2.0 transition may bring changes"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.solidjs.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.solidjs.com",
+    "docs": "https://docs.solidjs.com"
+  },
+  "surveys": {
+    "source": "State of JavaScript 2025",
+    "satisfaction": 89
+  }
+}

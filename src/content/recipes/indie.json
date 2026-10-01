@@ -1,0 +1,36 @@
+{
+  "id": "indie",
+  "name": "Indie SaaS",
+  "parts": "Next.js, Better Auth, Neon, Vercel, Stripe",
+  "stack": {
+    "frontend": "nextjs",
+    "mobile": null,
+    "backend": null,
+    "auth": "betterauth",
+    "database": "neon",
+    "hosting": "vercel",
+    "devops": [
+      "gha"
+    ],
+    "addons": [
+      "drizzle",
+      "tailwind",
+      "shadcn",
+      "stripe",
+      "resend",
+      "sentry",
+      "posthog"
+    ]
+  },
+  "origin": "A popular 2025 to 2026 setup for solo founders shipping subscription products.",
+  "goodFor": "Launching a paid web product quickly with free tiers until it earns money.",
+  "pros": [
+    "One language (TypeScript) end to end",
+    "Everything starts free",
+    "Every part is widely documented"
+  ],
+  "cons": [
+    "Many vendors to manage",
+    "Costs rise across several bills as you grow"
+  ]
+}

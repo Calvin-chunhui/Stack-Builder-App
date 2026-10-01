@@ -1,0 +1,48 @@
+---
+id: auth
+name: "Auth"
+title: "Auth: who you are and what you may do"
+blurb: "Sign-in, sessions and identity"
+order: 3
+optional: false
+multi: false
+color: "--auth"
+place: "The host at the front door"
+analogy: "The host checks your reservation and hands you a table number. Every waiter checks that number before serving you, and only managers get into the office."
+zoneLabel: "Host stand"
+zoneText: "The host checks reservations and hands out table numbers. Auth confirms who you are and what you're allowed to do."
+points:
+  - "Never store plain-text passwords; auth tools hash them for you."
+  - "Hosted services (Clerk, Auth0) are quickest; libraries (Better Auth) keep users in your own database."
+  - "Django, Rails, Laravel and ASP.NET already include user accounts."
+  - "Social login and passkeys reduce password problems."
+terms:
+  - "authentication"
+  - "authorization"
+  - "session"
+  - "jwt"
+  - "oauth"
+  - "sso"
+  - "mfa"
+  - "hashing"
+starters:
+  - toolId: "clerk"
+    why: "Fastest with Next.js"
+  - toolId: "betterauth"
+    why: "Free and self-owned"
+  - toolId: "supabaseauth"
+    why: "If you use Supabase"
+flow:
+  - step: "You enter your email"
+    detail: "Or tap Google"
+  - step: "Provider checks it"
+    detail: "Password, code or passkey"
+  - step: "A token is issued"
+    detail: "Your digital wristband"
+  - step: "Each request carries it"
+    detail: "Sent with every call"
+  - step: "Backend verifies it"
+    detail: "Then decides what you can do"
+---
+
+Authentication proves who someone is, as in logging in. Authorization decides what they're allowed to do, such as only admins deleting posts. Auth tools handle passwords, Sign in with Google, two-factor codes and sessions, so you don't have to write sensitive security code yourself.

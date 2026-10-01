@@ -1,0 +1,107 @@
+{
+  "id": "htmx",
+  "name": "htmx",
+  "monogram": "hx",
+  "layer": "frontend",
+  "subtitle": "Hypermedia library (HTML over the wire)",
+  "tagline": "Interactivity without a JS framework",
+  "firstRelease": 2020,
+  "creator": "Carson Gross (successor to intercooler.js, 2013)",
+  "maintainer": "Big Sky Software and contributors",
+  "version": {
+    "label": "2.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "BSD-2-Clause (Zero-Clause)",
+  "learningCurve": "Easy",
+  "description": "A tiny library that lets plain HTML attributes send requests and swap in HTML the server returns. Instead of building a JavaScript app, your backend (Django, Rails, Go and others) renders HTML fragments and htmx drops them into the page.",
+  "useCases": [
+    "Adding interactivity to server-rendered apps",
+    "Admin panels and internal tools",
+    "Teams that prefer Python, Go or Ruby over JavaScript"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "JavaScript",
+    "youWrite": "HTML attributes, with your backend's language"
+  },
+  "concepts": [
+    {
+      "term": "hx-get and hx-post",
+      "explanation": "Attributes that make any element send a request."
+    },
+    {
+      "term": "hx-target",
+      "explanation": "Which element the response replaces."
+    },
+    {
+      "term": "hx-swap",
+      "explanation": "How the new HTML is inserted."
+    },
+    {
+      "term": "Hypermedia",
+      "explanation": "The server sends HTML, not JSON."
+    },
+    {
+      "term": "Triggers",
+      "explanation": "Fire requests on click, input, load or a timer."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "HTML",
+      "language": "html",
+      "code": "<!-- Clicking asks the server for HTML and swaps it in -->\n<button hx-get=\"/orders/latest\" hx-target=\"#orders\" hx-swap=\"innerHTML\">\n  Load latest orders\n</button>\n\n<div id=\"orders\"></div>\n\n<!-- Live search: sends the input as you type -->\n<input name=\"q\" hx-get=\"/search\" hx-trigger=\"keyup changed delay:300ms\" hx-target=\"#results\">"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "django",
+      "reason": "Renders HTML fragments",
+      "resolved": true
+    },
+    {
+      "toolId": "flask",
+      "reason": "Lightweight HTML views",
+      "resolved": true
+    },
+    {
+      "toolId": "go",
+      "reason": "Go templates",
+      "resolved": true
+    },
+    {
+      "toolId": "rails",
+      "reason": "Similar idea to Hotwire",
+      "resolved": true
+    },
+    {
+      "toolId": "laravel",
+      "reason": "Blade partials",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Tiny (about 14 KB)",
+    "No build step",
+    "Keeps logic on the server in one language",
+    "Easy to learn"
+  ],
+  "cons": [
+    "Needs a backend that returns HTML",
+    "Not suited to offline or very rich client apps",
+    "Smaller ecosystem of components"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://htmx.org"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://htmx.org",
+    "docs": "https://htmx.org/docs/"
+  }
+}

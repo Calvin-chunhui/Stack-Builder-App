@@ -1,0 +1,108 @@
+{
+  "id": "gitlab",
+  "name": "GitLab CI/CD",
+  "monogram": "GL",
+  "layer": "devops",
+  "subtitle": "CI/CD in the GitLab DevSecOps platform",
+  "tagline": "All-in-one pipelines",
+  "firstRelease": 2015,
+  "creator": "GitLab (started 2011 by Dmitriy Zaporozhets and Valery Sizov)",
+  "maintainer": "GitLab Inc.",
+  "version": {
+    "label": "Hosted or self-managed",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Open core (MIT Community Edition, commercial tiers)",
+  "learningCurve": "Moderate",
+  "description": "Pipelines defined in .gitlab-ci.yml run on GitLab Runners, integrated with merge requests, the container registry, security scanning and environments. The whole platform can be self-hosted.",
+  "useCases": [
+    "Self-hosted DevSecOps",
+    "Regulated industries",
+    "Monorepos"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Ruby (Rails) and Go (Runner)",
+    "youWrite": "YAML"
+  },
+  "concepts": [
+    {
+      "term": "Pipelines",
+      "explanation": "Everything that runs for a commit."
+    },
+    {
+      "term": "Stages and jobs",
+      "explanation": "Ordered groups of work."
+    },
+    {
+      "term": "Runners",
+      "explanation": "Shared or self-hosted executors."
+    },
+    {
+      "term": "rules",
+      "explanation": "Conditions for when jobs run."
+    },
+    {
+      "term": "Artifacts and cache",
+      "explanation": "Pass files between jobs."
+    },
+    {
+      "term": "Environments",
+      "explanation": "Track deployments."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "YAML · .gitlab-ci.yml",
+      "language": "yaml",
+      "code": "stages: [test, deploy]\n\ntest:\n  stage: test\n  image: node:24\n  script:\n    - npm ci\n    - npm test\n\ndeploy:\n  stage: deploy\n  script: ./deploy.sh\n  rules:\n    - if: $CI_COMMIT_BRANCH == \"main\""
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "docker",
+      "reason": "Built-in container registry",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "GitLab agent for Kubernetes",
+      "resolved": true
+    },
+    {
+      "toolId": "terraform",
+      "reason": "Managed Terraform state",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "All-in-one platform",
+    "Excellent self-hosting",
+    "Powerful pipeline features",
+    "Built-in security scanning on higher tiers"
+  ],
+  "cons": [
+    "Best features sit in expensive tiers",
+    "Self-hosting takes operations effort",
+    "Heavy UI",
+    "Smaller ecosystem than GitHub Actions"
+  ],
+  "pricing": {
+    "summary": "Free: 400 compute min/mo and up to 5 users. Premium: $29/user/mo billed annually, with 10,000 compute min. Ultimate: custom.",
+    "freeTier": true,
+    "entryMonthly": 29,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://about.gitlab.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://about.gitlab.com",
+    "docs": "https://docs.gitlab.com/ci/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "GitLab (collaboration tools)",
+    "used": 35.6,
+    "admired": 59.5
+  }
+}

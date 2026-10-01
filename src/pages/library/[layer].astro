@@ -1,0 +1,133 @@
+---
+/**
+ * The eight layer hubs. Each opens with a plain-language introduction (MDX),
+ * the restaurant analogy, a flow diagram and good first picks, then lists
+ * every tool in that layer.
+ */
+import type { GetStaticPaths } from 'astro';
+import { getCollection, getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import LibNav from '../../components/LibNav.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import Mono from '../../components/Mono.astro';
+import FlowDiagram from '../../components/FlowDiagram.astro';
+import { ADDON_CATS, layerColor } from '../../data/taxonomy';
+import { linkTerms, termChip } from '../../lib/glossary';
+
+export const getStaticPaths = (async () => {
+  const layers = await getCollection('layers');
+  return layers
+    .sort((a, b) => a.data.order - b.data.order)
+    .map((entry) => ({ params: { layer: entry.data.id }, props: { entry } }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const L = entry.data;
+const color = layerColor(L.id);
+
+// The prose body is MDX so it can grow richer than a single paragraph.
+const { Content } = await render(entry);
+
+const allTools = await getCollection('tools');
+const tools = allTools
+  .filter((t) => t.data.layer === L.id)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const starters = await Promise.all(
+  L.starters.map(async (s) => ({ why: s.why, tool: (await getEntry(s.toolId))!.data })),
+);
+
+/** Add-ons are grouped by category; every other layer is one flat grid. */
+const grouped =
+  L.id === 'addons'
+    ? ADDON_CATS.map((c) => ({ name: c.name, items: tools.filter((t) => t.data.category === c.id) })).filter(
+        (g) => g.items.length > 0,
+      )
+    : null;
+---
+
+<Base title={L.title} description={`${L.blurb}. ${L.analogy}`} section="library">
+  <div class="lib">
+    <LibNav current={L.id} />
+    <div data-pagefind-body>
+      <section class="hub" style={`--c:${color}`}>
+        <p class="hub-kicker">{L.name}{L.optional ? ' (optional)' : ''}</p>
+        <h1>{L.title}</h1>
+
+        <div class="hub-grid">
+          <div>
+            <div class="hub-body"><Content /></div>
+            <ul class="hub-points">
+              {L.points.map((p) => <li set:html={linkTerms(p, 2)} />)}
+            </ul>
+          </div>
+          <aside class="analogy">
+            <p class="an-kicker">In the restaurant</p>
+            <h3>{L.place}</h3>
+            <p>{L.analogy}</p>
+            <a class="mini-link" href="/#plan">See the full floor plan</a>
+          </aside>
+        </div>
+
+        <h2 class="hub-h">How it works</h2>
+        <FlowDiagram steps={L.flow} layer={L.id} />
+
+        <div class="hub-foot">
+          <div>
+            <h2 class="hub-h">Key terms</h2>
+            <div class="chips" set:html={L.terms.map((t) => termChip(t.id)).join('')} />
+          </div>
+          <div>
+            <h2 class="hub-h">Good first picks</h2>
+            <div class="starters">
+              {
+                starters.map(({ tool, why }) => (
+                  <a class="pair" href={`/library/tool/${tool.id}`}>
+                    <Mono
+                      monogram={tool.monogram}
+                      layer={tool.layer}
+                      logo={tool.logo}
+                      name={tool.name}
+                    />
+                    <span>
+                      <strong>{tool.name}</strong>
+                      <small>{why}</small>
+                    </span>
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lib-group">
+        <h2>
+          <span class="layer-swatch" style={`--c:${color}`}></span>
+          All {L.name} tools <small>{tools.length}</small>
+        </h2>
+
+        {
+          grouped
+            ? grouped.map((g) => (
+                <>
+                  <h3 class="subhead">{g.name}</h3>
+                  <div class="lib-grid">
+                    {g.items.map((t) => (
+                      <ToolCard tool={t.data} />
+                    ))}
+                  </div>
+                </>
+              ))
+            : (
+                <div class="lib-grid">
+                  {tools.map((t) => (
+                    <ToolCard tool={t.data} />
+                  ))}
+                </div>
+              )
+        }
+      </section>
+    </div>
+  </div>
+</Base>

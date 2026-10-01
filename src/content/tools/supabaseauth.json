@@ -1,0 +1,112 @@
+{
+  "id": "supabaseauth",
+  "name": "Supabase Auth",
+  "monogram": "SA",
+  "layer": "auth",
+  "subtitle": "Open-source auth in the Supabase platform",
+  "tagline": "Pairs with Supabase DB",
+  "firstRelease": 2020,
+  "creator": "Supabase (Paul Copplestone and Ant Wilson)",
+  "maintainer": "Supabase",
+  "version": {
+    "label": "Hosted or self-hosted",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Open source (server is a GoTrue fork)",
+  "learningCurve": "Easy to moderate",
+  "description": "Sign-up and sign-in with email and password, magic links, one-time codes, phone, 20+ OAuth providers, SAML SSO, MFA and anonymous users. Users live in your project's Postgres, and the JWTs it issues are read by Row Level Security policies through auth.uid().",
+  "useCases": [
+    "Apps built on Supabase's database",
+    "Startups and MVPs",
+    "Firebase-style apps that want SQL"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Go (server)",
+    "youWrite": "JavaScript or TypeScript, Dart, Swift, Kotlin or Python, plus SQL policies"
+  },
+  "concepts": [
+    {
+      "term": "Supabase client",
+      "explanation": "createClient() gives you auth and data access."
+    },
+    {
+      "term": "Sign-in methods",
+      "explanation": "Password, OTP, OAuth and SSO."
+    },
+    {
+      "term": "Sessions and refresh",
+      "explanation": "JWTs that refresh automatically."
+    },
+    {
+      "term": "auth.users",
+      "explanation": "Users stored in your own Postgres."
+    },
+    {
+      "term": "Row Level Security",
+      "explanation": "Policies use auth.uid() to scope data."
+    },
+    {
+      "term": "SSR helpers",
+      "explanation": "@supabase/ssr handles cookies in server frameworks."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JavaScript",
+      "language": "js",
+      "code": "import { createClient } from '@supabase/supabase-js'\n\nconst supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY)\n\nconst { data, error } = await supabase.auth.signInWithPassword({\n  email: 'ada@example.com',\n  password: 'correct-horse-battery',\n})\n\n// Or social login:\nawait supabase.auth.signInWithOAuth({ provider: 'github' })"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "supabase",
+      "reason": "Same project, native RLS integration",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "Official SSR helpers",
+      "resolved": true
+    },
+    {
+      "toolId": "svelte",
+      "reason": "SvelteKit guides",
+      "resolved": true
+    },
+    {
+      "toolId": "vercel",
+      "reason": "Marketplace integration",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Generous free tier",
+    "Auth and data permissions in one place via RLS",
+    "Open source and self-hostable",
+    "Users live in your own Postgres"
+  ],
+  "cons": [
+    "Most valuable with Supabase's database",
+    "RLS policies are easy to get wrong",
+    "Fewer enterprise features than Auth0 or Keycloak"
+  ],
+  "pricing": {
+    "summary": "Free: 50,000 monthly active users. Pro from $25/mo with 100,000 MAU included, then $0.00325 per MAU. Team from $599/mo.",
+    "freeTier": true,
+    "entryMonthly": 25,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://supabase.com/auth"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://supabase.com/auth",
+    "docs": "https://supabase.com/docs/guides/auth"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "Supabase platform",
+    "used": 5.4,
+    "admired": 50.9
+  }
+}

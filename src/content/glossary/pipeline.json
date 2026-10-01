@@ -1,0 +1,7 @@
+{
+  "id": "pipeline",
+  "term": "Pipeline",
+  "definition": "The automated sequence of steps from code change to release.",
+  "like": "The prep line from raw ingredients to plated dish.",
+  "layer": "devops"
+}

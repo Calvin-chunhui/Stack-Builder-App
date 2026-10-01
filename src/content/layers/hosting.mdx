@@ -1,0 +1,48 @@
+---
+id: hosting
+name: "Hosting"
+title: "Hosting: where your app lives online"
+blurb: "Where your app runs"
+order: 5
+optional: false
+multi: false
+color: "--host"
+place: "The building itself"
+analogy: "Rent, electricity and plumbing. A food truck (serverless) only opens when customers show up; a full restaurant (a server) is always open and can keep the ovens hot."
+zoneLabel: "The building"
+zoneText: "Rent, power and plumbing keep everything running. Hosting is the computer that runs your app 24/7 and makes it reachable online."
+points:
+  - "Static sites and frontends can often be hosted free."
+  - "Frameworks like Django or Rails need an always-on server, not serverless."
+  - "PaaS platforms (Render, Railway) are the easiest way to run servers; big clouds give the most control."
+  - "A CDN copies your files around the world so pages load quickly everywhere."
+terms:
+  - "server"
+  - "serverless"
+  - "edge"
+  - "cdn"
+  - "paas"
+  - "dns"
+  - "domain"
+  - "container"
+starters:
+  - toolId: "vercel"
+    why: "Frontends and Next.js"
+  - toolId: "render"
+    why: "Always-on servers made simple"
+  - toolId: "cloudflare"
+    why: "Cheap and global"
+flow:
+  - step: "Someone types your domain"
+    detail: "yourapp.com"
+  - step: "DNS finds the address"
+    detail: "The internet's phone book"
+  - step: "CDN serves nearby files"
+    detail: "Images, CSS, JS"
+  - step: "Your code runs"
+    detail: "On a server or function"
+  - step: "It talks to the database"
+    detail: "Then replies"
+---
+
+Hosting means renting computers that run your app around the clock, so anyone can reach it by typing your domain. Choices range from upload-and-forget platforms (Vercel, Netlify) to raw servers in big clouds (AWS). Serverless platforms run your code only when someone visits; traditional servers stay on all the time.

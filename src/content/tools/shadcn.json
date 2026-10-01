@@ -1,0 +1,99 @@
+{
+  "id": "shadcn",
+  "name": "shadcn/ui",
+  "monogram": "sh",
+  "layer": "addons",
+  "category": "styling",
+  "subtitle": "Copy-into-your-project React components",
+  "tagline": "Components you own",
+  "firstRelease": 2023,
+  "creator": "shadcn",
+  "maintainer": "shadcn and contributors",
+  "version": {
+    "label": "CLI-based releases",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy",
+  "description": "A collection of accessible, good-looking React components that you copy into your own codebase with a CLI, rather than installing as a locked package. Built on Tailwind CSS and headless primitives, so you can edit everything.",
+  "useCases": [
+    "Dashboards and SaaS UIs",
+    "Starting a design system",
+    "AI app interfaces"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "TSX components with Tailwind classes"
+  },
+  "concepts": [
+    {
+      "term": "Copy, don't install",
+      "explanation": "Components live in your repo."
+    },
+    {
+      "term": "Primitives",
+      "explanation": "Accessible behavior from Radix-style libraries."
+    },
+    {
+      "term": "CLI",
+      "explanation": "npx shadcn add button."
+    },
+    {
+      "term": "Theming",
+      "explanation": "CSS variables control colors."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Shell + TSX",
+      "language": "shell",
+      "code": "npx shadcn@latest add button card\n\n// Then use the components you now own in components/ui\nimport { Button } from \"@/components/ui/button\";\nimport { Card, CardHeader, CardTitle, CardContent } from \"@/components/ui/card\";\n\nexport function Plan() {\n  return (\n    <Card><CardHeader><CardTitle>Pro</CardTitle></CardHeader>\n      <CardContent><Button>Choose plan</Button></CardContent></Card>\n  );\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "react",
+      "reason": "Built for React",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "Most common home",
+      "resolved": true
+    },
+    {
+      "toolId": "tailwind",
+      "reason": "Styling underneath",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "You own and can edit every component",
+    "Accessible defaults",
+    "Looks polished out of the box"
+  ],
+  "cons": [
+    "React only (community ports for Vue and Svelte)",
+    "Updates are manual",
+    "Many apps look alike"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://ui.shadcn.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://ui.shadcn.com",
+    "docs": "https://ui.shadcn.com/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "Shadcn/ui",
+    "used": 8.7,
+    "admired": 62.6
+  }
+}

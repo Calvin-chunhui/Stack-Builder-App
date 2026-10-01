@@ -1,0 +1,135 @@
+{
+  "id": "springboot",
+  "name": "Spring Boot",
+  "monogram": "Sb",
+  "layer": "backend",
+  "subtitle": "Java and Kotlin framework",
+  "tagline": "Java for big teams",
+  "firstRelease": 2014,
+  "creator": "Pivotal (Spring Framework by Rod Johnson, 2002)",
+  "maintainer": "Broadcom (via VMware)",
+  "version": {
+    "label": "4.0 (Nov 2025) on Spring Framework 7",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Apache-2.0",
+  "learningCurve": "Steep",
+  "description": "An opinionated way to build stand-alone Spring applications. It embeds a web server, auto-configures libraries based on what is on the classpath, and ships starters plus Actuator for health checks and metrics.",
+  "useCases": [
+    "Enterprise back ends",
+    "Microservices",
+    "Banking and fintech",
+    "Telecom",
+    "Large-scale APIs"
+  ],
+  "notableUsers": [
+    {
+      "name": "Netflix"
+    },
+    {
+      "name": "Many large banks"
+    }
+  ],
+  "languages": {
+    "written": "Java",
+    "youWrite": "Java or Kotlin, configured in YAML or .properties"
+  },
+  "concepts": [
+    {
+      "term": "Inversion of control",
+      "explanation": "The framework creates and wires your objects (beans)."
+    },
+    {
+      "term": "Annotations",
+      "explanation": "@RestController, @Service and @Autowired."
+    },
+    {
+      "term": "Auto-configuration",
+      "explanation": "Sensible defaults based on your dependencies."
+    },
+    {
+      "term": "Starters",
+      "explanation": "Curated dependency bundles."
+    },
+    {
+      "term": "Spring Data JPA",
+      "explanation": "Repositories generated from interfaces."
+    },
+    {
+      "term": "Spring Security",
+      "explanation": "Authentication and authorization."
+    },
+    {
+      "term": "Actuator",
+      "explanation": "Health, metrics and ops endpoints."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Java",
+      "language": "java",
+      "code": "@RestController\n@RequestMapping(\"/api/greetings\")\npublic class GreetingController {\n\n    @GetMapping(\"/{name}\")\n    public Map<String, String> greet(@PathVariable String name) {\n        return Map.of(\"message\", \"Hello, \" + name);\n    }\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "postgres",
+      "reason": "Via Spring Data JPA",
+      "resolved": true
+    },
+    {
+      "toolId": "keycloak",
+      "reason": "OAuth2 resource server",
+      "resolved": true
+    },
+    {
+      "toolId": "angular",
+      "reason": "Common enterprise front end",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Containers",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "Orchestration",
+      "resolved": true
+    },
+    {
+      "toolId": "aws",
+      "reason": "Enterprise hosting",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Enterprise-grade maturity",
+    "Huge ecosystem: Security, Data, Cloud, Batch",
+    "Excellent JVM performance with virtual threads",
+    "Deep hiring pool"
+  ],
+  "cons": [
+    "Verbose, with many annotations",
+    "Slow startup and high memory unless you use native images",
+    "Auto-configuration can be hard to debug",
+    "Major upgrades take migration work"
+  ],
+  "pricing": {
+    "summary": "Free and open source. Broadcom sells commercial and extended support.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://spring.io/projects/spring-boot"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://spring.io/projects/spring-boot",
+    "docs": "https://docs.spring.io/spring-boot/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 14.7,
+    "admired": 53.7
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "lock-in",
+  "term": "Vendor lock-in",
+  "definition": "When switching away from a provider becomes hard or expensive.",
+  "like": "Equipment that only works with one supplier's parts.",
+  "layer": null
+}

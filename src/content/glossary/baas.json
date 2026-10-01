@@ -1,0 +1,7 @@
+{
+  "id": "baas",
+  "term": "Backend-as-a-service (BaaS)",
+  "definition": "A hosted service that provides a database, auth and APIs so you write little or no backend code.",
+  "like": "A catering kitchen you rent instead of building your own.",
+  "layer": "database"
+}

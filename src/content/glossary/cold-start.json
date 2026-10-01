@@ -1,0 +1,7 @@
+{
+  "id": "cold-start",
+  "term": "Cold start",
+  "definition": "The delay when a serverless function wakes up after being idle.",
+  "like": "The truck needs a minute to heat the grill.",
+  "layer": "hosting"
+}

@@ -1,0 +1,128 @@
+{
+  "id": "laravel",
+  "name": "Laravel",
+  "monogram": "La",
+  "layer": "backend",
+  "subtitle": "PHP MVC framework",
+  "tagline": "Modern PHP framework",
+  "firstRelease": 2011,
+  "creator": "Taylor Otwell",
+  "maintainer": "Laravel LLC",
+  "version": {
+    "label": "13 (Mar 2026)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy to moderate",
+  "description": "An expressive PHP framework with the Eloquent ORM, Blade templates, queues, events, mail and auth scaffolding, plus a large first-party ecosystem. Laravel 13 requires PHP 8.3 or newer and adds a first-party AI SDK.",
+  "useCases": [
+    "SaaS apps",
+    "E-commerce",
+    "CMS-driven sites",
+    "APIs",
+    "Agency work"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "PHP (built on Symfony components)",
+    "youWrite": "PHP and Blade templates, optionally Vue or React via Inertia"
+  },
+  "concepts": [
+    {
+      "term": "Routing",
+      "explanation": "Map URLs to closures or controllers."
+    },
+    {
+      "term": "Eloquent ORM",
+      "explanation": "Models with relationships."
+    },
+    {
+      "term": "Migrations and seeders",
+      "explanation": "Schema changes and sample data."
+    },
+    {
+      "term": "Blade",
+      "explanation": "Template language with components."
+    },
+    {
+      "term": "Service container",
+      "explanation": "Dependency injection and facades."
+    },
+    {
+      "term": "Queues and jobs",
+      "explanation": "Background work."
+    },
+    {
+      "term": "Artisan",
+      "explanation": "Command-line tool for everything."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "PHP",
+      "language": "php",
+      "code": "// routes/web.php\nuse App\\Models\\Post;\n\nRoute::get('/posts', function () {\n    return view('posts.index', ['posts' => Post::latest()->paginate(10)]);\n});\n\n// app/Models/Post.php\nclass Post extends Model\n{\n    protected $fillable = ['title', 'body'];\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "mysql",
+      "reason": "Classic LAMP pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Fully supported",
+      "resolved": true
+    },
+    {
+      "toolId": "redis",
+      "reason": "Queues via Horizon",
+      "resolved": true
+    },
+    {
+      "toolId": "vue",
+      "reason": "Inertia.js starter kits",
+      "resolved": true
+    },
+    {
+      "toolId": "react",
+      "reason": "Inertia.js starter kits",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Local dev via Sail",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Elegant API and superb docs",
+    "Most complete first-party ecosystem in PHP",
+    "Cheap, widely available hosting",
+    "Smooth yearly upgrades"
+  ],
+  "cons": [
+    "PHP's reputation in some hiring markets",
+    "Facades and magic can hide dependencies",
+    "Needs Octane or tuning at scale",
+    "Some features steer you to paid Laravel services"
+  ],
+  "pricing": {
+    "summary": "Framework is free. Laravel sells optional hosting and tooling (Cloud, Forge, Nova).",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://laravel.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://laravel.com",
+    "docs": "https://laravel.com/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 8.9,
+    "admired": 47.8
+  }
+}

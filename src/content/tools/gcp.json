@@ -1,0 +1,122 @@
+{
+  "id": "gcp",
+  "name": "Google Cloud",
+  "monogram": "GC",
+  "layer": "hosting",
+  "subtitle": "Hyperscale public cloud",
+  "tagline": "Strong data tooling",
+  "firstRelease": 2008,
+  "creator": "Google (started with App Engine)",
+  "maintainer": "Google",
+  "version": {
+    "label": "Hosted platform",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Moderate to steep",
+  "description": "Compute (Compute Engine, Cloud Run, GKE, Cloud Functions), data and analytics (BigQuery, Cloud SQL, Spanner, Firestore), AI (Vertex AI) and networking. Cloud Run is one of the simplest ways to run a container.",
+  "useCases": [
+    "Data and analytics apps",
+    "Containerized services",
+    "ML and AI workloads",
+    "Kubernetes via GKE"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "SDKs in all major languages, the gcloud CLI and Terraform"
+  },
+  "concepts": [
+    {
+      "term": "Projects",
+      "explanation": "Containers for resources and billing."
+    },
+    {
+      "term": "IAM and service accounts",
+      "explanation": "Identities for people and machines."
+    },
+    {
+      "term": "Cloud Run",
+      "explanation": "Serverless containers."
+    },
+    {
+      "term": "GKE",
+      "explanation": "Managed Kubernetes."
+    },
+    {
+      "term": "BigQuery",
+      "explanation": "Serverless data warehouse."
+    },
+    {
+      "term": "Artifact Registry",
+      "explanation": "Store container images."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Shell · gcloud",
+      "language": "shell",
+      "code": "# Build from source and deploy a container to Cloud Run\ngcloud run deploy my-api \\\n  --source . \\\n  --region us-central1 \\\n  --allow-unauthenticated \\\n  --set-env-vars NODE_ENV=production"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "firestore",
+      "reason": "Same platform as Firebase",
+      "resolved": true
+    },
+    {
+      "toolId": "firebaseauth",
+      "reason": "Identity Platform",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "GKE, from the creators of Kubernetes",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Cloud Run containers",
+      "resolved": true
+    },
+    {
+      "toolId": "fastapi",
+      "reason": "Popular on Cloud Run",
+      "resolved": true
+    },
+    {
+      "toolId": "terraform",
+      "reason": "Infrastructure as code",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Excellent data and AI services",
+    "Cloud Run is very simple",
+    "Strong Kubernetes heritage",
+    "Clean networking"
+  ],
+  "cons": [
+    "Smaller catalog than AWS",
+    "History of product deprecations",
+    "Billing complexity"
+  ],
+  "pricing": {
+    "summary": "Pay as you go. New accounts get a $300 trial credit. Always free: 2M Cloud Run requests per month, plus other monthly allowances.",
+    "freeTier": true,
+    "entryMonthly": null,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://cloud.google.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://cloud.google.com",
+    "docs": "https://cloud.google.com/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 24.6,
+    "admired": 46.1
+  }
+}

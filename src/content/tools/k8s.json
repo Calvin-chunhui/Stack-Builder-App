@@ -1,0 +1,139 @@
+{
+  "id": "k8s",
+  "name": "Kubernetes",
+  "monogram": "K8",
+  "layer": "devops",
+  "subtitle": "Container orchestration",
+  "tagline": "Orchestrate many services",
+  "firstRelease": 2014,
+  "creator": "Joe Beda, Brendan Burns and Craig McLuckie at Google",
+  "maintainer": "CNCF (Graduated project)",
+  "version": {
+    "label": "1.37 (Aug 2026)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Apache-2.0",
+  "learningCurve": "Steep",
+  "description": "A system that deploys, scales, heals and networks containers across a cluster of machines. You declare the desired state in YAML, and controllers continuously make reality match it. It was inspired by Google's internal Borg system.",
+  "useCases": [
+    "Large microservice platforms",
+    "Multi-team infrastructure",
+    "Hybrid and multi-cloud",
+    "ML platforms"
+  ],
+  "notableUsers": [
+    {
+      "name": "Spotify"
+    },
+    {
+      "name": "OpenAI"
+    },
+    {
+      "name": "CERN"
+    }
+  ],
+  "languages": {
+    "written": "Go",
+    "youWrite": "YAML manifests, often via Helm or Kustomize"
+  },
+  "concepts": [
+    {
+      "term": "Pods",
+      "explanation": "The smallest deployable unit: one or more containers."
+    },
+    {
+      "term": "Deployments",
+      "explanation": "Keep a set number of pods running."
+    },
+    {
+      "term": "Services",
+      "explanation": "Stable networking for a group of pods."
+    },
+    {
+      "term": "Ingress and Gateway API",
+      "explanation": "Route outside traffic in."
+    },
+    {
+      "term": "ConfigMaps and Secrets",
+      "explanation": "Configuration kept out of images."
+    },
+    {
+      "term": "Namespaces",
+      "explanation": "Divide a cluster between teams."
+    },
+    {
+      "term": "Autoscaling",
+      "explanation": "Add pods under load."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "YAML · deployment.yaml",
+      "language": "yaml",
+      "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: web\nspec:\n  replicas: 3\n  selector:\n    matchLabels: { app: web }\n  template:\n    metadata:\n      labels: { app: web }\n    spec:\n      containers:\n        - name: web\n          image: ghcr.io/acme/web:1.4.2\n          ports: [{ containerPort: 3000 }]"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "docker",
+      "reason": "Builds the images it runs",
+      "resolved": true
+    },
+    {
+      "toolId": "Helm",
+      "reason": "Package manager for Kubernetes",
+      "resolved": false
+    },
+    {
+      "toolId": "terraform",
+      "reason": "Provision clusters",
+      "resolved": true
+    },
+    {
+      "toolId": "Argo CD",
+      "reason": "GitOps deploys",
+      "resolved": false
+    },
+    {
+      "toolId": "keycloak",
+      "reason": "Operator available",
+      "resolved": true
+    },
+    {
+      "toolId": "springboot",
+      "reason": "Common microservice workload",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Industry standard for orchestration",
+    "Self-healing and autoscaling",
+    "Portable across clouds",
+    "Massive CNCF ecosystem"
+  ],
+  "cons": [
+    "Usually overkill for small apps",
+    "Heavy operational burden without a managed service",
+    "YAML sprawl",
+    "Security and networking are hard to get right"
+  ],
+  "pricing": {
+    "summary": "Free and open source. Managed control planes and nodes (EKS, GKE, AKS) cost money.",
+    "freeTier": true,
+    "entryMonthly": null,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://kubernetes.io"
+  },
+  "flags": [
+    "CNCF Graduated"
+  ],
+  "links": {
+    "site": "https://kubernetes.io",
+    "docs": "https://kubernetes.io/docs/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 28.5,
+    "admired": 58
+  }
+}

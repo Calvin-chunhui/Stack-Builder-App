@@ -1,0 +1,7 @@
+{
+  "id": "webhook",
+  "term": "Webhook",
+  "definition": "A message a service sends to your app when something happens, like a payment succeeding.",
+  "like": "The supplier calling to say your delivery arrived.",
+  "layer": "addons"
+}

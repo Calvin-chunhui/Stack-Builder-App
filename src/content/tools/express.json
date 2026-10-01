@@ -1,0 +1,119 @@
+{
+  "id": "express",
+  "name": "Express",
+  "monogram": "Ex",
+  "layer": "backend",
+  "subtitle": "Minimalist Node.js web framework",
+  "tagline": "Minimal Node APIs",
+  "firstRelease": 2010,
+  "creator": "TJ Holowaychuk",
+  "maintainer": "OpenJS Foundation",
+  "version": {
+    "label": "5.2.1 (Dec 2025)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy",
+  "description": "The classic Node.js web framework: routing plus a middleware chain, with few opinions about how you structure the rest. Express 5 arrived in 2024 as its first major release in a decade and requires Node 18 or newer.",
+  "useCases": [
+    "REST APIs",
+    "Backends for single-page apps",
+    "Prototypes",
+    "The E in MERN and MEAN"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "JavaScript",
+    "youWrite": "JavaScript or TypeScript"
+  },
+  "concepts": [
+    {
+      "term": "Routing",
+      "explanation": "app.get, app.post and friends map URLs to handlers."
+    },
+    {
+      "term": "Middleware",
+      "explanation": "Functions with (req, res, next) that run in order."
+    },
+    {
+      "term": "Request and response",
+      "explanation": "req holds input, res sends output."
+    },
+    {
+      "term": "Routers",
+      "explanation": "Group related routes into modules."
+    },
+    {
+      "term": "Error handlers",
+      "explanation": "Middleware with four arguments catches errors."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JavaScript",
+      "language": "js",
+      "code": "import express from \"express\";\nconst app = express();\napp.use(express.json());\n\napp.get(\"/users/:id\", async (req, res) => {\n  res.json({ id: req.params.id, name: \"Ada\" });\n});\n\napp.listen(3000, () => console.log(\"API on :3000\"));"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "node",
+      "reason": "The runtime underneath",
+      "resolved": true
+    },
+    {
+      "toolId": "mongodb",
+      "reason": "MERN and MEAN stacks",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "PERN stack",
+      "resolved": true
+    },
+    {
+      "toolId": "react",
+      "reason": "MERN front end",
+      "resolved": true
+    },
+    {
+      "toolId": "render",
+      "reason": "Simple always-on hosting",
+      "resolved": true
+    },
+    {
+      "toolId": "railway",
+      "reason": "Deploy with a database in one project",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Tiny learning curve",
+    "Huge middleware ecosystem",
+    "Flexible enough for any structure",
+    "81% satisfaction in State of JS 2025"
+  ],
+  "cons": [
+    "No built-in structure, so large apps can get messy",
+    "You pick validation, auth and database layers yourself",
+    "Slower than newer frameworks like Fastify or Hono"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://expressjs.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://expressjs.com",
+    "docs": "https://expressjs.com/en/5x/api.html"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 19.9,
+    "admired": 45.5,
+    "satisfaction": 81
+  }
+}

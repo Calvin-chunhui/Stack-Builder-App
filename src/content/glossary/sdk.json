@@ -1,0 +1,7 @@
+{
+  "id": "sdk",
+  "term": "SDK",
+  "definition": "A package of code a service provides so you can use its API easily in your language.",
+  "like": "The supplier's own ordering app.",
+  "layer": "addons"
+}

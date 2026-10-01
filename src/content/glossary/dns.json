@@ -1,0 +1,7 @@
+{
+  "id": "dns",
+  "term": "DNS",
+  "definition": "The internet's directory that turns domain names into computer addresses.",
+  "like": "The phone book that turns names into numbers.",
+  "layer": "hosting"
+}

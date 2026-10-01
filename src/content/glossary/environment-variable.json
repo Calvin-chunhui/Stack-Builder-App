@@ -1,0 +1,7 @@
+{
+  "id": "environment-variable",
+  "term": "Environment variable",
+  "definition": "A setting stored outside the code, often used for secrets and configuration.",
+  "like": "The safe's combination written in the manager's office, not on the menu.",
+  "layer": "devops"
+}

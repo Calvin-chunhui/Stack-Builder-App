@@ -1,0 +1,99 @@
+{
+  "id": "bootstrap",
+  "name": "Bootstrap",
+  "monogram": "Bs",
+  "layer": "addons",
+  "category": "styling",
+  "subtitle": "Classic CSS component framework",
+  "tagline": "Ready-made components",
+  "firstRelease": 2011,
+  "creator": "Mark Otto and Jacob Thornton at Twitter",
+  "maintainer": "Bootstrap core team",
+  "version": {
+    "label": "5.3",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy",
+  "description": "The framework that made responsive websites easy: a grid system plus pre-styled buttons, forms, navbars and modals you use by adding classes. It works with any frontend or none at all.",
+  "useCases": [
+    "Admin panels",
+    "Quick prototypes",
+    "Server-rendered apps",
+    "Learning responsive layout"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "SCSS and JavaScript",
+    "youWrite": "HTML classes"
+  },
+  "concepts": [
+    {
+      "term": "Grid",
+      "explanation": "12-column responsive layout."
+    },
+    {
+      "term": "Components",
+      "explanation": "Buttons, cards, modals and more."
+    },
+    {
+      "term": "Utilities",
+      "explanation": "Spacing and display helpers."
+    },
+    {
+      "term": "Theming",
+      "explanation": "Customize with Sass variables."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "HTML with Bootstrap classes",
+      "language": "html",
+      "code": "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <div class=\"card p-3\">\n        <h5 class=\"card-title\">Pro plan</h5>\n        <button class=\"btn btn-primary\">Choose plan</button>\n      </div>\n    </div>\n  </div>\n</div>"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "vanilla",
+      "reason": "No build step needed",
+      "resolved": true
+    },
+    {
+      "toolId": "django",
+      "reason": "Server-rendered templates",
+      "resolved": true
+    },
+    {
+      "toolId": "laravel",
+      "reason": "Long-time pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "htmx",
+      "reason": "Simple interactive pages",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Fast to get a decent look",
+    "Well documented",
+    "Works everywhere"
+  ],
+  "cons": [
+    "Sites can look generic",
+    "Heavier than utility CSS",
+    "Overriding styles gets messy"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://getbootstrap.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://getbootstrap.com",
+    "docs": "https://getbootstrap.com/docs/"
+  }
+}

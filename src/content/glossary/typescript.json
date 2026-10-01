@@ -1,0 +1,7 @@
+{
+  "id": "typescript",
+  "term": "TypeScript",
+  "definition": "JavaScript with type labels added, so mistakes are caught before the code runs.",
+  "like": "Labeling every container in the kitchen so nobody grabs salt instead of sugar.",
+  "layer": "frontend"
+}

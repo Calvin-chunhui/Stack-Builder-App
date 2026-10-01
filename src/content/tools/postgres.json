@@ -1,0 +1,143 @@
+{
+  "id": "postgres",
+  "name": "PostgreSQL",
+  "monogram": "Pg",
+  "layer": "database",
+  "subtitle": "Object-relational database (SQL)",
+  "tagline": "Reliable relational default",
+  "firstRelease": 1996,
+  "creator": "Michael Stonebraker's POSTGRES project at UC Berkeley (1986)",
+  "maintainer": "PostgreSQL Global Development Group",
+  "version": {
+    "label": "18 (Sep 2025); 19 in beta",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "PostgreSQL License",
+  "learningCurve": "Moderate",
+  "description": "A standards-compliant relational database with ACID transactions, rich SQL, JSONB for document-style data, full-text search and a powerful extension system including PostGIS and pgvector. It is the most used and most admired database among developers.",
+  "useCases": [
+    "SaaS apps",
+    "Fintech",
+    "Geospatial data",
+    "Analytics",
+    "AI vector search with pgvector"
+  ],
+  "notableUsers": [
+    {
+      "name": "Instagram"
+    },
+    {
+      "name": "Reddit"
+    },
+    {
+      "name": "Twitch"
+    }
+  ],
+  "languages": {
+    "written": "C",
+    "youWrite": "SQL and PL/pgSQL, usually through an ORM"
+  },
+  "concepts": [
+    {
+      "term": "Tables and schemas",
+      "explanation": "Structured rows organized into namespaces."
+    },
+    {
+      "term": "Keys and constraints",
+      "explanation": "Primary, foreign and unique rules keep data valid."
+    },
+    {
+      "term": "Joins",
+      "explanation": "Combine rows across tables."
+    },
+    {
+      "term": "Indexes",
+      "explanation": "B-tree, GIN and GiST speed up queries."
+    },
+    {
+      "term": "Transactions and MVCC",
+      "explanation": "Consistent reads without blocking writers."
+    },
+    {
+      "term": "JSONB",
+      "explanation": "Store and query JSON documents."
+    },
+    {
+      "term": "Extensions",
+      "explanation": "Add features like PostGIS or pgvector."
+    },
+    {
+      "term": "Row Level Security",
+      "explanation": "Per-row access policies."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "SQL",
+      "language": "sql",
+      "code": "CREATE TABLE users (\n  id          uuid PRIMARY KEY DEFAULT uuidv7(),   -- new in PostgreSQL 18\n  email       text UNIQUE NOT NULL,\n  profile     jsonb,\n  created_at  timestamptz DEFAULT now()\n);\n\nSELECT email, profile->>'name' AS name\nFROM users\nWHERE created_at > now() - interval '7 days'\nORDER BY created_at DESC\nLIMIT 10;"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "supabase",
+      "reason": "Managed Postgres platform",
+      "resolved": true
+    },
+    {
+      "toolId": "django",
+      "reason": "Django's best-supported database",
+      "resolved": true
+    },
+    {
+      "toolId": "rails",
+      "reason": "Common production pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "phoenix",
+      "reason": "Default via Ecto",
+      "resolved": true
+    },
+    {
+      "toolId": "Prisma or Drizzle",
+      "reason": "Type-safe access from TypeScript",
+      "resolved": false
+    },
+    {
+      "toolId": "redis",
+      "reason": "Caching in front",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Rock-solid reliability and correctness",
+    "Feature-rich: JSONB, full-text search, GIS",
+    "Huge extension ecosystem",
+    "Vendor-neutral and available on every host",
+    "Most admired database since 2023 (65.5% in 2025)"
+  ],
+  "cons": [
+    "Needs tuning: vacuum and connection limits",
+    "Serverless apps need a connection pooler",
+    "Horizontal write scaling needs add-ons",
+    "Major upgrades need planning"
+  ],
+  "pricing": {
+    "summary": "Free and open source. Managed options (Neon, Supabase, RDS and others) are usage-based.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.postgresql.org"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.postgresql.org",
+    "docs": "https://www.postgresql.org/docs/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 55.6,
+    "admired": 65.5
+  }
+}

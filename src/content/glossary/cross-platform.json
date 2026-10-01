@@ -1,0 +1,7 @@
+{
+  "id": "cross-platform",
+  "term": "Cross-platform",
+  "definition": "One codebase that produces apps for several platforms, such as iOS and Android.",
+  "like": "One recipe that works in two different kitchens.",
+  "layer": "mobile"
+}

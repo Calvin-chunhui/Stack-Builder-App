@@ -1,0 +1,7 @@
+{
+  "id": "ssr",
+  "term": "Server-side rendering (SSR)",
+  "definition": "Building the page's HTML on the server before sending it, so it appears faster and search engines read it easily.",
+  "like": "The dish arrives plated rather than as ingredients to assemble.",
+  "layer": "frontend"
+}

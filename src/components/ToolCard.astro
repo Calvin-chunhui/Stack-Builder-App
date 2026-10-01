@@ -1,0 +1,26 @@
+---
+import Mono from './Mono.astro';
+import { layerColor } from '../data/taxonomy';
+import type { LayerId } from '../engine/types';
+
+interface Props {
+  tool: {
+    id: string;
+    name: string;
+    monogram: string;
+    layer: LayerId;
+    subtitle: string;
+    firstRelease: number;
+    logo?: string | undefined;
+  };
+}
+const { tool } = Astro.props;
+---
+
+<a class="lib-card" href={`/library/tool/${tool.id}`} style={`--c:${layerColor(tool.layer)}`}>
+  <Mono monogram={tool.monogram} layer={tool.layer} logo={tool.logo} name={tool.name} />
+  <span>
+    <strong>{tool.name}</strong>
+    <small>{tool.subtitle}, {tool.firstRelease}</small>
+  </span>
+</a>

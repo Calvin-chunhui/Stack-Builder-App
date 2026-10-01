@@ -1,0 +1,7 @@
+{
+  "id": "json",
+  "term": "JSON",
+  "definition": "A lightweight text format for sending structured data between programs.",
+  "like": "A standard order ticket layout everyone can read.",
+  "layer": "backend"
+}

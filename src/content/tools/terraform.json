@@ -1,0 +1,129 @@
+{
+  "id": "terraform",
+  "name": "Terraform",
+  "monogram": "Tf",
+  "layer": "devops",
+  "subtitle": "Infrastructure as code",
+  "tagline": "Infrastructure as code",
+  "firstRelease": 2014,
+  "creator": "Mitchell Hashimoto at HashiCorp",
+  "maintainer": "HashiCorp, an IBM company (since Feb 2025)",
+  "version": {
+    "label": "1.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Business Source License 1.1 (since v1.6)",
+  "learningCurve": "Moderate",
+  "description": "You declare cloud resources such as servers, databases, DNS and buckets in HCL files. Terraform plans the changes and applies them through provider plugins for thousands of services, tracking real-world state in a state file.",
+  "useCases": [
+    "Provisioning multi-cloud infrastructure",
+    "Reproducible environments",
+    "Reviewing infrastructure changes in pull requests"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Go",
+    "youWrite": "HCL (HashiCorp Configuration Language)"
+  },
+  "concepts": [
+    {
+      "term": "Providers",
+      "explanation": "Plugins that talk to AWS, GCP, Cloudflare and more."
+    },
+    {
+      "term": "Resources",
+      "explanation": "The things you want to exist."
+    },
+    {
+      "term": "Data sources",
+      "explanation": "Read existing infrastructure."
+    },
+    {
+      "term": "Variables and outputs",
+      "explanation": "Inputs and results of a configuration."
+    },
+    {
+      "term": "State",
+      "explanation": "Terraform's record of what exists; keep it remote and locked."
+    },
+    {
+      "term": "Plan and apply",
+      "explanation": "Preview changes, then make them."
+    },
+    {
+      "term": "Modules",
+      "explanation": "Reusable bundles of resources."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "HCL",
+      "language": "hcl",
+      "code": "terraform {\n  required_providers {\n    aws = { source = \"hashicorp/aws\", version = \"~> 6.0\" }\n  }\n}\n\nprovider \"aws\" { region = \"us-east-1\" }\n\nresource \"aws_s3_bucket\" \"assets\" {\n  bucket = \"my-app-assets-2026\"\n}\n\noutput \"bucket_name\" { value = aws_s3_bucket.assets.bucket }"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "aws",
+      "reason": "Official provider",
+      "resolved": true
+    },
+    {
+      "toolId": "gcp",
+      "reason": "Official provider",
+      "resolved": true
+    },
+    {
+      "toolId": "cloudflare",
+      "reason": "Official provider",
+      "resolved": true
+    },
+    {
+      "toolId": "gha",
+      "reason": "Plan on PR, apply on merge",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "Provision clusters",
+      "resolved": true
+    },
+    {
+      "toolId": "OpenTofu",
+      "reason": "Drop-in open-source fork",
+      "resolved": false
+    }
+  ],
+  "pros": [
+    "One workflow across clouds",
+    "Huge provider and module registry",
+    "Reviewable plans",
+    "Mature and widely known"
+  ],
+  "cons": [
+    "BSL license and IBM ownership concern some teams",
+    "State pitfalls: drift, locking, secrets",
+    "HCL has limited logic",
+    "Provider version churn"
+  ],
+  "pricing": {
+    "summary": "CLI is free. HCP Terraform: free up to 500 managed resources; Essentials $0.10, Standard $0.47, Premium $0.99 per resource per month. OpenTofu is a free open-source fork.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://developer.hashicorp.com/terraform"
+  },
+  "flags": [
+    "Source-available (BSL)",
+    "Owned by IBM"
+  ],
+  "links": {
+    "site": "https://developer.hashicorp.com/terraform",
+    "docs": "https://developer.hashicorp.com/terraform/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 17.8,
+    "admired": 51.8
+  }
+}

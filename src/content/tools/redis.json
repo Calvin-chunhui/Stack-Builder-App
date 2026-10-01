@@ -1,0 +1,137 @@
+{
+  "id": "redis",
+  "name": "Redis",
+  "monogram": "Rd",
+  "layer": "database",
+  "subtitle": "In-memory data store (cache, queues, vectors)",
+  "tagline": "Caching and queues",
+  "firstRelease": 2009,
+  "creator": "Salvatore Sanfilippo",
+  "maintainer": "Redis Ltd.",
+  "version": {
+    "label": "8.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Tri-licensed: AGPLv3, RSALv2 or SSPLv1 (since Redis 8)",
+  "learningCurve": "Easy",
+  "description": "An extremely fast in-memory store for strings, hashes, lists, sets, sorted sets, streams, JSON and vectors, with optional persistence to disk. It usually sits beside a primary database for caching, sessions, rate limiting, queues and leaderboards. Redis 8 returned to an OSI-approved license with AGPLv3; Valkey is the BSD-licensed fork.",
+  "useCases": [
+    "Caching",
+    "Session stores",
+    "Job queues",
+    "Leaderboards",
+    "Rate limiting",
+    "AI semantic caching"
+  ],
+  "notableUsers": [
+    {
+      "name": "GitHub"
+    },
+    {
+      "name": "Stack Overflow"
+    },
+    {
+      "name": "Snap"
+    }
+  ],
+  "languages": {
+    "written": "C",
+    "youWrite": "Redis commands via client libraries"
+  },
+  "concepts": [
+    {
+      "term": "Keys and TTL",
+      "explanation": "Values that can expire automatically."
+    },
+    {
+      "term": "Data structures",
+      "explanation": "Strings, hashes, lists, sets and sorted sets."
+    },
+    {
+      "term": "Streams",
+      "explanation": "Append-only logs for events."
+    },
+    {
+      "term": "Pub/Sub",
+      "explanation": "Broadcast messages to subscribers."
+    },
+    {
+      "term": "Persistence",
+      "explanation": "RDB snapshots and AOF logs."
+    },
+    {
+      "term": "Eviction policies",
+      "explanation": "What to drop when memory fills."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Redis commands",
+      "language": "shell",
+      "code": "SET session:42 \"{\\\"user\\\":\\\"ada\\\"}\" EX 3600   # expires in 1 hour\nGET session:42\nINCR page:views\nLPUSH queue:emails \"welcome:42\"\nZADD leaderboard 1500 \"alice\" 1320 \"bob\"\nZREVRANGE leaderboard 0 9 WITHSCORES"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "postgres",
+      "reason": "Cache in front of your main database",
+      "resolved": true
+    },
+    {
+      "toolId": "node",
+      "reason": "BullMQ queues",
+      "resolved": true
+    },
+    {
+      "toolId": "rails",
+      "reason": "Sidekiq jobs",
+      "resolved": true
+    },
+    {
+      "toolId": "django",
+      "reason": "Celery broker",
+      "resolved": true
+    },
+    {
+      "toolId": "laravel",
+      "reason": "Horizon queues",
+      "resolved": true
+    },
+    {
+      "toolId": "Valkey",
+      "reason": "BSD-licensed drop-in fork",
+      "resolved": false
+    }
+  ],
+  "pros": [
+    "Sub-millisecond latency",
+    "Versatile data structures",
+    "Simple to use",
+    "Usage grew 8 points in the Stack Overflow 2025 survey"
+  ],
+  "cons": [
+    "Memory-bound, so costly at scale",
+    "Not a primary database for most relational data",
+    "License changes caused the Valkey split",
+    "Clustering adds operational work"
+  ],
+  "pricing": {
+    "summary": "Free and open source under AGPLv3. Managed services such as Redis Cloud and Upstash are usage-based.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://redis.io"
+  },
+  "flags": [
+    "Relicensed: AGPLv3 option since Redis 8"
+  ],
+  "links": {
+    "site": "https://redis.io",
+    "docs": "https://redis.io/docs/latest/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 28,
+    "admired": 54.9
+  }
+}

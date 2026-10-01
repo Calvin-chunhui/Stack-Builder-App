@@ -1,0 +1,97 @@
+{
+  "id": "planetscale",
+  "name": "PlanetScale",
+  "monogram": "PS",
+  "layer": "database",
+  "subtitle": "Managed MySQL (Vitess) and Postgres",
+  "tagline": "Database built to scale",
+  "firstRelease": 2018,
+  "creator": "Jiten Vaidya and Sugu Sougoumarane (Vitess co-creators)",
+  "maintainer": "PlanetScale, Inc.",
+  "version": {
+    "label": "Hosted service (Postgres added 2025)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary (Vitess is Apache-2.0)",
+  "learningCurve": "Moderate",
+  "description": "A managed database platform built on Vitess, the sharding system created at YouTube, now offering PostgreSQL too. It is known for branching and deploy requests that apply schema changes without locking tables.",
+  "useCases": [
+    "High-traffic apps that outgrow one database server",
+    "Teams that want safe schema changes",
+    "MySQL workloads at scale"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Go (Vitess)",
+    "youWrite": "SQL"
+  },
+  "concepts": [
+    {
+      "term": "Vitess",
+      "explanation": "Shards MySQL across many servers."
+    },
+    {
+      "term": "Branches",
+      "explanation": "Isolated copies for schema changes."
+    },
+    {
+      "term": "Deploy requests",
+      "explanation": "Reviewed, non-blocking schema changes."
+    },
+    {
+      "term": "Insights",
+      "explanation": "Query performance analytics."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Shell · PlanetScale CLI",
+      "language": "shell",
+      "code": "# Create a branch, change the schema safely, then open a deploy request\npscale branch create my-db add-status-column\npscale shell my-db add-status-column\n#   > ALTER TABLE orders ADD COLUMN status VARCHAR(20);\npscale deploy-request create my-db add-status-column"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "prisma",
+      "reason": "Supported",
+      "resolved": true
+    },
+    {
+      "toolId": "drizzle",
+      "reason": "Supported",
+      "resolved": true
+    },
+    {
+      "toolId": "vercel",
+      "reason": "Serverless driver",
+      "resolved": true
+    },
+    {
+      "toolId": "laravel",
+      "reason": "MySQL-compatible",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Proven horizontal scaling",
+    "Excellent schema-change workflow",
+    "Strong reliability reputation"
+  ],
+  "cons": [
+    "No free tier",
+    "Vitess has some MySQL feature limits",
+    "Overkill for small projects"
+  ],
+  "pricing": {
+    "summary": "No free tier. Postgres single-node from $5/mo; Vitess (MySQL) production plans from $39/mo.",
+    "freeTier": false,
+    "entryMonthly": 5,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://planetscale.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://planetscale.com",
+    "docs": "https://planetscale.com/docs"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "graphql",
+  "name": "GraphQL",
+  "monogram": "GQ",
+  "layer": "addons",
+  "category": "data",
+  "subtitle": "Query language for APIs",
+  "tagline": "Ask for exactly the data you need",
+  "firstRelease": 2015,
+  "creator": "Facebook (used internally since 2012)",
+  "maintainer": "GraphQL Foundation (Linux Foundation)",
+  "version": {
+    "label": "Specification (October 2021 edition and later)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Open specification",
+  "learningCurve": "Moderate",
+  "description": "An alternative to REST where the client sends one query describing exactly which fields it wants, and the server returns just that. One endpoint serves many screens without over- or under-fetching.",
+  "useCases": [
+    "APIs serving many client apps",
+    "Mobile apps on slow networks",
+    "Combining several back-end services"
+  ],
+  "notableUsers": [
+    {
+      "name": "Meta"
+    },
+    {
+      "name": "GitHub"
+    },
+    {
+      "name": "Shopify"
+    }
+  ],
+  "languages": {
+    "written": "Implementations in every language",
+    "youWrite": "GraphQL schema and queries"
+  },
+  "concepts": [
+    {
+      "term": "Schema",
+      "explanation": "Types and fields your API offers."
+    },
+    {
+      "term": "Queries and mutations",
+      "explanation": "Read and write operations."
+    },
+    {
+      "term": "Resolvers",
+      "explanation": "Functions that fetch each field."
+    },
+    {
+      "term": "Subscriptions",
+      "explanation": "Realtime updates."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "GraphQL",
+      "language": "graphql",
+      "code": "# Schema (server)\ntype User { id: ID!, name: String!, orders: [Order!]! }\ntype Order { id: ID!, total: Float! }\ntype Query { user(id: ID!): User }\n\n# Query (client asks for exactly these fields)\nquery {\n  user(id: \"42\") {\n    name\n    orders { total }\n  }\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nestjs",
+      "reason": "First-class module",
+      "resolved": true
+    },
+    {
+      "toolId": "react",
+      "reason": "Apollo or urql clients",
+      "resolved": true
+    },
+    {
+      "toolId": "springboot",
+      "reason": "Spring for GraphQL",
+      "resolved": true
+    },
+    {
+      "toolId": "aspnet",
+      "reason": "Hot Chocolate",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Clients get exactly what they need",
+    "Strongly typed",
+    "Great tooling and docs from the schema"
+  ],
+  "cons": [
+    "More complex than REST",
+    "Caching is harder",
+    "Easy to write slow queries"
+  ],
+  "pricing": {
+    "summary": "Free open standard. Servers like Apollo have free and paid tools.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://graphql.org"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://graphql.org",
+    "docs": "https://graphql.org/learn/"
+  }
+}

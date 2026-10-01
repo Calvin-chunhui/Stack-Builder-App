@@ -1,0 +1,45 @@
+---
+id: mobile
+name: "Mobile"
+title: "Mobile: apps installed from a store"
+blurb: "Apps installed from a store"
+order: 1
+optional: true
+multi: false
+color: "--mob"
+place: "The delivery app"
+analogy: "Customers order from their phone instead of walking in. It's a different front counter, but the same kitchen cooks the food."
+zoneLabel: "Delivery counter"
+zoneText: "Orders from the delivery app arrive here. A mobile app is another way in, but it uses the same kitchen (backend)."
+points:
+  - "Cross-platform saves time; native gives the best feel and newest features."
+  - "Stores review your app and charge developer fees."
+  - "The app still needs a backend or a backend-as-a-service for accounts and data."
+  - "Phones go offline, so good apps handle missing connections."
+terms:
+  - "native"
+  - "cross-platform"
+  - "app-store"
+  - "api"
+  - "baas"
+starters:
+  - toolId: "reactnative"
+    why: "If you know React"
+  - toolId: "flutter"
+    why: "One codebase, polished UI"
+  - toolId: "swiftui"
+    why: "iPhone-only apps"
+flow:
+  - step: "Write the app"
+    detail: "One or two codebases"
+  - step: "Build for each platform"
+    detail: "iOS and Android"
+  - step: "Store review"
+    detail: "Apple and Google check it"
+  - step: "Installed on phones"
+    detail: "Runs on the device"
+  - step: "Talks to your API"
+    detail: "Saves and loads data"
+---
+
+Mobile apps are downloaded from the Apple App Store or Google Play and run directly on the phone. Native apps are written separately for each platform (Swift for iPhone, Kotlin for Android). Cross-platform tools like React Native and Flutter let one codebase produce both. Apps still talk to a backend or a service like Supabase to save data.

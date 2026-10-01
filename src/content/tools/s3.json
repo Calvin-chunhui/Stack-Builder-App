@@ -1,0 +1,106 @@
+{
+  "id": "s3",
+  "name": "Amazon S3",
+  "monogram": "S3",
+  "layer": "addons",
+  "category": "storage",
+  "subtitle": "Object storage",
+  "tagline": "Store files and images",
+  "firstRelease": 2006,
+  "creator": "Amazon Web Services",
+  "maintainer": "Amazon Web Services",
+  "version": {
+    "label": "Hosted service",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy to moderate",
+  "description": "The original cloud storage for files of any size: images, videos, backups, uploads. Files live in buckets and are reached by URL. Its API became the industry standard that many other providers copy.",
+  "useCases": [
+    "User uploads",
+    "Static site files",
+    "Backups and archives",
+    "Data lakes"
+  ],
+  "notableUsers": [
+    {
+      "name": "Netflix"
+    },
+    {
+      "name": "Airbnb"
+    }
+  ],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "AWS SDK in any language"
+  },
+  "concepts": [
+    {
+      "term": "Buckets",
+      "explanation": "Top-level containers for files."
+    },
+    {
+      "term": "Objects and keys",
+      "explanation": "A file and its path."
+    },
+    {
+      "term": "Presigned URLs",
+      "explanation": "Temporary upload or download links."
+    },
+    {
+      "term": "Storage classes",
+      "explanation": "Cheaper tiers for rarely used files."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript · presigned upload URL",
+      "language": "ts",
+      "code": "import { S3Client, PutObjectCommand } from \"@aws-sdk/client-s3\";\nimport { getSignedUrl } from \"@aws-sdk/s3-request-presigner\";\n\nconst s3 = new S3Client({ region: \"us-east-1\" });\n\n// Give the browser a temporary URL to upload one file directly\nconst url = await getSignedUrl(\n  s3,\n  new PutObjectCommand({ Bucket: \"my-app-uploads\", Key: \"avatars/42.png\" }),\n  { expiresIn: 300 }\n);"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "aws",
+      "reason": "Native service",
+      "resolved": true
+    },
+    {
+      "toolId": "cloudflare",
+      "reason": "CDN in front",
+      "resolved": true
+    },
+    {
+      "toolId": "terraform",
+      "reason": "Create buckets as code",
+      "resolved": true
+    },
+    {
+      "toolId": "django",
+      "reason": "django-storages",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Extremely durable and reliable",
+    "Industry-standard API",
+    "Cheap for storage"
+  ],
+  "cons": [
+    "Data transfer out costs money",
+    "Permissions are easy to misconfigure",
+    "Pricing has many line items"
+  ],
+  "pricing": {
+    "summary": "Pay per GB stored, per request and per GB transferred out. New AWS accounts start with free credits.",
+    "freeTier": true,
+    "entryMonthly": null,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://aws.amazon.com/s3/"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://aws.amazon.com/s3/",
+    "docs": "https://docs.aws.amazon.com/s3/"
+  }
+}

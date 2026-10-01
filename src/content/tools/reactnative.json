@@ -1,0 +1,118 @@
+{
+  "id": "reactnative",
+  "name": "React Native (Expo)",
+  "monogram": "RN",
+  "layer": "mobile",
+  "subtitle": "Cross-platform mobile framework",
+  "tagline": "If you know React",
+  "firstRelease": 2015,
+  "creator": "Meta (Facebook)",
+  "maintainer": "Meta, Expo and the community",
+  "version": {
+    "label": "New Architecture by default; Expo SDK recommended",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate",
+  "description": "Build real native iPhone and Android apps using React and JavaScript or TypeScript. Components map to genuine native views, not a web page in a wrapper. Expo is the recommended way to start: it handles builds, updates and device APIs.",
+  "useCases": [
+    "iOS and Android apps from one codebase",
+    "Teams with React web experience",
+    "Apps that share logic with a web app"
+  ],
+  "notableUsers": [
+    {
+      "name": "Meta (Instagram, Facebook)"
+    },
+    {
+      "name": "Microsoft"
+    },
+    {
+      "name": "Shopify"
+    }
+  ],
+  "languages": {
+    "written": "C++, Java/Kotlin, Objective-C and JavaScript",
+    "youWrite": "JavaScript or TypeScript with JSX"
+  },
+  "concepts": [
+    {
+      "term": "Native components",
+      "explanation": "<View>, <Text> and <Pressable> render native UI."
+    },
+    {
+      "term": "Expo",
+      "explanation": "Tooling for building, testing and shipping."
+    },
+    {
+      "term": "Expo Router",
+      "explanation": "File-based navigation between screens."
+    },
+    {
+      "term": "Over-the-air updates",
+      "explanation": "Ship JS fixes without a store review."
+    },
+    {
+      "term": "Native modules",
+      "explanation": "Access camera, location and more."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TSX · Expo",
+      "language": "tsx",
+      "code": "import { useState } from \"react\";\nimport { View, Text, Pressable, StyleSheet } from \"react-native\";\n\nexport default function Counter() {\n  const [count, setCount] = useState(0);\n  return (\n    <View style={styles.box}>\n      <Text>Tapped {count} times</Text>\n      <Pressable onPress={() => setCount(count + 1)}><Text>Tap me</Text></Pressable>\n    </View>\n  );\n}\nconst styles = StyleSheet.create({ box: { padding: 24, gap: 12 } });"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "react",
+      "reason": "Same component model",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "Share code with a web app",
+      "resolved": true
+    },
+    {
+      "toolId": "supabase",
+      "reason": "Backend without a server",
+      "resolved": true
+    },
+    {
+      "toolId": "clerk",
+      "reason": "Expo SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "firebaseauth",
+      "reason": "Mobile-friendly auth",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "One codebase for iOS and Android",
+    "Reuses React knowledge",
+    "Expo removes most native setup",
+    "Huge ecosystem"
+  ],
+  "cons": [
+    "Some features still need native code",
+    "Performance tuning for heavy animations",
+    "Upgrades used to be painful (Expo helps)"
+  ],
+  "pricing": {
+    "summary": "Free and open source. Publishing costs $99/yr (Apple) and $25 once (Google Play). Expo's build service has free and paid plans.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "usageFee": "Store fees: Apple $99/yr, Google Play $25 once",
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://reactnative.dev"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://reactnative.dev",
+    "docs": "https://docs.expo.dev"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "git",
+  "term": "Git",
+  "definition": "The tool developers use to track changes to code and collaborate.",
+  "like": "A recipe book that records every edit and who made it.",
+  "layer": "devops"
+}

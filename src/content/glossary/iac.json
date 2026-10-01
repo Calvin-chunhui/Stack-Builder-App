@@ -1,0 +1,7 @@
+{
+  "id": "iac",
+  "term": "Infrastructure as code",
+  "definition": "Describing servers and cloud resources in files so they can be recreated exactly.",
+  "like": "Blueprints for building an identical branch.",
+  "layer": "devops"
+}

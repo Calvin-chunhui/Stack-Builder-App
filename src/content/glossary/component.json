@@ -1,0 +1,7 @@
+{
+  "id": "component",
+  "term": "Component",
+  "definition": "A reusable, self-contained piece of UI, like a button or a product card.",
+  "like": "A standard table setting you repeat at every table.",
+  "layer": "frontend"
+}

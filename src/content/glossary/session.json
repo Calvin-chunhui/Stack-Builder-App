@@ -1,0 +1,7 @@
+{
+  "id": "session",
+  "term": "Session",
+  "definition": "A record that keeps you logged in between requests, often stored in a cookie.",
+  "like": "The table number you're given for the evening.",
+  "layer": "auth"
+}

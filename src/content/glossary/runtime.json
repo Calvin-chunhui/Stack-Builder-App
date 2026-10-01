@@ -1,0 +1,7 @@
+{
+  "id": "runtime",
+  "term": "Runtime",
+  "definition": "The program that actually runs your code, like Node.js for JavaScript on a server.",
+  "like": "The stove your recipe is cooked on.",
+  "layer": "backend"
+}

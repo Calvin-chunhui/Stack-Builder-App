@@ -1,0 +1,124 @@
+{
+  "id": "cloudflare",
+  "name": "Cloudflare",
+  "monogram": "Cf",
+  "layer": "hosting",
+  "subtitle": "Edge serverless compute (Workers and Pages)",
+  "tagline": "Global edge network",
+  "firstRelease": 2017,
+  "creator": "Cloudflare (founded 2009); Workers launched 2017",
+  "maintainer": "Cloudflare, Inc.",
+  "version": {
+    "label": "Hosted platform (runtime workerd is open source)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary platform",
+  "learningCurve": "Moderate",
+  "description": "Workers run JavaScript, TypeScript and WebAssembly in lightweight isolates across Cloudflare's global network. Static front ends are served alongside, and bindings connect code to KV, D1 (SQLite), R2 object storage, Durable Objects and Queues.",
+  "useCases": [
+    "Edge APIs",
+    "Full-stack apps at the edge",
+    "Static sites",
+    "Middleware",
+    "AI inference"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "C++ runtime (workerd)",
+    "youWrite": "JavaScript or TypeScript, plus Python and Rust via WASM; config in wrangler.jsonc"
+  },
+  "concepts": [
+    {
+      "term": "Isolates",
+      "explanation": "Lightweight sandboxes that start almost instantly."
+    },
+    {
+      "term": "fetch handler",
+      "explanation": "Your Worker receives a Request and returns a Response."
+    },
+    {
+      "term": "Bindings",
+      "explanation": "Connect to KV, D1, R2 and Durable Objects."
+    },
+    {
+      "term": "Wrangler",
+      "explanation": "CLI for dev and deploy."
+    },
+    {
+      "term": "CPU-time limits",
+      "explanation": "Billing and limits are based on CPU time."
+    },
+    {
+      "term": "Durable Objects",
+      "explanation": "Stateful coordination at the edge."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JavaScript · a Worker",
+      "language": "js",
+      "code": "export default {\n  async fetch(request, env, ctx) {\n    const url = new URL(request.url);\n    if (url.pathname === \"/api/hello\") {\n      return Response.json({ hello: \"world\", colo: request.cf?.colo });\n    }\n    return env.ASSETS.fetch(request); // serve static assets\n  },\n};"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "astro",
+      "reason": "First-class since Astro 6",
+      "resolved": true
+    },
+    {
+      "toolId": "Hono",
+      "reason": "Edge-native web framework",
+      "resolved": false
+    },
+    {
+      "toolId": "svelte",
+      "reason": "SvelteKit adapter",
+      "resolved": true
+    },
+    {
+      "toolId": "nuxt",
+      "reason": "Nitro preset",
+      "resolved": true
+    },
+    {
+      "toolId": "sqlite",
+      "reason": "D1 is hosted SQLite",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Via Hyperdrive",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Global low latency",
+    "Very cheap at scale",
+    "Integrated storage suite",
+    "Excellent DDoS protection and DNS"
+  ],
+  "cons": [
+    "Not full Node.js",
+    "CPU and memory limits",
+    "Proprietary APIs create lock-in",
+    "Debugging differs from normal servers"
+  ],
+  "pricing": {
+    "summary": "Free: 100,000 Worker requests per day. Workers Paid: $5/mo including 10M requests and 30M CPU-ms, then $0.30 per million requests. Static asset requests are free.",
+    "freeTier": true,
+    "entryMonthly": 5,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://workers.cloudflare.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://workers.cloudflare.com",
+    "docs": "https://developers.cloudflare.com/workers/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 20.1,
+    "admired": 57.5
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "iaas",
+  "term": "IaaS",
+  "definition": "Infrastructure-as-a-service: renting raw servers and networks, like EC2 on AWS.",
+  "like": "Renting an empty building.",
+  "layer": "hosting"
+}

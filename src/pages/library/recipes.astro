@@ -1,0 +1,81 @@
+---
+/**
+ * Well-known stack combinations, each with its real feasibility verdict.
+ *
+ * The verdicts are computed at build time by the same engine the builder uses,
+ * so this page can never advertise a stack the engine would reject. The test
+ * suite enforces the same thing (src/engine/__tests__/recipes.test.ts).
+ */
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import LibNav from '../../components/LibNav.astro';
+import { assess, encodeStack, normalizeStack, verdictText } from '../../engine';
+import { verdictIcon } from '../../lib/icons';
+
+const recipes = await getCollection('recipes');
+
+const rows = recipes.map((r) => {
+  const stack = normalizeStack(r.data.stack);
+  const a = assess(stack);
+  return {
+    ...r.data,
+    assessment: a,
+    headline: verdictText(a)[0],
+    encoded: encodeStack(stack),
+  };
+});
+---
+
+<Base
+  title="Stack recipes"
+  description="Well-known tech stack combinations: where they came from, what they're good at, what they cost you, and whether they still hold up."
+  section="library"
+>
+  <div class="lib">
+    <LibNav current="recipes" />
+    <div data-pagefind-body>
+      <div class="lib-intro">
+        <h1>Stack recipes</h1>
+        <p>
+          Well-known combinations, where they came from, and what they're good and bad at. Load one
+          into the builder to see its feasibility report.
+        </p>
+      </div>
+
+      <div class="recipes">
+        {
+          rows.map((r) => (
+            <div class="recipe">
+              <div class="recipe-top">
+                <h3>
+                  <a href={`/recipes/${r.id}`}>{r.name}</a>
+                </h3>
+                <span class={`rv rv-${r.assessment.verdict}`}>
+                  <Fragment set:html={verdictIcon(r.assessment.verdict)} />
+                  {r.headline}
+                </span>
+              </div>
+              <p class="parts">{r.parts}</p>
+              <p>
+                {r.origin} Best for {r.goodFor.charAt(0).toLowerCase() + r.goodFor.slice(1)}
+              </p>
+              <div class="pc">
+                <div>
+                  <h4>Strengths</h4>
+                  <ul>{r.pros.map((x) => <li>{x}</li>)}</ul>
+                </div>
+                <div>
+                  <h4>Trade-offs</h4>
+                  <ul>{r.cons.map((x) => <li>{x}</li>)}</ul>
+                </div>
+              </div>
+              <a class="btn-secondary" href={`/builder?s=${encodeURIComponent(r.encoded)}&n=${encodeURIComponent(r.name)}`}>
+                Load into builder
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,94 @@
+{
+  "id": "sanity",
+  "name": "Sanity",
+  "monogram": "Sa",
+  "layer": "addons",
+  "category": "cms",
+  "subtitle": "Hosted headless CMS",
+  "tagline": "Content editors can update the site",
+  "firstRelease": 2017,
+  "creator": "Sanity team (Oslo)",
+  "maintainer": "Sanity, Inc.",
+  "version": {
+    "label": "Hosted Content Lake with open-source Studio",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Studio is MIT; platform proprietary",
+  "learningCurve": "Easy to moderate",
+  "description": "A headless CMS: editors write content in a customizable web studio, and your frontend fetches it through an API. The content model is defined in code, and editing is collaborative in real time.",
+  "useCases": [
+    "Marketing sites",
+    "Blogs and docs",
+    "E-commerce content",
+    "Any site non-developers update"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "Schemas in TypeScript; queries in GROQ"
+  },
+  "concepts": [
+    {
+      "term": "Headless CMS",
+      "explanation": "Content via API, displayed by any frontend."
+    },
+    {
+      "term": "Studio",
+      "explanation": "The editing interface you customize."
+    },
+    {
+      "term": "Schemas",
+      "explanation": "Content types defined in code."
+    },
+    {
+      "term": "GROQ",
+      "explanation": "Sanity's query language."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript · schema + GROQ query",
+      "language": "ts",
+      "code": "// schemas/post.ts\nexport default {\n  name: \"post\", type: \"document\", title: \"Post\",\n  fields: [\n    { name: \"title\", type: \"string\" },\n    { name: \"body\", type: \"array\", of: [{ type: \"block\" }] },\n  ],\n};\n\n// fetch in your frontend\nconst posts = await client.fetch(`*[_type == \"post\"] | order(_createdAt desc)[0...10]{ title }`);"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "Common pairing",
+      "resolved": true
+    },
+    {
+      "toolId": "astro",
+      "reason": "Content sites",
+      "resolved": true
+    },
+    {
+      "toolId": "netlify",
+      "reason": "Rebuild on publish",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Generous free tier",
+    "Highly customizable editor",
+    "Real-time collaboration"
+  ],
+  "cons": [
+    "GROQ is another language to learn",
+    "Usage overages on API calls",
+    "Content lives in Sanity's cloud"
+  ],
+  "pricing": {
+    "summary": "Free plan (20 seats, 10,000 documents). Growth: $15 per seat per month. Enterprise: custom.",
+    "freeTier": true,
+    "entryMonthly": 15,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.sanity.io"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.sanity.io",
+    "docs": "https://www.sanity.io/docs"
+  }
+}

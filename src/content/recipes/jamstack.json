@@ -1,0 +1,31 @@
+{
+  "id": "jamstack",
+  "name": "JAMstack",
+  "parts": "Astro, Sanity, Netlify",
+  "stack": {
+    "frontend": "astro",
+    "mobile": null,
+    "backend": null,
+    "auth": null,
+    "database": null,
+    "hosting": "netlify",
+    "devops": [
+      "gha"
+    ],
+    "addons": [
+      "sanity",
+      "tailwind"
+    ]
+  },
+  "origin": "Term coined by Netlify's Mathias Biilmann around 2015 to 2016; it has since merged into hybrid rendering.",
+  "goodFor": "Marketing sites, blogs, docs and storefronts.",
+  "pros": [
+    "Fast and secure",
+    "Cheap to host",
+    "Editors update content without developers"
+  ],
+  "cons": [
+    "Build times grow with site size",
+    "Dynamic features rely on third-party APIs"
+  ]
+}

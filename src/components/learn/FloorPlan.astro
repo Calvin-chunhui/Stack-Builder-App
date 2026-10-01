@@ -1,0 +1,215 @@
+---
+/**
+ * The restaurant floor plan: an interactive SVG where each area maps to a
+ * layer of a tech stack.
+ *
+ * Every zone's detail card is rendered server-side and all but one hidden, so
+ * the section is complete and readable before any JavaScript runs. The script
+ * only moves the selection.
+ */
+import { RESTAURANT } from '../../data/learn.generated';
+import { layerColor, layerName } from '../../data/taxonomy';
+import { linkTerms } from '../../lib/glossary';
+import { ICON } from '../../lib/icons';
+
+const zoneById = Object.fromEntries(RESTAURANT.map((z) => [z.id, z]));
+const colorOf = (id: string) => {
+  const layer = zoneById[id]?.layer;
+  return layer ? layerColor(layer) : 'var(--text)';
+};
+const labelOf = (id: string) => {
+  const z = zoneById[id]!;
+  return `${z.label}, ${z.layer ? layerName(z.layer) : 'the API'}`;
+};
+const kickerOf = (id: string) => {
+  const layer = zoneById[id]?.layer;
+  return layer ? layerName(layer) : 'The API';
+};
+
+const DEFAULT_ZONE = 'frontend';
+
+/** Decorative furniture, drawn inside the relevant zones. */
+const tables = [
+  [120, 250],
+  [240, 250],
+  [360, 250],
+  [120, 350],
+  [240, 350],
+  [360, 350],
+];
+const stoves = [0, 1, 2];
+const shelves = [0, 1, 2];
+
+/** [id, x, y, width, height] */
+const ZONE_BOXES: [string, number, number, number, number][] = [
+  ['frontend', 50, 160, 380, 250],
+  ['api', 445, 200, 60, 190],
+  ['backend', 520, 160, 330, 170],
+  ['database', 520, 350, 180, 225],
+  ['devops', 715, 350, 135, 225],
+  ['auth', 50, 430, 190, 145],
+  ['mobile', 260, 430, 170, 145],
+];
+---
+
+<div class="plan-wrap">
+  <div class="plan-svg">
+    <svg
+      class="floorplan"
+      viewBox="0 0 900 620"
+      role="group"
+      aria-label="Restaurant floor plan. Select an area to see which part of a tech stack it represents."
+    >
+      {/* Suppliers: outside the building */}
+      <g
+        class="zone"
+        data-zone="addons"
+        tabindex="0"
+        role="button"
+        aria-pressed="false"
+        aria-label={labelOf('addons')}
+        style={`--c:${colorOf('addons')}`}
+      >
+        <rect x="560" y="8" width="320" height="64" rx="12"></rect>
+        <text x="800" y="36" class="z-mini">cards · email · AI</text>
+        <text x="574" y="36" class="z-label">Suppliers</text>
+        <text x="574" y="56" class="z-layer">Add-ons</text>
+      </g>
+
+      {/* Hosting: the building that contains everything */}
+      <g
+        class="zone"
+        data-zone="hosting"
+        tabindex="0"
+        role="button"
+        aria-pressed="false"
+        aria-label={labelOf('hosting')}
+        style={`--c:${colorOf('hosting')}`}
+      >
+        <rect x="20" y="90" width="860" height="515" rx="18" class="building"></rect>
+        <text x="38" y="120" class="z-label">The building</text>
+        <text x="38" y="140" class="z-layer">Hosting</text>
+      </g>
+
+      {
+        ZONE_BOXES.map(([id, x, y, w, h]) => (
+          <g
+            class={`zone${id === DEFAULT_ZONE ? ' is-on' : ''}`}
+            data-zone={id}
+            tabindex="0"
+            role="button"
+            aria-pressed={id === DEFAULT_ZONE ? 'true' : 'false'}
+            aria-label={labelOf(id)}
+            style={`--c:${colorOf(id)}`}
+          >
+            <rect x={x} y={y} width={w} height={h} rx="12" />
+
+            {id === 'frontend' &&
+              tables.map(([cx, cy]) => (
+                <>
+                  <circle cx={cx} cy={cy} r="24" class="deco" />
+                  <circle cx={cx} cy={cy} r="8" class="deco-dot" />
+                </>
+              ))}
+            {id === 'backend' &&
+              stoves.map((i) => (
+                <>
+                  <rect x={570 + i * 90} y="250" width="56" height="40" rx="6" class="deco" />
+                  <circle cx={584 + i * 90} cy="270" r="6" class="deco-dot" />
+                  <circle cx={612 + i * 90} cy="270" r="6" class="deco-dot" />
+                </>
+              ))}
+            {id === 'database' &&
+              shelves.map((i) => (
+                <rect x="535" y={460 + i * 22} width="150" height="8" rx="3" class="deco" />
+              ))}
+            {id === 'api' && <path d="M462 214h26M478 206l10 8-10 8" class="deco-line" />}
+            {id === 'devops' && <path d="M740 540h85M740 552h85" class="deco-line" />}
+            {id === 'auth' && <rect x="100" y="505" width="70" height="30" rx="6" class="deco" />}
+            {id === 'mobile' && <rect x="330" y="500" width="30" height="50" rx="7" class="deco" />}
+
+            {/* Narrow zones get rotated labels so the text still fits. */}
+            {w < 100 ? (
+              <>
+                <text transform={`translate(${x + 26},${y + h - 16}) rotate(-90)`} class="z-label">
+                  {zoneById[id]!.label}
+                </text>
+                <text transform={`translate(${x + 46},${y + h - 16}) rotate(-90)`} class="z-layer">
+                  {zoneById[id]!.layer ? layerName(zoneById[id]!.layer!) : 'API'}
+                </text>
+              </>
+            ) : (
+              <>
+                <text x={x + 14} y={y + 28} class="z-label">
+                  {zoneById[id]!.label}
+                </text>
+                <text x={x + 14} y={y + 48} class="z-layer">
+                  {zoneById[id]!.layer ? layerName(zoneById[id]!.layer!) : 'API'}
+                </text>
+              </>
+            )}
+          </g>
+        ))
+      }
+
+      <text x="145" y="600" class="z-mini" text-anchor="middle">Entrance</text>
+    </svg>
+  </div>
+
+  <div id="zoneDetail">
+    {
+      RESTAURANT.map((z) => (
+        <div
+          class="zone-card"
+          data-zone-card={z.id}
+          hidden={z.id !== DEFAULT_ZONE}
+          style={`--c:${colorOf(z.id)}`}
+        >
+          <p class="zc-kicker">{kickerOf(z.id)}</p>
+          <h3>{z.label}</h3>
+          <p set:html={linkTerms(z.text, 3)} />
+          {z.layer ? (
+            <a class="btn-secondary" href={`/library/${z.layer}`}>
+              Learn about {layerName(z.layer)}
+              <Fragment set:html={ICON.next} />
+            </a>
+          ) : (
+            <button class="btn-secondary" data-term="api">
+              What's an API?
+              <Fragment set:html={ICON.next} />
+            </button>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  const svg = document.querySelector<SVGElement>('.floorplan');
+  const cards = document.querySelectorAll<HTMLElement>('[data-zone-card]');
+  if (svg) {
+    const select = (id: string) => {
+      for (const g of svg.querySelectorAll<SVGElement>('[data-zone]')) {
+        const on = g.dataset.zone === id;
+        g.classList.toggle('is-on', on);
+        g.setAttribute('aria-pressed', String(on));
+      }
+      for (const card of cards) card.hidden = card.dataset.zoneCard !== id;
+    };
+
+    svg.addEventListener('click', (e) => {
+      const g = (e.target as Element | null)?.closest<SVGElement>('[data-zone]');
+      if (g?.dataset.zone) select(g.dataset.zone);
+    });
+
+    // Zones are role="button", so they must answer Enter and Space.
+    svg.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const g = (e.target as Element | null)?.closest<SVGElement>('[data-zone]');
+      if (!g?.dataset.zone) return;
+      e.preventDefault();
+      select(g.dataset.zone);
+    });
+  }
+</script>

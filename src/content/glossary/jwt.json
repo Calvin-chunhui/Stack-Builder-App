@@ -1,0 +1,7 @@
+{
+  "id": "jwt",
+  "term": "JWT (token)",
+  "definition": "A signed digital token that proves who you are without the server storing a session.",
+  "like": "A wristband at a festival that staff can check at a glance.",
+  "layer": "auth"
+}

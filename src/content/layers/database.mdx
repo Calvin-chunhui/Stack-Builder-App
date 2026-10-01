@@ -1,0 +1,48 @@
+---
+id: database
+name: "Database"
+title: "Database: where information is remembered"
+blurb: "Where your data lives"
+order: 4
+optional: false
+multi: false
+color: "--db"
+place: "The walk-in fridge and pantry"
+analogy: "Ingredients are labeled and shelved so cooks find them in seconds. Without it, every dish would start from nothing and nothing would be remembered tomorrow."
+zoneLabel: "Fridge and pantry"
+zoneText: "Everything the kitchen needs is stored and labeled here. The database remembers users, orders and content between visits."
+points:
+  - "SQL means tables with rules; NoSQL means flexible documents."
+  - "Usually only the backend talks to the database, never the browser directly."
+  - "Backend-as-a-service tools (Supabase, Firebase) are the exception, protected by access rules."
+  - "A cache like Redis sits beside the main database to make things faster."
+terms:
+  - "sql"
+  - "nosql"
+  - "schema"
+  - "query"
+  - "orm"
+  - "migration"
+  - "index"
+  - "cache"
+starters:
+  - toolId: "postgres"
+    why: "The safe default"
+  - toolId: "supabase"
+    why: "Database plus extras"
+  - toolId: "sqlite"
+    why: "Simplest possible start"
+flow:
+  - step: "App asks a question"
+    detail: "Orders for user 42?"
+  - step: "A query is written"
+    detail: "Usually in SQL"
+  - step: "Database searches"
+    detail: "Indexes make it fast"
+  - step: "Rows come back"
+    detail: "The matching records"
+  - step: "App shows them"
+    detail: "On the screen"
+---
+
+A database stores information so it's still there after people leave: accounts, orders, messages. Relational (SQL) databases keep data in tables with fixed columns that link together, a bit like connected spreadsheets. Document (NoSQL) databases store flexible JSON-like records. Most new apps start with PostgreSQL.

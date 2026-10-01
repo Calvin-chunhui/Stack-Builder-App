@@ -1,0 +1,150 @@
+{
+  "id": "nextjs",
+  "name": "Next.js",
+  "monogram": "Nx",
+  "layer": "frontend",
+  "subtitle": "React meta-framework",
+  "tagline": "React with routing and SSR",
+  "firstRelease": 2016,
+  "creator": "ZEIT (now Vercel), founded by Guillermo Rauch",
+  "maintainer": "Vercel",
+  "version": {
+    "label": "16 (Oct 2025), 16.3 current",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate to steep",
+  "description": "A framework on top of React that adds file-based routing, server-side rendering, static generation, API endpoints and Server Actions, plus built-in image and font optimization. It lets you build a whole web app, front end and a light back end, in one React codebase.",
+  "useCases": [
+    "SEO-sensitive marketing sites",
+    "E-commerce",
+    "SaaS dashboards",
+    "Content sites",
+    "AI chat apps"
+  ],
+  "notableUsers": [
+    {
+      "name": "TikTok"
+    },
+    {
+      "name": "Twitch"
+    },
+    {
+      "name": "Nike"
+    },
+    {
+      "name": "Hulu"
+    }
+  ],
+  "languages": {
+    "written": "TypeScript and JavaScript, with Rust for Turbopack and SWC",
+    "youWrite": "TypeScript or JavaScript with JSX"
+  },
+  "concepts": [
+    {
+      "term": "App Router",
+      "explanation": "Folders under app/ become routes with page.tsx and layout.tsx."
+    },
+    {
+      "term": "Server Components by default",
+      "explanation": "Add \"use client\" only where you need interactivity."
+    },
+    {
+      "term": "Rendering modes",
+      "explanation": "SSR, static generation, incremental regeneration and partial prerendering."
+    },
+    {
+      "term": "Cache Components",
+      "explanation": "Explicit caching with the use cache directive (v16)."
+    },
+    {
+      "term": "Route handlers",
+      "explanation": "route.ts files that act as API endpoints."
+    },
+    {
+      "term": "Server Actions",
+      "explanation": "Server functions called directly from forms."
+    },
+    {
+      "term": "proxy.ts",
+      "explanation": "Request interception; replaced middleware.ts in v16."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TSX · app/posts/page.tsx",
+      "language": "tsx",
+      "code": "// A Server Component: this fetch runs on the server\nexport default async function PostsPage() {\n  const res = await fetch(\"https://api.example.com/posts\");\n  const posts: { id: number; title: string }[] = await res.json();\n  return (\n    <ul>\n      {posts.map((p) => (\n        <li key={p.id}>{p.title}</li>\n      ))}\n    </ul>\n  );\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "vercel",
+      "reason": "Zero-config deploys from the same team",
+      "resolved": true
+    },
+    {
+      "toolId": "Tailwind CSS",
+      "reason": "Default styling choice in templates",
+      "resolved": false
+    },
+    {
+      "toolId": "tRPC",
+      "reason": "End-to-end typed APIs",
+      "resolved": false
+    },
+    {
+      "toolId": "Prisma or Drizzle",
+      "reason": "Type-safe database access",
+      "resolved": false
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Via Neon or Supabase on serverless hosts",
+      "resolved": true
+    },
+    {
+      "toolId": "clerk",
+      "reason": "First-class Next.js SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "betterauth",
+      "reason": "Open-source auth that runs in your app",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Full-stack React in one project",
+    "Excellent SEO and performance options",
+    "Huge community and template library",
+    "First-class on Vercel, and v16 adds a Build Adapters API for other hosts",
+    "Fast development with Turbopack"
+  ],
+  "cons": [
+    "Complex mental model: server vs client components and caching layers",
+    "Breaking changes between major versions",
+    "Some features work best on Vercel, so self-hosting takes more work",
+    "Satisfaction fell from 68% to 55% in State of JS 2025"
+  ],
+  "pricing": {
+    "summary": "Free and open source. Hosting costs depend on where you deploy.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://nextjs.org"
+  },
+  "flags": [
+    "Developed by Vercel"
+  ],
+  "links": {
+    "site": "https://nextjs.org",
+    "docs": "https://nextjs.org/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 20.8,
+    "admired": 45.5,
+    "satisfaction": 55
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "id": "phoenix",
+  "name": "Phoenix",
+  "monogram": "Ph",
+  "layer": "backend",
+  "subtitle": "Elixir web framework",
+  "tagline": "Real-time with Elixir",
+  "firstRelease": 2015,
+  "creator": "Chris McCord",
+  "maintainer": "Phoenix core team (sponsored by Fly.io and Dashbit)",
+  "version": {
+    "label": "1.8 (Aug 2025)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Steep",
+  "learningCurveNote": "for newcomers to functional code",
+  "description": "A web framework on Elixir and the Erlang BEAM virtual machine, known for fault tolerance and huge concurrency. LiveView builds rich real-time interfaces rendered on the server over WebSockets with very little JavaScript.",
+  "useCases": [
+    "Real-time apps",
+    "Chat and collaboration",
+    "Dashboards",
+    "IoT back ends",
+    "High-concurrency systems"
+  ],
+  "notableUsers": [
+    {
+      "name": "Bleacher Report"
+    },
+    {
+      "name": "Discord (Elixir)"
+    }
+  ],
+  "languages": {
+    "written": "Elixir",
+    "youWrite": "Elixir and HEEx templates"
+  },
+  "concepts": [
+    {
+      "term": "Functional programming",
+      "explanation": "Immutable data and pure functions."
+    },
+    {
+      "term": "Pattern matching",
+      "explanation": "Destructure and branch on data shapes."
+    },
+    {
+      "term": "Processes and OTP",
+      "explanation": "Supervisors restart crashed parts automatically."
+    },
+    {
+      "term": "Plugs and pipelines",
+      "explanation": "Composable request processing."
+    },
+    {
+      "term": "Contexts",
+      "explanation": "Modules that group domain logic."
+    },
+    {
+      "term": "Ecto",
+      "explanation": "Database wrapper with changesets."
+    },
+    {
+      "term": "LiveView",
+      "explanation": "Interactive UI driven from the server."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Elixir",
+      "language": "elixir",
+      "code": "# lib/my_app_web/router.ex\nscope \"/\", MyAppWeb do\n  pipe_through :browser\n  get \"/posts\", PostController, :index\nend\n\n# lib/my_app_web/controllers/post_controller.ex\ndefmodule MyAppWeb.PostController do\n  use MyAppWeb, :controller\n\n  def index(conn, _params) do\n    render(conn, :index, posts: MyApp.Blog.list_posts())\n  end\nend"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "postgres",
+      "reason": "Default database through Ecto",
+      "resolved": true
+    },
+    {
+      "toolId": "fly",
+      "reason": "Sponsor of Phoenix, great for clustering",
+      "resolved": true
+    },
+    {
+      "toolId": "Tailwind CSS",
+      "reason": "Included by default",
+      "resolved": false
+    },
+    {
+      "toolId": "docker",
+      "reason": "Container deploys",
+      "resolved": true
+    },
+    {
+      "toolId": "Oban",
+      "reason": "Background jobs",
+      "resolved": false
+    }
+  ],
+  "pros": [
+    "Exceptional concurrency and fault tolerance",
+    "LiveView reduces the need for a JS front end",
+    "Low latency",
+    "Most admired web framework in the Stack Overflow survey since 2023 (79% in 2025)"
+  ],
+  "cons": [
+    "Small talent pool and ecosystem",
+    "Functional programming is a paradigm shift for many",
+    "Fewer third-party SDKs",
+    "Narrower hosting choices"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.phoenixframework.org"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.phoenixframework.org",
+    "docs": "https://hexdocs.pm/phoenix"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 2.4,
+    "admired": 79
+  }
+}

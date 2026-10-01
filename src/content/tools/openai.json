@@ -1,0 +1,110 @@
+{
+  "id": "openai",
+  "name": "OpenAI API",
+  "monogram": "OA",
+  "layer": "addons",
+  "category": "ai",
+  "subtitle": "Hosted AI models (GPT family)",
+  "tagline": "Add AI features",
+  "firstRelease": 2020,
+  "creator": "OpenAI",
+  "maintainer": "OpenAI",
+  "version": {
+    "label": "Hosted API",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy",
+  "description": "An API for OpenAI's models, used to generate and summarize text, answer questions, write code, understand images and create embeddings for search. You send a request from your server and get the model's response.",
+  "useCases": [
+    "Chatbots and assistants",
+    "Summaries and writing help",
+    "Semantic search with embeddings",
+    "Image understanding"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "Official SDKs for Python and TypeScript, plus others"
+  },
+  "concepts": [
+    {
+      "term": "Tokens",
+      "explanation": "Chunks of text you pay for."
+    },
+    {
+      "term": "Prompts",
+      "explanation": "Instructions and context you send."
+    },
+    {
+      "term": "Streaming",
+      "explanation": "Show the answer as it's generated."
+    },
+    {
+      "term": "Embeddings",
+      "explanation": "Numbers that capture meaning, for search."
+    },
+    {
+      "term": "Tool calling",
+      "explanation": "Let the model trigger your functions."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Python",
+      "language": "python",
+      "code": "from openai import OpenAI\n\nclient = OpenAI()  # reads OPENAI_API_KEY from the environment\n\nresponse = client.responses.create(\n    model=\"gpt-5\",\n    input=\"Summarize this order history in one sentence: ...\",\n)\nprint(response.output_text)"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "aisdk",
+      "reason": "Unified TypeScript toolkit",
+      "resolved": true
+    },
+    {
+      "toolId": "langchain",
+      "reason": "Agent and RAG framework",
+      "resolved": true
+    },
+    {
+      "toolId": "pinecone",
+      "reason": "Store embeddings",
+      "resolved": true
+    },
+    {
+      "toolId": "fastapi",
+      "reason": "Python AI back ends",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Widely used and documented",
+    "Broad model lineup",
+    "Mature SDKs"
+  ],
+  "cons": [
+    "Costs scale with usage",
+    "Outputs can be wrong",
+    "Keys must stay on your server"
+  ],
+  "pricing": {
+    "summary": "Pay per token (pieces of text) in and out; prices vary by model. See OpenAI's pricing page.",
+    "freeTier": false,
+    "entryMonthly": null,
+    "usageFee": "AI models: pay per token",
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://platform.openai.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://platform.openai.com",
+    "docs": "https://platform.openai.com/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "OpenAI GPT models used for development",
+    "used": 81.4,
+    "admired": 61.2
+  }
+}

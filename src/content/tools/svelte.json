@@ -1,0 +1,142 @@
+{
+  "id": "svelte",
+  "name": "Svelte",
+  "monogram": "Sv",
+  "layer": "frontend",
+  "subtitle": "Compiler-based UI framework (with SvelteKit)",
+  "tagline": "Compiles away, tiny bundles",
+  "firstRelease": 2016,
+  "creator": "Rich Harris (then at The Guardian)",
+  "maintainer": "Svelte core team; Harris works on it full time at Vercel",
+  "version": {
+    "label": "Svelte 5 (Oct 2024), SvelteKit 2",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy",
+  "description": "Svelte compiles components at build time into small JavaScript that updates the page directly, with no virtual DOM and little runtime code. SvelteKit is its full-stack framework, adding routing, server rendering, data loading, form actions and deployment adapters.",
+  "useCases": [
+    "Performance-sensitive sites",
+    "Interactive graphics and data journalism",
+    "Dashboards",
+    "Small and mid-size apps"
+  ],
+  "notableUsers": [
+    {
+      "name": "The New York Times"
+    },
+    {
+      "name": "The Guardian"
+    },
+    {
+      "name": "Stack Overflow survey site"
+    }
+  ],
+  "languages": {
+    "written": "JavaScript with JSDoc types",
+    "youWrite": ".svelte files (HTML, JS or TS, and CSS)"
+  },
+  "concepts": [
+    {
+      "term": "Compiler, not runtime",
+      "explanation": "Work happens at build time, so less ships to the browser."
+    },
+    {
+      "term": "Runes",
+      "explanation": "$state, $derived, $effect and $props for reactivity."
+    },
+    {
+      "term": "Template blocks",
+      "explanation": "{#if}, {#each} and {#await} in markup."
+    },
+    {
+      "term": "Scoped styles",
+      "explanation": "CSS in a component only affects that component."
+    },
+    {
+      "term": "SvelteKit routes",
+      "explanation": "+page.svelte, +page.server.ts and +layout.svelte files."
+    },
+    {
+      "term": "load functions",
+      "explanation": "Fetch data for a page on the server or client."
+    },
+    {
+      "term": "Adapters",
+      "explanation": "Deploy to Vercel, Netlify, Node or Cloudflare."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Svelte 5",
+      "language": "svelte",
+      "code": "<script>\n  let count = $state(0);\n  let double = $derived(count * 2);\n</script>\n\n<button onclick={() => count++}>\n  Clicked {count} times (double: {double})\n</button>"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "Vite",
+      "reason": "Build tool underneath SvelteKit",
+      "resolved": false
+    },
+    {
+      "toolId": "Tailwind CSS",
+      "reason": "Popular styling choice",
+      "resolved": false
+    },
+    {
+      "toolId": "Drizzle or Prisma",
+      "reason": "Database access",
+      "resolved": false
+    },
+    {
+      "toolId": "supabase",
+      "reason": "Backend-as-a-service",
+      "resolved": true
+    },
+    {
+      "toolId": "betterauth",
+      "reason": "SvelteKit integration",
+      "resolved": true
+    },
+    {
+      "toolId": "vercel",
+      "reason": "Official adapter",
+      "resolved": true
+    },
+    {
+      "toolId": "cloudflare",
+      "reason": "Official adapter",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Very little boilerplate",
+    "Tiny bundles and fast runtime",
+    "Scoped CSS built in",
+    "Most admired frontend framework in the Stack Overflow 2025 survey (62.4%)"
+  ],
+  "cons": [
+    "Smaller job market and library ecosystem than React",
+    "Svelte 5 runes changed syntax, so older tutorials are out of date",
+    "Fewer enterprise-grade component libraries"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://svelte.dev"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://svelte.dev",
+    "docs": "https://svelte.dev/docs"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 7.2,
+    "admired": 62.4,
+    "satisfaction": 86
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "authentication",
+  "term": "Authentication",
+  "definition": "Proving who a user is, usually by logging in.",
+  "like": "Checking your name on the reservation list.",
+  "layer": "auth"
+}

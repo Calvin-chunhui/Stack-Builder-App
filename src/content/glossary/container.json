@@ -1,0 +1,7 @@
+{
+  "id": "container",
+  "term": "Container",
+  "definition": "A packaged app plus everything it needs, so it runs the same on any machine.",
+  "like": "A meal-prep box with every ingredient included.",
+  "layer": "devops"
+}

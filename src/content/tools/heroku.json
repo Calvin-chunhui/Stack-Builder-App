@@ -1,0 +1,104 @@
+{
+  "id": "heroku",
+  "name": "Heroku",
+  "monogram": "Hk",
+  "layer": "hosting",
+  "subtitle": "Original Git-push PaaS",
+  "tagline": "Classic PaaS, now in maintenance",
+  "firstRelease": 2007,
+  "creator": "James Lindenbaum, Adam Wiggins and Orion Henry",
+  "maintainer": "Salesforce (acquired 2010)",
+  "version": {
+    "label": "Hosted platform (sustaining engineering since Feb 2026)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy",
+  "description": "The platform that popularized deploying with git push. In February 2026 Salesforce moved Heroku to a sustaining engineering model: it keeps running and gets security fixes, but no new features are planned.",
+  "useCases": [
+    "Existing Heroku apps",
+    "Quick prototypes",
+    "Salesforce-connected apps"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "Node, Ruby, Python, Java, PHP, Go and more via buildpacks"
+  },
+  "concepts": [
+    {
+      "term": "Dynos",
+      "explanation": "Lightweight containers that run your app."
+    },
+    {
+      "term": "Buildpacks",
+      "explanation": "Detect and build your language."
+    },
+    {
+      "term": "Add-ons",
+      "explanation": "Marketplace for databases and tools."
+    },
+    {
+      "term": "Procfile",
+      "explanation": "Declares which processes run."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Shell + Procfile",
+      "language": "shell",
+      "code": "# Procfile\nweb: gunicorn myproject.wsgi\n\n# Terminal\nheroku create my-app\nheroku addons:create heroku-postgresql:essential-0\ngit push heroku main"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "rails",
+      "reason": "Heroku's original audience",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Heroku Postgres",
+      "resolved": true
+    },
+    {
+      "toolId": "redis",
+      "reason": "Key-Value Store",
+      "resolved": true
+    },
+    {
+      "toolId": "gha",
+      "reason": "Deploy pipelines",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Very simple to deploy",
+    "Mature add-on marketplace",
+    "Stable platform"
+  ],
+  "cons": [
+    "No new features planned (sustaining engineering)",
+    "Expensive as you grow",
+    "No free tier"
+  ],
+  "pricing": {
+    "summary": "No free tier since 2022. Eco dynos $5/mo (sleep when idle), Basic $7/mo, Postgres from $5/mo.",
+    "freeTier": false,
+    "entryMonthly": 5,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.heroku.com"
+  },
+  "flags": [
+    "Sustaining engineering (no new features) since Feb 2026"
+  ],
+  "links": {
+    "site": "https://www.heroku.com",
+    "docs": "https://devcenter.heroku.com"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 5.4,
+    "admired": 26.6
+  }
+}

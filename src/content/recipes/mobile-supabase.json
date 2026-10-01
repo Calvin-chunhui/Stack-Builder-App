@@ -1,0 +1,30 @@
+{
+  "id": "mobile-supabase",
+  "name": "Mobile + Supabase",
+  "parts": "React Native (Expo), Supabase",
+  "stack": {
+    "frontend": null,
+    "mobile": "reactnative",
+    "backend": null,
+    "auth": "supabaseauth",
+    "database": "supabase",
+    "hosting": null,
+    "devops": [
+      "gha"
+    ],
+    "addons": [
+      "sentry"
+    ]
+  },
+  "origin": "A lean mobile setup where Supabase replaces a custom backend.",
+  "goodFor": "Mobile apps with accounts and synced data, without running servers.",
+  "pros": [
+    "No backend servers to run",
+    "One language (TypeScript)",
+    "Free to start"
+  ],
+  "cons": [
+    "Complex business logic needs Edge Functions",
+    "Row Level Security must be right"
+  ]
+}

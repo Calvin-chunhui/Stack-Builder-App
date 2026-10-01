@@ -1,0 +1,133 @@
+{
+  "id": "angular",
+  "name": "Angular",
+  "monogram": "An",
+  "layer": "frontend",
+  "subtitle": "Full application framework",
+  "tagline": "Large enterprise apps",
+  "firstRelease": 2016,
+  "creator": "Google (successor to AngularJS, 2010)",
+  "maintainer": "Google",
+  "version": {
+    "label": "22 (Jun 2026), 22.1 latest",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Steep",
+  "description": "A batteries-included framework for large applications. Routing, forms, an HTTP client, dependency injection, testing tools and a CLI all come built in, and its reactivity now centers on Signals. New apps are zoneless by default since v21.",
+  "useCases": [
+    "Enterprise apps",
+    "Internal tools",
+    "Banking and insurance portals",
+    "Large teams that need consistency"
+  ],
+  "notableUsers": [
+    {
+      "name": "Google (many internal and console apps)"
+    }
+  ],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "TypeScript plus HTML templates and CSS or SCSS"
+  },
+  "concepts": [
+    {
+      "term": "Components",
+      "explanation": "Standalone by default, declared with @Component."
+    },
+    {
+      "term": "Template bindings",
+      "explanation": "[property], (event) and two-way [(ngModel)]."
+    },
+    {
+      "term": "Signals",
+      "explanation": "signal, computed and effect for fine-grained reactivity."
+    },
+    {
+      "term": "Dependency injection",
+      "explanation": "Services are provided and injected by the framework."
+    },
+    {
+      "term": "Built-in control flow",
+      "explanation": "@if and @for blocks in templates."
+    },
+    {
+      "term": "RxJS",
+      "explanation": "Observable streams for async work."
+    },
+    {
+      "term": "Router and guards",
+      "explanation": "Navigation with access checks."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript",
+      "language": "ts",
+      "code": "import { Component, signal } from '@angular/core';\n\n@Component({\n  selector: 'app-counter',\n  template: `\n    <p>Count: {{ count() }}</p>\n    <button (click)=\"increment()\">Increment</button>\n  `,\n})\nexport class CounterComponent {\n  count = signal(0);\n  increment() { this.count.update((v) => v + 1); }\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nestjs",
+      "reason": "Server framework with Angular-style architecture",
+      "resolved": true
+    },
+    {
+      "toolId": "springboot",
+      "reason": "Common enterprise back end",
+      "resolved": true
+    },
+    {
+      "toolId": "Angular Material",
+      "reason": "Official component library",
+      "resolved": false
+    },
+    {
+      "toolId": "keycloak",
+      "reason": "Enterprise single sign-on",
+      "resolved": true
+    },
+    {
+      "toolId": "auth0",
+      "reason": "Hosted identity",
+      "resolved": true
+    },
+    {
+      "toolId": "Nx",
+      "reason": "Monorepo tooling",
+      "resolved": false
+    }
+  ],
+  "pros": [
+    "Everything official and integrated",
+    "Strong conventions suit big teams",
+    "TypeScript-first",
+    "Predictable six-month releases backed by Google",
+    "Signals and zoneless mode improve performance"
+  ],
+  "cons": [
+    "Steepest learning curve of the frontend options",
+    "Many concepts: DI, RxJS, decorators",
+    "Low satisfaction: 48% in State of JS 2025",
+    "Heavy for small projects"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://angular.dev"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://angular.dev",
+    "docs": "https://angular.dev/overview"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 18.2,
+    "admired": 44.7,
+    "satisfaction": 48
+  }
+}

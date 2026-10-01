@@ -1,0 +1,29 @@
+{
+  "id": "mern",
+  "name": "MERN",
+  "parts": "MongoDB, Express, React, Node",
+  "stack": {
+    "frontend": "react",
+    "mobile": null,
+    "backend": "express",
+    "auth": null,
+    "database": "mongodb",
+    "hosting": "render",
+    "devops": [],
+    "addons": [
+      "tailwind"
+    ]
+  },
+  "origin": "Grew out of MEAN in the mid-2010s as React overtook AngularJS.",
+  "goodFor": "JavaScript-only full-stack apps, bootcamp projects and prototypes with flexible schemas.",
+  "pros": [
+    "One language everywhere",
+    "JSON from database to UI",
+    "Huge tutorial base"
+  ],
+  "cons": [
+    "Relational data is awkward in MongoDB",
+    "Express has no structure",
+    "A plain React SPA hurts SEO"
+  ]
+}

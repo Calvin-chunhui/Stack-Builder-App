@@ -1,0 +1,144 @@
+{
+  "id": "node",
+  "name": "Node.js",
+  "monogram": "No",
+  "layer": "backend",
+  "subtitle": "JavaScript runtime",
+  "tagline": "JavaScript end to end",
+  "firstRelease": 2009,
+  "creator": "Ryan Dahl",
+  "maintainer": "OpenJS Foundation",
+  "version": {
+    "label": "24 LTS; 26 becomes LTS Oct 28, 2026",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy to moderate",
+  "description": "A runtime that runs JavaScript outside the browser on Google's V8 engine. Its event-driven, non-blocking I/O handles many connections at once efficiently. Frameworks such as Express and NestJS sit on top of it to add routing and structure.",
+  "useCases": [
+    "REST and GraphQL APIs",
+    "Real-time apps with WebSockets",
+    "Microservices",
+    "CLIs and build tooling"
+  ],
+  "notableUsers": [
+    {
+      "name": "Netflix"
+    },
+    {
+      "name": "PayPal"
+    },
+    {
+      "name": "LinkedIn"
+    },
+    {
+      "name": "Uber"
+    },
+    {
+      "name": "Walmart"
+    }
+  ],
+  "languages": {
+    "written": "C++ and JavaScript",
+    "youWrite": "JavaScript or TypeScript (Node can now strip types natively)"
+  },
+  "concepts": [
+    {
+      "term": "Event loop",
+      "explanation": "One thread juggles many I/O tasks without blocking."
+    },
+    {
+      "term": "Modules",
+      "explanation": "ESM import versus CommonJS require."
+    },
+    {
+      "term": "npm and package.json",
+      "explanation": "The package registry and your project manifest."
+    },
+    {
+      "term": "async/await",
+      "explanation": "Readable asynchronous code built on Promises."
+    },
+    {
+      "term": "Streams",
+      "explanation": "Process data in chunks instead of all at once."
+    },
+    {
+      "term": "Worker threads",
+      "explanation": "Offload CPU-heavy work from the main thread."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JavaScript · server.mjs",
+      "language": "js",
+      "code": "// Plain Node.js: no framework, just the built-in http module\nimport { createServer } from \"node:http\";\n\nconst server = createServer((req, res) => {\n  res.writeHead(200, { \"Content-Type\": \"application/json\" });\n  res.end(JSON.stringify({ path: req.url, time: Date.now() }));\n});\n\nserver.listen(3000, () => console.log(\"Listening on :3000\"));"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "express",
+      "reason": "Minimal web framework",
+      "resolved": true
+    },
+    {
+      "toolId": "nestjs",
+      "reason": "Structured TypeScript framework",
+      "resolved": true
+    },
+    {
+      "toolId": "react",
+      "reason": "One language across the stack",
+      "resolved": true
+    },
+    {
+      "toolId": "mongodb",
+      "reason": "The M in MERN",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Via Prisma or Drizzle",
+      "resolved": true
+    },
+    {
+      "toolId": "redis",
+      "reason": "Caching and BullMQ queues",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Container deploys",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "One language for front end and back end",
+    "npm is the largest package ecosystem",
+    "Excellent at I/O-heavy concurrent workloads",
+    "Most used web technology in the Stack Overflow 2025 survey (48.7%)",
+    "Runs on nearly every host"
+  ],
+  "cons": [
+    "Single-threaded, so CPU-heavy work needs workers or other services",
+    "npm supply-chain risk",
+    "Tooling churn such as ESM versus CommonJS"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://nodejs.org"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://nodejs.org",
+    "docs": "https://nodejs.org/docs/latest/api/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 48.7,
+    "admired": 52.2
+  }
+}

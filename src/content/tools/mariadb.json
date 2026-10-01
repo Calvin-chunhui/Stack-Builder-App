@@ -1,0 +1,106 @@
+{
+  "id": "mariadb",
+  "name": "MariaDB",
+  "monogram": "Ma",
+  "layer": "database",
+  "subtitle": "Community fork of MySQL (SQL)",
+  "tagline": "Open MySQL alternative",
+  "firstRelease": 2009,
+  "creator": "Michael \"Monty\" Widenius (MySQL's co-creator)",
+  "maintainer": "MariaDB Foundation and MariaDB plc",
+  "version": {
+    "label": "11.x LTS releases",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "GPLv2",
+  "learningCurve": "Easy to moderate",
+  "description": "A drop-in replacement for MySQL created after Oracle bought MySQL, led by one of MySQL's original authors. Many Linux distributions ship it as their default MySQL-compatible database.",
+  "useCases": [
+    "LAMP stacks",
+    "WordPress hosting",
+    "Replacing MySQL without code changes"
+  ],
+  "notableUsers": [
+    {
+      "name": "Wikipedia (Wikimedia)"
+    }
+  ],
+  "languages": {
+    "written": "C and C++",
+    "youWrite": "SQL"
+  },
+  "concepts": [
+    {
+      "term": "MySQL compatibility",
+      "explanation": "Same protocol and most syntax."
+    },
+    {
+      "term": "Storage engines",
+      "explanation": "InnoDB plus extras like Aria and ColumnStore."
+    },
+    {
+      "term": "Galera Cluster",
+      "explanation": "Multi-primary replication."
+    },
+    {
+      "term": "System-versioned tables",
+      "explanation": "Query data as it was in the past."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "SQL",
+      "language": "sql",
+      "code": "CREATE TABLE posts (\n  id         INT AUTO_INCREMENT PRIMARY KEY,\n  title      VARCHAR(200) NOT NULL,\n  published  BOOLEAN DEFAULT FALSE,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n) WITH SYSTEM VERSIONING;   -- keeps history of every change\n\nSELECT * FROM posts FOR SYSTEM_TIME AS OF '2026-01-01';"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "laravel",
+      "reason": "Works like MySQL",
+      "resolved": true
+    },
+    {
+      "toolId": "WordPress",
+      "reason": "Common default",
+      "resolved": false
+    },
+    {
+      "toolId": "digitalocean",
+      "reason": "Easy droplet installs",
+      "resolved": true
+    },
+    {
+      "toolId": "aws",
+      "reason": "RDS for MariaDB",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Truly open source",
+    "Compatible with MySQL tools",
+    "Community-driven"
+  ],
+  "cons": [
+    "Slowly diverging from MySQL",
+    "Smaller managed-service choice than Postgres",
+    "Company behind it went through financial turmoil"
+  ],
+  "pricing": {
+    "summary": "Free and open source. Managed options on AWS, DigitalOcean and others.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://mariadb.org"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://mariadb.org",
+    "docs": "https://mariadb.com/kb/en/documentation/"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 22.5,
+    "admired": 45.8
+  }
+}

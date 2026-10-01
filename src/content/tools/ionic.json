@@ -1,0 +1,100 @@
+{
+  "id": "ionic",
+  "name": "Ionic (Capacitor)",
+  "monogram": "Io",
+  "layer": "mobile",
+  "subtitle": "Web-tech mobile apps",
+  "tagline": "Mobile apps from web skills",
+  "firstRelease": 2013,
+  "creator": "Max Lynch, Ben Sperry and Adam Bradley",
+  "maintainer": "OutSystems (acquired Ionic in 2022)",
+  "version": {
+    "label": "Ionic 8, Capacitor 7",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy",
+  "description": "Build mobile apps with HTML, CSS and JavaScript (React, Angular or Vue) and package them for the app stores with Capacitor, which gives web code access to native device features.",
+  "useCases": [
+    "Turning a web app into a store app",
+    "Internal business apps",
+    "Teams with only web skills"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "HTML, CSS and JS with React, Angular or Vue"
+  },
+  "concepts": [
+    {
+      "term": "Capacitor",
+      "explanation": "Wraps your web app in a native shell."
+    },
+    {
+      "term": "Plugins",
+      "explanation": "Camera, files and notifications from JS."
+    },
+    {
+      "term": "Ionic components",
+      "explanation": "Mobile-styled UI elements."
+    },
+    {
+      "term": "Web view",
+      "explanation": "Your app runs inside an embedded browser."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TSX · Ionic React + Capacitor",
+      "language": "tsx",
+      "code": "import { IonButton, IonContent, IonPage } from \"@ionic/react\";\nimport { Camera, CameraResultType } from \"@capacitor/camera\";\n\nexport default function Home() {\n  const takePhoto = async () => {\n    const photo = await Camera.getPhoto({ resultType: CameraResultType.Uri });\n    console.log(photo.webPath);\n  };\n  return (\n    <IonPage><IonContent><IonButton onClick={takePhoto}>Take photo</IonButton></IonContent></IonPage>\n  );\n}"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "angular",
+      "reason": "Ionic's original framework",
+      "resolved": true
+    },
+    {
+      "toolId": "react",
+      "reason": "Ionic React",
+      "resolved": true
+    },
+    {
+      "toolId": "vue",
+      "reason": "Ionic Vue",
+      "resolved": true
+    },
+    {
+      "toolId": "firebaseauth",
+      "reason": "Capacitor plugin",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Reuse web skills and code",
+    "One codebase for web, iOS and Android",
+    "Gentle learning curve"
+  ],
+  "cons": [
+    "Less native feel than React Native or Flutter",
+    "Performance limits for heavy apps",
+    "Relies on web view quirks"
+  ],
+  "pricing": {
+    "summary": "Free and open source. Store fees: $99/yr (Apple), $25 once (Google Play).",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "usageFee": "Store fees: Apple $99/yr, Google Play $25 once",
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://ionicframework.com"
+  },
+  "flags": [
+    "Owned by OutSystems"
+  ],
+  "links": {
+    "site": "https://ionicframework.com",
+    "docs": "https://capacitorjs.com/docs"
+  }
+}

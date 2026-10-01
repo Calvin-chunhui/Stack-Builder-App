@@ -1,0 +1,7 @@
+{
+  "id": "ci",
+  "term": "Continuous integration (CI)",
+  "definition": "Automatically building and testing code every time someone changes it.",
+  "like": "A taster checks every new batch before it goes out.",
+  "layer": "devops"
+}

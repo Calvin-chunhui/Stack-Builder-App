@@ -1,0 +1,123 @@
+{
+  "id": "auth0",
+  "name": "Auth0",
+  "monogram": "A0",
+  "layer": "auth",
+  "subtitle": "Enterprise identity platform (OAuth, OIDC, SAML)",
+  "tagline": "Enterprise SSO",
+  "firstRelease": 2013,
+  "creator": "Eugenio Pace and Matias Woloski",
+  "maintainer": "Okta (acquired May 2021)",
+  "version": {
+    "label": "Hosted service",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary service, open-source SDKs",
+  "learningCurve": "Moderate",
+  "description": "A hosted identity platform built on open standards. It provides a hosted login page, social and enterprise connections, MFA, passwordless login, Actions that run code during sign-in, role-based access control and machine-to-machine tokens.",
+  "useCases": [
+    "Apps that need enterprise SSO",
+    "Regulated industries",
+    "B2B and B2C apps across many languages"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "SDKs for JS/TS, Java, .NET, Python, Go, PHP, iOS and Android",
+    "youWrite": "Your app's language; Actions are JavaScript"
+  },
+  "concepts": [
+    {
+      "term": "Tenants and applications",
+      "explanation": "Your Auth0 account and each app registered in it."
+    },
+    {
+      "term": "Universal Login",
+      "explanation": "A hosted, redirect-based sign-in page."
+    },
+    {
+      "term": "OAuth 2.0 and OIDC",
+      "explanation": "Authorization Code flow with PKCE."
+    },
+    {
+      "term": "ID vs access tokens",
+      "explanation": "Who the user is versus what they may call."
+    },
+    {
+      "term": "Connections",
+      "explanation": "Social, database or enterprise identity sources."
+    },
+    {
+      "term": "Actions",
+      "explanation": "Serverless hooks in the login pipeline."
+    },
+    {
+      "term": "Organizations",
+      "explanation": "B2B tenants with their own members."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "JavaScript · SPA SDK",
+      "language": "js",
+      "code": "import { createAuth0Client } from '@auth0/auth0-spa-js';\n\nconst auth0 = await createAuth0Client({\n  domain: 'your-tenant.us.auth0.com',\n  clientId: 'YOUR_CLIENT_ID',\n  authorizationParams: { redirect_uri: window.location.origin },\n});\n\nawait auth0.loginWithRedirect();          // send the user to Universal Login\n// ...after the redirect back:\nawait auth0.handleRedirectCallback();\nconst user = await auth0.getUser();"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "react",
+      "reason": "SPA SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "angular",
+      "reason": "SPA SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "nextjs",
+      "reason": "nextjs-auth0 SDK",
+      "resolved": true
+    },
+    {
+      "toolId": "express",
+      "reason": "JWT validation middleware",
+      "resolved": true
+    },
+    {
+      "toolId": "springboot",
+      "reason": "OAuth2 resource server",
+      "resolved": true
+    },
+    {
+      "toolId": "fastapi",
+      "reason": "JWT validation",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Enterprise features: SSO, SAML, compliance",
+    "Standards-based and language-agnostic",
+    "Highly extensible with Actions",
+    "Proven at scale"
+  ],
+  "cons": [
+    "Paid tiers get expensive quickly, especially B2B",
+    "Configuration is complex",
+    "Vendor lock-in",
+    "Redirect UX feels less native than embedded components"
+  ],
+  "pricing": {
+    "summary": "Free: up to 25,000 monthly active users. Essentials from $35/mo (B2C) or $150/mo (B2B). Professional from $240/mo (B2C) or $800/mo (B2B). Enterprise: custom.",
+    "freeTier": true,
+    "entryMonthly": 35,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://auth0.com"
+  },
+  "flags": [
+    "Owned by Okta"
+  ],
+  "links": {
+    "site": "https://auth0.com",
+    "docs": "https://auth0.com/docs"
+  }
+}

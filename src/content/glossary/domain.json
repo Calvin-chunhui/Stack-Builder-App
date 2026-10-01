@@ -1,0 +1,7 @@
+{
+  "id": "domain",
+  "term": "Domain name",
+  "definition": "The human-friendly address of your site, like example.com.",
+  "like": "The restaurant's street address.",
+  "layer": "hosting"
+}

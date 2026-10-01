@@ -1,0 +1,7 @@
+{
+  "id": "client",
+  "term": "Client",
+  "definition": "The device or program making requests, usually a browser or mobile app.",
+  "like": "The customer placing an order.",
+  "layer": null
+}

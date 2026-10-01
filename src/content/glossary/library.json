@@ -1,0 +1,7 @@
+{
+  "id": "library",
+  "term": "Library",
+  "definition": "Reusable code you call when you need it, without it dictating your app's structure.",
+  "like": "A drawer of specialist utensils you pick from.",
+  "layer": null
+}

@@ -1,0 +1,123 @@
+{
+  "id": "gha",
+  "name": "GitHub Actions",
+  "monogram": "GA",
+  "layer": "devops",
+  "subtitle": "CI/CD built into GitHub",
+  "tagline": "CI next to your code",
+  "firstRelease": 2018,
+  "creator": "GitHub",
+  "maintainer": "GitHub (Microsoft)",
+  "version": {
+    "label": "Hosted service",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary service; many actions are open source",
+  "learningCurve": "Easy to moderate",
+  "description": "Event-driven workflows defined in YAML under .github/workflows. They run on GitHub-hosted or self-hosted runners to test, build, release and deploy code, with thousands of reusable actions in the Marketplace.",
+  "useCases": [
+    "CI for pull requests",
+    "Deploys to any cloud",
+    "Releases",
+    "Scheduled jobs",
+    "Repo automation"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "YAML workflows; custom actions in JS/TS, Docker or composite YAML"
+  },
+  "concepts": [
+    {
+      "term": "Workflows",
+      "explanation": "YAML files that describe automation."
+    },
+    {
+      "term": "Triggers",
+      "explanation": "Events like push, pull_request or schedule."
+    },
+    {
+      "term": "Jobs and steps",
+      "explanation": "Units of work and the commands inside them."
+    },
+    {
+      "term": "Runners",
+      "explanation": "The machines that execute jobs."
+    },
+    {
+      "term": "Actions",
+      "explanation": "Reusable steps from the Marketplace."
+    },
+    {
+      "term": "Matrix builds",
+      "explanation": "Run across versions and OSes in parallel."
+    },
+    {
+      "term": "Secrets and OIDC",
+      "explanation": "Deploy without storing long-lived keys."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "YAML · .github/workflows/ci.yml",
+      "language": "yaml",
+      "code": "name: CI\non: [push, pull_request]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 24\n          cache: npm\n      - run: npm ci\n      - run: npm test"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "docker",
+      "reason": "Build and push images",
+      "resolved": true
+    },
+    {
+      "toolId": "terraform",
+      "reason": "Plan on PR, apply on merge",
+      "resolved": true
+    },
+    {
+      "toolId": "vercel",
+      "reason": "Deploy hooks",
+      "resolved": true
+    },
+    {
+      "toolId": "aws",
+      "reason": "OIDC deploys",
+      "resolved": true
+    },
+    {
+      "toolId": "k8s",
+      "reason": "GitOps pipelines",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Zero setup for GitHub repos",
+    "Huge Marketplace",
+    "Free for public repos",
+    "Hosted runner prices cut up to 39% in January 2026"
+  ],
+  "cons": [
+    "Tied to GitHub",
+    "YAML grows complex and debugging is slow",
+    "Third-party actions are a supply-chain risk (pin to SHAs)"
+  ],
+  "pricing": {
+    "summary": "Free for public repos. Private repos include 2,000 min/mo (Free), 3,000 (Pro and Team) or 50,000 (Enterprise). Then Linux runners cost $0.006/min. Self-hosted runners stay free.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://github.com/features/actions"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://github.com/features/actions",
+    "docs": "https://docs.github.com/actions"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "category": "GitHub (collaboration tools)",
+    "used": 81.1,
+    "admired": 70.1
+  }
+}

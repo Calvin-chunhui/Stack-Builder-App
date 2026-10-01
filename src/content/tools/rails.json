@@ -1,0 +1,137 @@
+{
+  "id": "rails",
+  "name": "Ruby on Rails",
+  "monogram": "Rr",
+  "layer": "backend",
+  "subtitle": "Convention-over-configuration MVC framework",
+  "tagline": "Ship a full app fast",
+  "firstRelease": 2004,
+  "creator": "David Heinemeier Hansson (DHH) at 37signals",
+  "maintainer": "Rails core team",
+  "version": {
+    "label": "8.1 (Oct 2025)",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate",
+  "description": "A full-stack framework that makes most decisions for you: ORM, routing, views, mailers, jobs, WebSockets and file storage, plus Hotwire for interactivity rendered on the server. Rails 8 added a built-in auth generator and removed the need for Redis with Solid Queue, Cache and Cable.",
+  "useCases": [
+    "SaaS products",
+    "Marketplaces",
+    "MVPs",
+    "Small teams shipping whole products"
+  ],
+  "notableUsers": [
+    {
+      "name": "Shopify"
+    },
+    {
+      "name": "GitHub"
+    },
+    {
+      "name": "Basecamp"
+    }
+  ],
+  "languages": {
+    "written": "Ruby",
+    "youWrite": "Ruby, ERB templates and a little JavaScript"
+  },
+  "concepts": [
+    {
+      "term": "MVC",
+      "explanation": "Models, views and controllers."
+    },
+    {
+      "term": "Convention over configuration",
+      "explanation": "Follow naming rules and things wire themselves up."
+    },
+    {
+      "term": "Active Record",
+      "explanation": "Models with associations and validations."
+    },
+    {
+      "term": "Migrations",
+      "explanation": "Versioned schema changes."
+    },
+    {
+      "term": "RESTful routes",
+      "explanation": "resources :articles creates the standard routes."
+    },
+    {
+      "term": "Hotwire",
+      "explanation": "Turbo and Stimulus for interactivity with little JS."
+    },
+    {
+      "term": "Solid Queue, Cache, Cable",
+      "explanation": "Database-backed jobs, cache and WebSockets."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "Ruby",
+      "language": "ruby",
+      "code": "# config/routes.rb\nresources :articles\n\n# app/models/article.rb\nclass Article < ApplicationRecord\n  validates :title, presence: true\nend\n\n# app/controllers/articles_controller.rb\nclass ArticlesController < ApplicationController\n  def index\n    @articles = Article.order(created_at: :desc)\n  end\nend"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "postgres",
+      "reason": "Common production database",
+      "resolved": true
+    },
+    {
+      "toolId": "sqlite",
+      "reason": "Production-ready defaults in Rails 8",
+      "resolved": true
+    },
+    {
+      "toolId": "Hotwire",
+      "reason": "Built-in front-end approach",
+      "resolved": false
+    },
+    {
+      "toolId": "Kamal",
+      "reason": "Deploy to any server",
+      "resolved": false
+    },
+    {
+      "toolId": "fly",
+      "reason": "Easy server hosting",
+      "resolved": true
+    },
+    {
+      "toolId": "render",
+      "reason": "Managed hosting",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Unmatched productivity for CRUD-style SaaS",
+    "Mature conventions and gems",
+    "Rails 8 cuts infrastructure needs",
+    "Battle-tested at huge scale"
+  ],
+  "cons": [
+    "Smaller Ruby hiring pool",
+    "Lower raw performance than Go or Java",
+    "Magic can obscure behavior",
+    "Very JS-heavy UIs fight the Hotwire approach"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://rubyonrails.org"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://rubyonrails.org",
+    "docs": "https://guides.rubyonrails.org"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 5.9,
+    "admired": 52
+  }
+}

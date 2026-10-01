@@ -1,0 +1,102 @@
+{
+  "id": "trpc",
+  "name": "tRPC",
+  "monogram": "tR",
+  "layer": "addons",
+  "category": "data",
+  "subtitle": "End-to-end typed APIs for TypeScript",
+  "tagline": "Typed APIs without a schema",
+  "firstRelease": 2021,
+  "creator": "Alex Johansson (KATT)",
+  "maintainer": "tRPC core team",
+  "version": {
+    "label": "v11",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Moderate",
+  "description": "Lets a TypeScript frontend call backend functions as if they were local, with types shared automatically. There's no REST routes or GraphQL schema to maintain, but both ends must be TypeScript.",
+  "useCases": [
+    "Full-stack TypeScript apps",
+    "The T3 stack",
+    "Monorepos"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "TypeScript"
+  },
+  "concepts": [
+    {
+      "term": "Procedures",
+      "explanation": "Backend functions exposed to clients."
+    },
+    {
+      "term": "Routers",
+      "explanation": "Groups of procedures."
+    },
+    {
+      "term": "Inferred types",
+      "explanation": "Frontend knows inputs and outputs."
+    },
+    {
+      "term": "Zod validation",
+      "explanation": "Check inputs at runtime."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript",
+      "language": "ts",
+      "code": "// server: define a procedure\nexport const appRouter = router({\n  greet: publicProcedure\n    .input(z.object({ name: z.string() }))\n    .query(({ input }) => ({ message: `Hello, ${input.name}` })),\n});\nexport type AppRouter = typeof appRouter;\n\n// client: call it like a local function, fully typed\nconst { message } = await trpc.greet.query({ name: \"Ada\" });"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "nextjs",
+      "reason": "Most common home",
+      "resolved": true
+    },
+    {
+      "toolId": "prisma",
+      "reason": "T3 stack",
+      "resolved": true
+    },
+    {
+      "toolId": "react",
+      "reason": "TanStack Query integration",
+      "resolved": true
+    },
+    {
+      "toolId": "tailwind",
+      "reason": "T3 stack",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Change the backend and the frontend errors instantly",
+    "No API layer boilerplate",
+    "83% satisfaction in State of JS 2025"
+  ],
+  "cons": [
+    "TypeScript on both ends only",
+    "Couples frontend to backend",
+    "Not for public APIs used by others"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://trpc.io"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://trpc.io",
+    "docs": "https://trpc.io/docs"
+  },
+  "surveys": {
+    "source": "State of JavaScript 2025",
+    "satisfaction": 83
+  }
+}

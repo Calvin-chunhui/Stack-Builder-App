@@ -1,0 +1,117 @@
+{
+  "id": "netlify",
+  "name": "Netlify",
+  "monogram": "Nl",
+  "layer": "hosting",
+  "subtitle": "Web platform for static and serverless sites",
+  "tagline": "Static and edge sites",
+  "firstRelease": 2014,
+  "creator": "Mathias Biilmann and Christian Bach",
+  "maintainer": "Netlify, Inc.",
+  "version": {
+    "label": "Hosted platform",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Easy",
+  "description": "Git-based continuous deployment for static and server-rendered sites, with a global CDN, serverless and edge functions, forms, deploy previews and framework adapters. Netlify's co-founder coined the term Jamstack.",
+  "useCases": [
+    "Marketing sites",
+    "Docs",
+    "Jamstack and headless-CMS sites",
+    "Agencies"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Proprietary",
+    "youWrite": "netlify.toml config; functions in JS/TS or Go"
+  },
+  "concepts": [
+    {
+      "term": "Atomic deploys",
+      "explanation": "Each deploy is complete, with instant rollback."
+    },
+    {
+      "term": "Deploy previews",
+      "explanation": "A URL for every pull request."
+    },
+    {
+      "term": "Redirects and rewrites",
+      "explanation": "Route rules in config."
+    },
+    {
+      "term": "Functions",
+      "explanation": "Serverless and edge functions."
+    },
+    {
+      "term": "Credits",
+      "explanation": "One usage unit across deploys, bandwidth and compute."
+    },
+    {
+      "term": "Framework adapters",
+      "explanation": "Astro, Next.js, Nuxt and SvelteKit."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TOML · netlify.toml",
+      "language": "toml",
+      "code": "[build]\n  command = \"npm run build\"\n  publish = \"dist\"\n\n[[redirects]]\n  from = \"/api/*\"\n  to = \"/.netlify/functions/:splat\"\n  status = 200"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "astro",
+      "reason": "Official adapter",
+      "resolved": true
+    },
+    {
+      "toolId": "nuxt",
+      "reason": "Nitro preset",
+      "resolved": true
+    },
+    {
+      "toolId": "svelte",
+      "reason": "SvelteKit adapter",
+      "resolved": true
+    },
+    {
+      "toolId": "Headless CMS",
+      "reason": "Jamstack content",
+      "resolved": false
+    },
+    {
+      "toolId": "supabase",
+      "reason": "Backend-as-a-service",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Great for static and Jamstack sites",
+    "Usable free tier",
+    "Framework-agnostic",
+    "Pro plan has no per-seat fees since April 2026"
+  ],
+  "cons": [
+    "Not for long-running servers",
+    "Next.js support lags Vercel",
+    "Credit usage can be hard to predict"
+  ],
+  "pricing": {
+    "summary": "Credit-based. Free: 300 credits/mo. Personal: $9/mo for 1,000 credits. Pro: $20/mo for 3,000 credits with unlimited team members. Enterprise: custom.",
+    "freeTier": true,
+    "entryMonthly": 9,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://www.netlify.com"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://www.netlify.com",
+    "docs": "https://docs.netlify.com"
+  },
+  "surveys": {
+    "source": "Stack Overflow Developer Survey 2025, all respondents",
+    "used": 5.9,
+    "admired": 45
+  }
+}

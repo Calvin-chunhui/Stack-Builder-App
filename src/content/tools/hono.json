@@ -1,0 +1,107 @@
+{
+  "id": "hono",
+  "name": "Hono",
+  "monogram": "Ho",
+  "layer": "backend",
+  "subtitle": "Tiny web framework for any JS runtime",
+  "tagline": "Edge-first JS APIs",
+  "firstRelease": 2021,
+  "creator": "Yusuke Wada",
+  "maintainer": "Hono community",
+  "version": {
+    "label": "4.x",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "MIT",
+  "learningCurve": "Easy",
+  "description": "A small, fast web framework built on web standards that runs on Cloudflare Workers, Deno, Bun, Node.js, Vercel and AWS Lambda without changes. It feels like Express but was designed for edge and serverless platforms.",
+  "useCases": [
+    "Edge APIs",
+    "Cloudflare Workers apps",
+    "Serverless back ends",
+    "Lightweight microservices"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "TypeScript",
+    "youWrite": "TypeScript or JavaScript"
+  },
+  "concepts": [
+    {
+      "term": "Web-standard Request and Response",
+      "explanation": "Same objects everywhere."
+    },
+    {
+      "term": "Middleware",
+      "explanation": "Auth, CORS and logging as reusable pieces."
+    },
+    {
+      "term": "Validators",
+      "explanation": "Check input with Zod."
+    },
+    {
+      "term": "RPC client",
+      "explanation": "Type-safe calls from the frontend."
+    },
+    {
+      "term": "Multi-runtime",
+      "explanation": "One codebase, many hosts."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TypeScript",
+      "language": "ts",
+      "code": "import { Hono } from \"hono\";\n\nconst app = new Hono();\n\napp.get(\"/\", (c) => c.text(\"Hello from the edge\"));\n\napp.get(\"/users/:id\", (c) => {\n  return c.json({ id: c.req.param(\"id\"), name: \"Ada\" });\n});\n\nexport default app; // runs on Cloudflare, Bun, Deno, Node or Vercel"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "cloudflare",
+      "reason": "Its home platform",
+      "resolved": true
+    },
+    {
+      "toolId": "bun",
+      "reason": "Fast local runtime",
+      "resolved": true
+    },
+    {
+      "toolId": "drizzle",
+      "reason": "Edge-friendly ORM",
+      "resolved": true
+    },
+    {
+      "toolId": "turso",
+      "reason": "Edge SQLite",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Runs almost anywhere",
+    "Very fast and tiny",
+    "Excellent TypeScript types",
+    "95% satisfaction in State of JS 2025"
+  ],
+  "cons": [
+    "Younger, smaller ecosystem",
+    "Fewer batteries than NestJS",
+    "Edge limits apply on some hosts"
+  ],
+  "pricing": {
+    "summary": "Free and open source.",
+    "freeTier": true,
+    "entryMonthly": 0,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://hono.dev"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://hono.dev",
+    "docs": "https://hono.dev/docs/"
+  },
+  "surveys": {
+    "source": "State of JavaScript 2025",
+    "satisfaction": 95
+  }
+}

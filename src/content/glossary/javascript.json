@@ -1,0 +1,7 @@
+{
+  "id": "javascript",
+  "term": "JavaScript",
+  "definition": "The programming language of the web that makes pages interactive. TypeScript is JavaScript with added types.",
+  "like": "The electricity that makes things move and respond.",
+  "layer": "frontend"
+}

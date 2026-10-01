@@ -1,0 +1,122 @@
+{
+  "id": "fly",
+  "name": "Fly.io",
+  "monogram": "Fl",
+  "layer": "hosting",
+  "subtitle": "Global app platform (micro-VMs)",
+  "tagline": "Apps close to users",
+  "firstRelease": 2017,
+  "creator": "Kurt Mackey and team",
+  "maintainer": "Fly.io, Inc.",
+  "version": {
+    "label": "Hosted platform",
+    "lastVerified": "2026-09-01"
+  },
+  "license": "Proprietary",
+  "learningCurve": "Moderate",
+  "description": "You deploy Docker images that run as lightweight Firecracker VMs close to users in many regions. It offers private networking, volumes, managed Postgres and machines that stop and start automatically.",
+  "useCases": [
+    "Full-stack servers (Rails, Phoenix, Django, Laravel)",
+    "Multi-region apps",
+    "WebSockets",
+    "SQLite with LiteFS"
+  ],
+  "notableUsers": [],
+  "languages": {
+    "written": "Go and Rust",
+    "youWrite": "Any language via Docker; config in fly.toml"
+  },
+  "concepts": [
+    {
+      "term": "Machines",
+      "explanation": "Fast-booting VMs you pay for by the second."
+    },
+    {
+      "term": "fly.toml",
+      "explanation": "App configuration file."
+    },
+    {
+      "term": "Regions",
+      "explanation": "Run copies near your users."
+    },
+    {
+      "term": "Anycast",
+      "explanation": "One IP routes to the nearest region."
+    },
+    {
+      "term": "Volumes",
+      "explanation": "Persistent disks for machines."
+    },
+    {
+      "term": "Auto-stop and start",
+      "explanation": "Scale to zero when idle."
+    }
+  ],
+  "codeSamples": [
+    {
+      "label": "TOML · fly.toml",
+      "language": "toml",
+      "code": "app = \"my-app\"\nprimary_region = \"iad\"\n\n[http_service]\n  internal_port = 8080\n  force_https = true\n  auto_stop_machines = \"stop\"\n  auto_start_machines = true\n  min_machines_running = 0"
+    },
+    {
+      "label": "Shell",
+      "language": "shell",
+      "code": "fly launch && fly deploy"
+    }
+  ],
+  "pairsWith": [
+    {
+      "toolId": "phoenix",
+      "reason": "Sponsor of Phoenix, BEAM clustering",
+      "resolved": true
+    },
+    {
+      "toolId": "rails",
+      "reason": "Easy server deploys",
+      "resolved": true
+    },
+    {
+      "toolId": "django",
+      "reason": "Long-running Python servers",
+      "resolved": true
+    },
+    {
+      "toolId": "docker",
+      "reason": "Deploys container images",
+      "resolved": true
+    },
+    {
+      "toolId": "sqlite",
+      "reason": "LiteFS replication",
+      "resolved": true
+    },
+    {
+      "toolId": "postgres",
+      "reason": "Managed Postgres",
+      "resolved": true
+    }
+  ],
+  "pros": [
+    "Runs real long-lived servers and WebSockets",
+    "Easy multi-region deploys",
+    "Scale-to-zero machines",
+    "Great fit for Elixir, Rails and Django"
+  ],
+  "cons": [
+    "More operations work than Vercel",
+    "No ongoing free allowance for new accounts",
+    "Reliability complaints in the past"
+  ],
+  "pricing": {
+    "summary": "Pay as you go. The smallest always-on machine (shared-cpu-1x, 256 MB) is about $2/mo. New accounts get a short trial, not a free allowance. Paid support from $29/mo.",
+    "freeTier": false,
+    "entryMonthly": 2,
+    "lastVerified": "2026-09-01",
+    "sourceUrl": "https://fly.io"
+  },
+  "flags": [],
+  "links": {
+    "site": "https://fly.io",
+    "docs": "https://fly.io/docs/"
+  }
+}

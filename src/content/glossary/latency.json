@@ -1,0 +1,7 @@
+{
+  "id": "latency",
+  "term": "Latency",
+  "definition": "The delay between asking and getting a response.",
+  "like": "The wait between ordering and your food arriving.",
+  "layer": "hosting"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "serverless",
+  "term": "Serverless",
+  "definition": "Hosting where your code runs only when requested and you never manage servers.",
+  "like": "A food truck that opens only when customers arrive.",
+  "layer": "hosting"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "dotnet",
+  "name": ".NET enterprise",
+  "parts": "Angular, ASP.NET Core, SQL Server, Azure",
+  "stack": {
+    "frontend": "angular",
+    "mobile": null,
+    "backend": "aspnet",
+    "auth": "keycloak",
+    "database": "sqlserver",
+    "hosting": "azure",
+    "devops": [
+      "docker",
+      "gha"
+    ],
+    "addons": [
+      "datadog"
+    ]
+  },
+  "origin": "A typical corporate stack in banks, insurers and government.",
+  "goodFor": "Large teams building long-lived internal and customer systems.",
+  "pros": [
+    "Strong typing on both ends",
+    "Enterprise support everywhere",
+    "Very mature tooling"
+  ],
+  "cons": [
+    "Steep learning curve",
+    "Licensing and cloud costs"
+  ]
+}

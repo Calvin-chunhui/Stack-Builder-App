@@ -1,0 +1,7 @@
+{
+  "id": "deploy",
+  "term": "Deploy",
+  "definition": "Putting a new version of your app live.",
+  "like": "Launching the new menu.",
+  "layer": "devops"
+}

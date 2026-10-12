@@ -1440,8 +1440,36 @@
     padding: 40px 32px 64px;
   }
   .learn-hero {
-    max-width: 760px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+    align-items: center;
+    gap: 44px;
     padding: 16px 0 40px;
+  }
+  .hero-copy {
+    max-width: 760px;
+  }
+  .hero-art {
+    position: relative;
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 18px 44px rgb(0 0 0 / 0.38);
+  }
+  .hero-art img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  /* Echoes the three-bar mark: the layers, left to right. */
+  .hero-art::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--fe), var(--be), var(--auth), var(--db), var(--host));
   }
   .learn-hero h1 {
     font-size: clamp(40px, 6.4vw, 76px);
@@ -2297,6 +2325,28 @@
     line-height: 1.05;
     margin: 4px 0 16px;
   }
+  .hub-art {
+    position: relative;
+    margin: 0 0 22px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .hub-art img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+  }
+  .hub-art figcaption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 30px 16px 12px;
+    background: linear-gradient(to top, rgb(0 0 0 / 0.86), transparent);
+    color: var(--c);
+    font-size: 13px;
+    font-weight: 600;
+  }
   .hub-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.5fr) minmax(240px, 1fr);
@@ -2473,6 +2523,13 @@
   .hub-grid {
     grid-template-columns: 1fr;
   }
+  .learn-hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .hero-art img {
+    aspect-ratio: 16 / 9;
+  }
   .zone-card {
     position: static;
   }
@@ -2566,6 +2623,9 @@
   }
   .hub {
     padding: 18px;
+  }
+  .hub-art img {
+    aspect-ratio: 16 / 9;
   }
   .hub-foot {
     grid-template-columns: 1fr;

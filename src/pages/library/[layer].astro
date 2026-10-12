@@ -6,13 +6,51 @@
  */
 import type { GetStaticPaths } from 'astro';
 import { getCollection, getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
+import frontendImage from '../../assets/restaurant/frontend.png';
+import backendImage from '../../assets/restaurant/backend.png';
+import authImage from '../../assets/restaurant/auth.png';
+import databaseImage from '../../assets/restaurant/database.png';
+import hostingImage from '../../assets/restaurant/hosting.png';
+import devopsImage from '../../assets/restaurant/devops.png';
 import LibNav from '../../components/LibNav.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import Mono from '../../components/Mono.astro';
 import FlowDiagram from '../../components/FlowDiagram.astro';
 import { ADDON_CATS, layerColor } from '../../data/taxonomy';
 import { linkTerms, termChip } from '../../lib/glossary';
+
+/**
+ * The restaurant room each layer stands for. Mobile and add-ons have no
+ * photograph yet, and the hub reads fine without one.
+ */
+const LAYER_IMAGE: Partial<Record<string, { src: ImageMetadata; alt: string }>> = {
+  frontend: {
+    src: frontendImage,
+    alt: 'A waiter presenting the menu to two seated guests in the dining room.',
+  },
+  backend: {
+    src: backendImage,
+    alt: 'Chefs at the pass in a busy kitchen, plating dishes to order.',
+  },
+  auth: {
+    src: authImage,
+    alt: 'A host at the front desk greeting an arriving couple before seating them.',
+  },
+  database: {
+    src: databaseImage,
+    alt: 'A labelled pantry and walk-in fridge stocked with produce, meat and seafood.',
+  },
+  hosting: {
+    src: hostingImage,
+    alt: 'The restaurant building itself: a marble dining hall with set tables and chandeliers.',
+  },
+  devops: {
+    src: devopsImage,
+    alt: 'The operations crew unloading a delivery truck at the kitchen loading dock.',
+  },
+};
 
 export const getStaticPaths = (async () => {
   const layers = await getCollection('layers');
@@ -24,6 +62,7 @@ export const getStaticPaths = (async () => {
 const { entry } = Astro.props;
 const L = entry.data;
 const color = layerColor(L.id);
+const image = LAYER_IMAGE[L.id];
 
 // The prose body is MDX so it can grow richer than a single paragraph.
 const { Content } = await render(entry);
@@ -53,6 +92,21 @@ const grouped =
       <section class="hub" style={`--c:${color}`}>
         <p class="hub-kicker">{L.name}{L.optional ? ' (optional)' : ''}</p>
         <h1>{L.title}</h1>
+
+        {
+          image && (
+            <figure class="hub-art">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                widths={[640, 960, 1280]}
+                sizes="(max-width: 1040px) 100vw, 68vw"
+                loading="eager"
+              />
+              <figcaption>In the restaurant: {L.place.toLowerCase()}</figcaption>
+            </figure>
+          )
+        }
 
         <div class="hub-grid">
           <div>

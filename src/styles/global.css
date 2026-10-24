@@ -95,6 +95,34 @@
     outline-offset: 3px;
     border-radius: 6px;
   }
+
+  /* Thin themed scrollbars everywhere instead of the browser's grey default.
+     Set on every element because scrollbar-width does not inherit. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
+  }
+  *:hover {
+    scrollbar-color: var(--muted) transparent;
+  }
+  /* Safari has no scrollbar-color yet. Chrome ignores these pseudo-elements once
+     scrollbar-color is set, so they only apply where the standard rule can't. */
+  @supports not (scrollbar-color: auto) {
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--line);
+      border-radius: 999px;
+    }
+    :hover::-webkit-scrollbar-thumb {
+      background: var(--muted);
+    }
+  }
 }
 
 @layer components {
